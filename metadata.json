@@ -4,6 +4,7 @@
   "uuid": "PrivacyMenu@stuarthayhurst",
   "url": "https://github.com/stuarthayhurst/privacy-menu-extension",
   "shell-version": [
+    "3.38",
     "40"
   ],
   "version": 1
