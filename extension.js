@@ -38,12 +38,19 @@ const PrivacyMenu = GObject.registerClass(
       }));
 
       //Gsettings access
-      this.privacySettings = new Gio.Settings({ schema: 'org.gnome.desktop.privacy' });
-      this.locationSettings = new Gio.Settings({ schema: 'org.gnome.system.location' });
+      this.privacySettings = new Gio.Settings( {schema: 'org.gnome.desktop.privacy'} );
+      this.locationSettings = new Gio.Settings( {schema: 'org.gnome.system.location'} );
     }
 
-    resetSettings(gsettingsSchemas) {
+    resetSettings() {
       log('privacy-menu-extension: Resetting privacy settings...');
+      let privacySettings = new Gio.Settings( {schema: 'org.gnome.desktop.privacy'} );
+      let locationSettings = new Gio.Settings({ schema: 'org.gnome.system.location'} );
+
+      //Reset the settings
+      locationSettings.reset('enabled');
+      privacySettings.reset('disable-camera');
+      privacySettings.reset('disable-microphone');
     }
 
     createSettingToggle(popupLabel, iconName) {
@@ -69,7 +76,7 @@ const PrivacyMenu = GObject.registerClass(
         this.createSettingToggle('Microphone', 'audio-input-microphone-symbolic')
       ];
 
-      let gsettingsSchemas = [
+      this.gsettingsSchemas = [
         //Schema, key, bind flags
         [this.locationSettings, 'enabled', Gio.SettingsBindFlags.DEFAULT],
         [this.privacySettings, 'disable-camera', Gio.SettingsBindFlags.INVERT_BOOLEAN],
@@ -77,11 +84,11 @@ const PrivacyMenu = GObject.registerClass(
       ];
 
       subMenus.forEach((subMenu, i) => {
-        gsettingsSchemas[i][0].bind(
-          gsettingsSchemas[i][1], //GSettings key to bind to
+        this.gsettingsSchemas[i][0].bind(
+          this.gsettingsSchemas[i][1], //GSettings key to bind to
           subMenu.menu.firstMenuItem._switch, //Toggle switch to bind to
           'state', //Property to share
-          gsettingsSchemas[i][2] //Binding flags
+          this.gsettingsSchemas[i][2] //Binding flags
         );
 
         //Add each submenu to the main menu
@@ -89,7 +96,7 @@ const PrivacyMenu = GObject.registerClass(
       });
 
       this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-      this.menu.addAction('Reset settings', this.resetSettings(gsettingsSchemas), null);
+      this.menu.addAction('Reset to defaults', this.resetSettings, null);
     }
   }
 );
