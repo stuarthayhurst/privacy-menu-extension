@@ -1,4 +1,4 @@
-## Privacy Menu GNOME Extension
+## Privacy Settings Menu GNOME Extension
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN)
   - Add a privacy menu to the top bar for quick access to privacy settings in GNOME
   - Supports GNOME 3.38+, earlier versions are untested
