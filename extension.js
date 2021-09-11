@@ -42,8 +42,8 @@ const PrivacyMenu = GObject.registerClass(
       this.locationSettings = new Gio.Settings({ schema: 'org.gnome.system.location' });
     }
 
-    resetSettings() {
-      log('Resetting settings')
+    resetSettings(gsettingsSchemas) {
+      log('privacy-menu-extension: Resetting privacy settings...');
     }
 
     createSettingToggle(popupLabel, iconName) {
@@ -53,7 +53,7 @@ const PrivacyMenu = GObject.registerClass(
 
       //Add a toggle to the submenu, then return it
       subMenu.menu.addMenuItem(new PopupMenu.PopupSwitchMenuItem('Enabled', true, null));
-      return subMenu
+      return subMenu;
     }
 
     addEntries() {
@@ -89,7 +89,7 @@ const PrivacyMenu = GObject.registerClass(
       });
 
       this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-      this.menu.addAction('Reset settings', this.resetSettings, null);
+      this.menu.addAction('Reset settings', this.resetSettings(gsettingsSchemas), null);
     }
   }
 );
@@ -106,6 +106,6 @@ class Extension {
     //Add menu entries
     this.indicator.addEntries();
 
-    Main.panel.addToStatusArea(Me.metadata.uuid, this.indicator)
+    Main.panel.addToStatusArea(Me.metadata.uuid, this.indicator);
   }
 }
