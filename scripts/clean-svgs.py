@@ -32,6 +32,7 @@ def cleanFile(inputFile):
 
   et.write(inputFile)
 
+#Only clean svgs in docs/, as Gio doesn't like to render cleaned icons
 svgFiles = glob.glob(f"{buildDir}/*.svg")
 if svgFiles == []:
   print("No svg files found to clean")

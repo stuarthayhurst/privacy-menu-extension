@@ -27,20 +27,19 @@ function disable() {
 }
 
 const PrivacyMenu = GObject.registerClass(
-  class Indicator extends PanelMenu.Button{
+  class PrivacyMenu extends PanelMenu.Button{
     _init() {
       super._init(0.0, 'Privacy Settings Menu Indicator');
+
+      //Set an icon for the indicator
+      this.add_child(new St.Icon({
+        gicon: Gio.icon_new_for_string(Me.path + '/icons/privacy-indicator-symbolic.svg'),
+        style_class: 'system-status-icon'
+      }));
 
       //Gsettings access
       this.privacySettings = new Gio.Settings({ schema: 'org.gnome.desktop.privacy' });
       this.locationSettings = new Gio.Settings({ schema: 'org.gnome.system.location' });
-    }
-
-    setIcon(iconName) {
-      this.add_child(new St.Icon({
-        gicon: new Gio.ThemedIcon({name: iconName}),
-        style_class: 'system-status-icon'
-      }));
     }
 
     resetSettings() {
@@ -98,15 +97,11 @@ const PrivacyMenu = GObject.registerClass(
 class Extension {
   constructor() {
     this.indicator = null;
-    this._indicatorIconName = 'preferences-system-privacy-symbolic';
   }
 
   createMenu() {
     //Create and setup indicator and menu
     this.indicator = new PrivacyMenu();
-
-    //Set indicator icon
-    this.indicator.setIcon(this._indicatorIconName);
 
     //Add menu entries
     this.indicator.addEntries();

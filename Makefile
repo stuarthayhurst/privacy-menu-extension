@@ -4,7 +4,7 @@ UUID=PrivacyMenu@stuarthayhurst
 .PHONY: build check release prune compress install uninstall clean
 
 build:
-	gnome-extensions pack --force --extra-source=LICENSE.txt --extra-source=docs/CHANGELOG.md
+	gnome-extensions pack --force --extra-source=LICENSE.txt --extra-source=docs/CHANGELOG.md --extra-source=icons/
 check:
 	if [[ ! -f "$(UUID).shell-extension.zip" ]]; then \
 	  echo -e "WARNING! Extension zip couldn't be found"; exit 1; \
