@@ -81,7 +81,7 @@ const PrivacyMenu = GObject.registerClass(
 class Extension {
   constructor() {
     this.indicator = null;
-    this._indicatorIconName = 'face-laugh-symbolic';
+    this._indicatorIconName = 'preferences-system-privacy-symbolic';
   }
 
   createMenu() {
