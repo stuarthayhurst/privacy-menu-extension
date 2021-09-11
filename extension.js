@@ -29,30 +29,36 @@ const PrivacyMenu = GObject.registerClass(
   class Indicator extends PanelMenu.Button{
     _init() {
       super._init(0.0, "Privacy Settings Menu Indicator");
-      this.add_child(new St.Icon({
-        gicon: new Gio.ThemedIcon({name: 'face-laugh-symbolic'}),
-        style_class: 'system-status-icon'
-      }));
-
-      //Add menu entries
-      this._addEntries();
     }
 
-    _addEntries() {
+    setIcon(iconName) {
+      this.add_child(new St.Icon({
+        gicon: new Gio.ThemedIcon({name: iconName}),
+        style_class: 'system-status-icon'
+      }));
+    }
+
+    addEntries() {
       //For now, do nothing
       return;
     }
-
   }
 );
 
 class Extension {
   constructor() {
     this.indicator = null;
+    this._indicatorIconName = 'face-laugh-symbolic';
   }
 
   createMenu() {
+    //Create and setup indicator and menu
     this.indicator = new PrivacyMenu();
+    //Set indicator icon
+    this.indicator.setIcon(this._indicatorIconName);
+    //Add menu entries
+    this.indicator.addEntries();
+
     Main.panel.addToStatusArea(Me.metadata.uuid, this.indicator)
   }
 }
