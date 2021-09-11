@@ -6,6 +6,7 @@ const Me = ExtensionUtils.getCurrentExtension();
 const { St, Gio, GObject } = imports.gi;
 const Main = imports.ui.main;
 const PanelMenu = imports.ui.panelMenu;
+const PopupMenu = imports.ui.popupMenu;
 
 function init() {
   //Do nothing, until translation support is added
@@ -28,7 +29,7 @@ function disable() {
 const PrivacyMenu = GObject.registerClass(
   class Indicator extends PanelMenu.Button{
     _init() {
-      super._init(0.0, "Privacy Settings Menu Indicator");
+      super._init(0.0, 'Privacy Settings Menu Indicator');
     }
 
     setIcon(iconName) {
@@ -38,9 +39,41 @@ const PrivacyMenu = GObject.registerClass(
       }));
     }
 
+    resetSettings() {
+      log('Resetting settings')
+    }
+
+    createSettingToggle(popupLabel, iconName) {
+      //Create sub menu with an icon
+      let subMenu = new PopupMenu.PopupSubMenuMenuItem(popupLabel, true);
+      subMenu.icon.icon_name = iconName;
+
+      //Add a toggle to the submenu, then return it
+      subMenu.menu.addMenuItem(new PopupMenu.PopupSwitchMenuItem('Enabled', true, null));
+      return subMenu
+    }
+
     addEntries() {
-      //For now, do nothing
-      return;
+      this.menu.addMenuItem(new PopupMenu.PopupMenuItem(
+        'Privacy Settings',
+        {reactive: false}
+      ));
+      this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
+
+      let subMenus = [
+        this.createSettingToggle('Location', 'location-services-active-symbolic'),
+        this.createSettingToggle('Camera', 'camera-photo-symbolic'),
+        this.createSettingToggle('Microphone', 'audio-input-microphone-symbolic')
+      ];
+
+      subMenus.forEach((subMenu) => {
+        //Add each submenu to the main menu
+        this.menu.addMenuItem(subMenu);
+      });
+
+      this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
+      this.menu.addAction('Reset settings', this.resetSettings, null);
+
     }
   }
 );
