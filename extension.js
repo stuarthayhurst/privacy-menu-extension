@@ -30,6 +30,10 @@ const PrivacyMenu = GObject.registerClass(
   class Indicator extends PanelMenu.Button{
     _init() {
       super._init(0.0, 'Privacy Settings Menu Indicator');
+
+      //Gsettings access
+      this.privacySettings = new Gio.Settings({ schema: 'org.gnome.desktop.privacy' });
+      this.locationSettings = new Gio.Settings({ schema: 'org.gnome.system.location' });
     }
 
     setIcon(iconName) {
@@ -66,14 +70,27 @@ const PrivacyMenu = GObject.registerClass(
         this.createSettingToggle('Microphone', 'audio-input-microphone-symbolic')
       ];
 
-      subMenus.forEach((subMenu) => {
+      let gsettingsSchemas = [
+        //Schema, key, bind flags
+        [this.locationSettings, 'enabled', Gio.SettingsBindFlags.DEFAULT],
+        [this.privacySettings, 'disable-camera', Gio.SettingsBindFlags.INVERT_BOOLEAN],
+        [this.privacySettings, 'disable-microphone', Gio.SettingsBindFlags.INVERT_BOOLEAN]
+      ];
+
+      subMenus.forEach((subMenu, i) => {
+        gsettingsSchemas[i][0].bind(
+          gsettingsSchemas[i][1], //GSettings key to bind to
+          subMenu.menu.firstMenuItem._switch, //Toggle switch to bind to
+          'state', //Property to share
+          gsettingsSchemas[i][2] //Binding flags
+        );
+
         //Add each submenu to the main menu
         this.menu.addMenuItem(subMenu);
       });
 
       this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
       this.menu.addAction('Reset settings', this.resetSettings, null);
-
     }
   }
 );
@@ -87,8 +104,10 @@ class Extension {
   createMenu() {
     //Create and setup indicator and menu
     this.indicator = new PrivacyMenu();
+
     //Set indicator icon
     this.indicator.setIcon(this._indicatorIconName);
+
     //Add menu entries
     this.indicator.addEntries();
 
