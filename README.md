@@ -47,7 +47,7 @@
 
 ## Bug reporting / debugging:
   - A live feed of GNOME's logs can be accessed with `journalctl /usr/bin/gnome-shell -f -o cat`
-  - If the extension is crashing, this is very helpful
+  - If the extension is crashing, an output from this is very helpful for fixing it
 
 ### Screenshot:
 ![Extension](docs/screenshot.png)
