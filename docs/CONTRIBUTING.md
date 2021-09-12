@@ -7,6 +7,7 @@
     - Create a merge request, and make any requested changes
 
 ## Suggestions for contributing:
+  - New or improved translations
   - Fixes and additions to documentation
   - Bug fixes and feature additions
 
@@ -23,6 +24,13 @@
   - When the changes are ready, submit a pull request, as described in a later section
   - If the changes aren't complete, submit the pull request as a draft instead
   - Changes may be requested, please don't take them personally, they're just to ensure quality and consistency within the extension
+
+## Translations:
+  - To add a new language, use `./scripts/update-po.sh -l [LANGUAGE CODE]`
+  - `.po` files can be found in `po/`
+  - All translations can be refreshed with `make translations`
+  - Strings marked with `fuzzy` may need a better translation
+  - Blank strings need a translation added
 
 ## Documentation changes:
   - British English should be used in documentation, as well as consistent styling

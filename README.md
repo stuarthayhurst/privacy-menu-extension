@@ -28,9 +28,10 @@
     - `make uninstall`: Uninstalls the extension
   - ### Development targets: These targets are aimed at developers and translators
     - `make clean`: Deletes extension zip
+    - `make translations`: Updates translations
     - `make prune`: Removes rubbish from any .svgs in `docs/`
     - `make compress`: Losslessly compresses any .pngs in `docs/`
-    - `make release`: Creates and checks an extension zip
+    - `make release`: Updated translations, then creates and checks an extension zip
 
 ## Install dependencies:
   - gettext
@@ -38,12 +39,13 @@
 
 ## Build dependencies: (Only required if running `make release`)
   - `All install dependencies`
+  - sed (`make translations`)
   - python3 (`make prune`)
   - optipng (`make compress`)
 
 ## Want to help?
   - Help with the project is always appreciated, refer to `docs/CONTRIBUTING.md` to get started
-  - Documentation and code changes are both welcome!
+  - Documentation, code changes and translations are always welcome!
 
 ## Bug reporting / debugging:
   - A live feed of GNOME's logs can be accessed with `journalctl /usr/bin/gnome-shell -f -o cat`
