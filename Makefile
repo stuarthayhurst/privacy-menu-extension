@@ -1,10 +1,10 @@
 SHELL=bash
 UUID=PrivacyMenu@stuarthayhurst
 
-.PHONY: build check release prune compress install uninstall clean
+.PHONY: build check release translations prune compress install uninstall clean
 
 build:
-	gnome-extensions pack --force --extra-source=LICENSE.txt --extra-source=docs/CHANGELOG.md --extra-source=icons/
+	gnome-extensions pack --force --podir=po --extra-source=LICENSE.txt --extra-source=docs/CHANGELOG.md --extra-source=icons/
 check:
 	if [[ ! -f "$(UUID).shell-extension.zip" ]]; then \
 	  echo -e "WARNING! Extension zip couldn't be found"; exit 1; \
@@ -12,10 +12,14 @@ check:
 	  echo -e "\nWARNING! The extension is too big to be uploaded to the extensions website, keep it smaller than 4096 KB"; exit 1; \
 	fi
 release:
+	$(MAKE) translations
 	$(MAKE) prune
 	$(MAKE) compress
 	$(MAKE) build
 	$(MAKE) check
+translations:
+	./scripts/update-pot.sh
+	./scripts/update-po.sh -a
 prune:
 	./scripts/clean-svgs.py
 compress:
@@ -25,4 +29,4 @@ install:
 uninstall:
 	gnome-extensions uninstall "$(UUID)"
 clean:
-	rm -rf "$(UUID).shell-extension.zip"
+	rm -rf locale po/*.po~ "$(UUID).shell-extension.zip"
