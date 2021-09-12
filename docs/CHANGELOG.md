@@ -1,4 +1,4 @@
 ## Changelog:
 
-### v1: `- year-month-day (to be released)`
+### v1: `- 2021-09-12`
  - Initial release
