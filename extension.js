@@ -8,8 +8,11 @@ const Main = imports.ui.main;
 const PanelMenu = imports.ui.panelMenu;
 const PopupMenu = imports.ui.popupMenu;
 
+//Use _() for translations
+const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
+
 function init() {
-  //Do nothing, until translation support is added
+  ExtensionUtils.initTranslations();
 }
 
 function enable() {
@@ -29,7 +32,7 @@ function disable() {
 const PrivacyMenu = GObject.registerClass(
   class PrivacyMenu extends PanelMenu.Button{
     _init() {
-      super._init(0.0, 'Privacy Settings Menu Indicator');
+      super._init(0.0, _('Privacy Settings Menu Indicator'));
 
       //Set an icon for the indicator
       this.add_child(new St.Icon({
@@ -43,7 +46,7 @@ const PrivacyMenu = GObject.registerClass(
     }
 
     resetSettings() {
-      log('privacy-menu-extension: Resetting privacy settings...');
+      log(_('privacy-menu-extension: Resetting privacy settings...'));
       let privacySettings = new Gio.Settings( {schema: 'org.gnome.desktop.privacy'} );
       let locationSettings = new Gio.Settings({ schema: 'org.gnome.system.location'} );
 
@@ -59,21 +62,21 @@ const PrivacyMenu = GObject.registerClass(
       subMenu.icon.icon_name = iconName;
 
       //Add a toggle to the submenu, then return it
-      subMenu.menu.addMenuItem(new PopupMenu.PopupSwitchMenuItem('Enabled', true, null));
+      subMenu.menu.addMenuItem(new PopupMenu.PopupSwitchMenuItem(_('Enabled'), true, null));
       return subMenu;
     }
 
     addEntries() {
       this.menu.addMenuItem(new PopupMenu.PopupMenuItem(
-        'Privacy Settings',
+        _('Privacy Settings'),
         {reactive: false}
       ));
       this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
 
       let subMenus = [
-        this.createSettingToggle('Location', 'location-services-active-symbolic'),
-        this.createSettingToggle('Camera', 'camera-photo-symbolic'),
-        this.createSettingToggle('Microphone', 'audio-input-microphone-symbolic')
+        this.createSettingToggle(_('Location'), 'location-services-active-symbolic'),
+        this.createSettingToggle(_('Camera'), 'camera-photo-symbolic'),
+        this.createSettingToggle(_('Microphone'), 'audio-input-microphone-symbolic')
       ];
 
       this.gsettingsSchemas = [
@@ -96,7 +99,7 @@ const PrivacyMenu = GObject.registerClass(
       });
 
       this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-      this.menu.addAction('Reset to defaults', this.resetSettings, null);
+      this.menu.addAction(_('Reset to defaults'), this.resetSettings, null);
     }
   }
 );
