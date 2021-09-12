@@ -5,7 +5,8 @@
   "url": "https://github.com/stuarthayhurst/privacy-menu-extension",
   "shell-version": [
     "3.38",
-    "40"
+    "40",
+    "41"
   ],
   "version": 1
 }
