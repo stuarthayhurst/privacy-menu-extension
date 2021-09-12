@@ -117,7 +117,7 @@ class Extension {
     this.indicator.addEntries();
 
     //Add to panel with the correct position
-    let offset = Main.panel._rightBox.get_n_children() - 1
+    let offset = Main.panel._rightBox.get_n_children() - 1;
     Main.panel.addToStatusArea(Me.metadata.uuid, this.indicator, offset);
   }
 }
