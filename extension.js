@@ -113,6 +113,8 @@ class Extension {
     //Add menu entries
     this.indicator.addEntries();
 
-    Main.panel.addToStatusArea(Me.metadata.uuid, this.indicator);
+    //Add to panel with the correct position
+    let offset = Main.panel._rightBox.get_n_children() - 1
+    Main.panel.addToStatusArea(Me.metadata.uuid, this.indicator, offset);
   }
 }
