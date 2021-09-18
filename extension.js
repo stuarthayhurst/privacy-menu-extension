@@ -86,6 +86,7 @@ const PrivacyMenu = GObject.registerClass(
         [this.privacySettings, 'disable-microphone', Gio.SettingsBindFlags.INVERT_BOOLEAN]
       ];
 
+      //Create menu entries for each setting toggle
       subMenus.forEach((subMenu, i) => {
         this.gsettingsSchemas[i][0].bind(
           this.gsettingsSchemas[i][1], //GSettings key to bind to
@@ -98,8 +99,15 @@ const PrivacyMenu = GObject.registerClass(
         this.menu.addMenuItem(subMenu);
       });
 
+      //Separator to separate reset option
       this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-      this.menu.addAction(_('Reset to defaults'), this.resetSettings, null);
+
+      //Create a submenu for the reset option, to prevent a misclick
+      let subMenu = new PopupMenu.PopupSubMenuMenuItem(_('Reset settings'), true);
+      subMenu.icon.icon_name = 'edit-delete-symbolic';
+      subMenu.menu.addAction(_('Reset to defaults'), this.resetSettings, null);
+
+      this.menu.addMenuItem(subMenu);
     }
   }
 );
