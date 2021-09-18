@@ -22,7 +22,7 @@ xgettext --from-code=UTF-8 \
          --copyright-holder="Stuart Hayhurst" \
          --package-name="privacy-menu-extension" \
          --output=po/messages.pot \
-         -- *.js
+         -- *.js lib/*.js
 
 #Replace some lines of the header with our own.
 sed -i '1s/.*/# <LANGUAGE> translation for the Privacy Settings Menu GNOME Shell Extension./' po/messages.pot

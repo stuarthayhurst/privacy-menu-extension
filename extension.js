@@ -1,6 +1,7 @@
 //Local extension imports
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
+const { ExtensionHelper } = Me.imports.lib;
 
 //Main imports
 const { St, Gio, GObject } = imports.gi;
@@ -43,17 +44,6 @@ const PrivacyMenu = GObject.registerClass(
       //Gsettings access
       this.privacySettings = new Gio.Settings( {schema: 'org.gnome.desktop.privacy'} );
       this.locationSettings = new Gio.Settings( {schema: 'org.gnome.system.location'} );
-    }
-
-    resetSettings() {
-      log(_('privacy-menu-extension: Resetting privacy settings...'));
-      let privacySettings = new Gio.Settings( {schema: 'org.gnome.desktop.privacy'} );
-      let locationSettings = new Gio.Settings({ schema: 'org.gnome.system.location'} );
-
-      //Reset the settings
-      locationSettings.reset('enabled');
-      privacySettings.reset('disable-camera');
-      privacySettings.reset('disable-microphone');
     }
 
     createSettingToggle(popupLabel, iconName) {
@@ -105,7 +95,7 @@ const PrivacyMenu = GObject.registerClass(
       //Create a submenu for the reset option, to prevent a misclick
       let subMenu = new PopupMenu.PopupSubMenuMenuItem(_('Reset settings'), true);
       subMenu.icon.icon_name = 'edit-delete-symbolic';
-      subMenu.menu.addAction(_('Reset to defaults'), this.resetSettings, null);
+      subMenu.menu.addAction(_('Reset to defaults'), ExtensionHelper.resetSettings, null);
 
       this.menu.addMenuItem(subMenu);
     }
