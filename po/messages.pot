@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-12 19:45+0100\n"
+"POT-Creation-Date: 2021-09-19 16:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,34 +17,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:35
+#: extension.js:37
 msgid "Privacy Settings Menu Indicator"
 msgstr ""
 
-#: extension.js:49
-msgid "privacy-menu-extension: Resetting privacy settings..."
-msgstr ""
-
-#: extension.js:65
+#: extension.js:56
 msgid "Enabled"
 msgstr ""
 
-#: extension.js:71
+#: extension.js:62
 msgid "Privacy Settings"
 msgstr ""
 
-#: extension.js:77
+#: extension.js:68
 msgid "Location"
 msgstr ""
 
-#: extension.js:78
+#: extension.js:69
 msgid "Camera"
 msgstr ""
 
-#: extension.js:79
+#: extension.js:70
 msgid "Microphone"
 msgstr ""
 
-#: extension.js:102
+#: extension.js:97
+msgid "Reset settings"
+msgstr ""
+
+#: extension.js:99
 msgid "Reset to defaults"
+msgstr ""
+
+#. Translators: Reset is past tense, as in it's just reset the settings
+#: lib/ExtensionHelper.js:14
+msgid "Reset privacy settings"
 msgstr ""
