@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-19 16:54+0100\n"
-"PO-Revision-Date: 2021-09-13 12:33+0200\n"
+"PO-Revision-Date: 2021-09-19 19:40+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -44,7 +44,7 @@ msgstr "Microfoon"
 
 #: extension.js:97
 msgid "Reset settings"
-msgstr ""
+msgstr "Standaardwaarden herstellen"
 
 #: extension.js:99
 msgid "Reset to defaults"
@@ -53,4 +53,4 @@ msgstr "Standaardwaarden"
 #. Translators: Reset is past tense, as in it's just reset the settings
 #: lib/ExtensionHelper.js:14
 msgid "Reset privacy settings"
-msgstr ""
+msgstr "De standaardwaarden zijn hersteld"
