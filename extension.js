@@ -26,6 +26,7 @@ function enable() {
 
 function disable() {
   //Destroy the menu
+  privacyMenu.indicator.remove_all_children();
   privacyMenu.indicator.destroy();
   privacyMenu = null;
 }
