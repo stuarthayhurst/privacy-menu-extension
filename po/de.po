@@ -2,19 +2,20 @@
 # Copyright (C) 2021 Stuart Hayhurst
 # This file is distributed under the same license as the privacy-menu-extension package.
 # Onno Giesmann <nutzer3105@gmail.com>, 2021.
+# Philipp Kiemle <philipp.kiemle@gmail.com>, 2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-21 02:25+0200\n"
-"PO-Revision-Date: 2021-09-20 08:49+0200\n"
+"PO-Revision-Date: 2021-09-21 02:38+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.0\n"
-"Last-Translator: Onno Giesmann <nutzer3105@gmail.com>\n"
+"Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: de\n"
 
@@ -30,10 +31,9 @@ msgstr "Aktiviert"
 msgid "Privacy Settings"
 msgstr "Datenschutzeinstellungen"
 
-# choosed same translation as in GNOME settings
 #: extension.js:68
 msgid "Location"
-msgstr "Ortungsdienste"
+msgstr "Standortdienste"
 
 #: extension.js:69
 msgid "Camera"
@@ -49,7 +49,7 @@ msgstr "Einstellungen zurücksetzen"
 
 #: extension.js:99
 msgid "Reset to defaults"
-msgstr "Standardwerte laden"
+msgstr "Auf Voreinstellungen zurücksetzen"
 
 #. Translators: Reset is past tense, as in it's just reset the settings
 #: lib/ExtensionHelper.js:14
