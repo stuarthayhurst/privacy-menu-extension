@@ -1,7 +1,7 @@
-# <LANGUAGE> translation for the Privacy Settings Menu GNOME Shell Extension.
+# Dutch translation for the Privacy Settings Menu GNOME Shell Extension.
 # Copyright (C) 2021 Stuart Hayhurst
 # This file is distributed under the same license as the privacy-menu-extension package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Heimen Stoffels <vistausss@fastmail.com>, 2021.
 #
 msgid ""
 msgstr ""

@@ -1,4 +1,4 @@
-# <LANGUAGE> translation for the Privacy Settings Menu GNOME Shell Extension.
+# German translation for the Privacy Settings Menu GNOME Shell Extension.
 # Copyright (C) 2021 Stuart Hayhurst
 # This file is distributed under the same license as the privacy-menu-extension package.
 # Onno Giesmann <nutzer3105@gmail.com>, 2021.
@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-20 08:41+0200\n"
+"POT-Creation-Date: 2021-09-21 02:25+0200\n"
 "PO-Revision-Date: 2021-09-20 08:49+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
