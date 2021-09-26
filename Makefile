@@ -1,5 +1,6 @@
 SHELL=bash
 UUID=PrivacyMenu@stuarthayhurst
+COMPRESSLEVEL="-o7"
 
 .PHONY: build check release translations prune compress install uninstall clean
 
@@ -12,6 +13,10 @@ check:
 	  echo -e "\nWARNING! The extension is too big to be uploaded to the extensions website, keep it smaller than 4096 KB"; exit 1; \
 	fi
 release:
+	if [[ "$(VERSION)" != "" ]]; then \
+	  sed -i "s|  \"version\":.*|  \"version\": $(VERSION)|g" metadata.json; \
+	fi
+	#Call other targets required to make a release
 	$(MAKE) translations
 	$(MAKE) prune
 	$(MAKE) compress
@@ -23,7 +28,7 @@ translations:
 prune:
 	./scripts/clean-svgs.py
 compress:
-	optipng -o7 -strip all docs/*.png
+	optipng "$(COMPRESSLEVEL)" -strip all docs/*.png
 install:
 	gnome-extensions install "$(UUID).shell-extension.zip" --force
 uninstall:
