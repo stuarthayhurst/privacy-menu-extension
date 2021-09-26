@@ -46,6 +46,7 @@
 ## Want to help?
   - Help with the project is always appreciated, refer to `docs/CONTRIBUTING.md` to get started
   - Documentation, code changes and translations are always welcome!
+  - [Documentation](docs/CONTRIBUTING.md#documentation-changes), [code](docs/CONTRIBUTING.md#code-changes) and [translations](docs/CONTRIBUTING.md#translations) are always welcome!
 
 ## Bug reporting / debugging:
   - A live feed of GNOME's logs can be accessed with `journalctl /usr/bin/gnome-shell -f -o cat`
