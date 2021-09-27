@@ -17,9 +17,7 @@ release:
 	  sed -i "s|  \"version\":.*|  \"version\": $(VERSION)|g" metadata.json; \
 	fi
 	#Call other targets required to make a release
-	$(MAKE) translations
-	$(MAKE) prune
-	$(MAKE) compress
+	$(MAKE) translations prune compress
 	$(MAKE) build
 	$(MAKE) check
 translations:
