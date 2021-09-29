@@ -1,5 +1,9 @@
 ## Changelog:
 
+### v3: `- 2021-09-29`
+ - Added German translation - [Etamuk](https://github.com/Etamuk), [Philipp Kiemle](https://github.com/daPhipz)
+ - Updated README and build system
+
 ### v2: `- 2021-09-19`
  - Added missing semicolon
  - Added timestamp to log messages
