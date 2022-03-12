@@ -1,5 +1,9 @@
 ## Changelog:
 
+### v5: - `2022-03-12`:
+ - GNOME 42 support (no changes required)
+ - Build system updates
+
 ### v4: - `2021-10-10`
  - Added Italian translation - [albanobattistella](https://github.com/albanobattistella)
 
