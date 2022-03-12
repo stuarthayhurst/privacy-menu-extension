@@ -1,6 +1,6 @@
 SHELL=bash
 UUID=PrivacyMenu@stuarthayhurst
-COMPRESSLEVEL="-o7"
+COMPRESSLEVEL=-o7
 
 .PHONY: build check release translations prune compress install uninstall clean
 
