@@ -36,5 +36,5 @@ install:
 uninstall:
 	gnome-extensions uninstall "$(UUID)"
 clean:
-	rm -rfv locale schemas/gschemas.compiled "$(UUID).shell-extension.zip"
-	rm -rfv po/*.po~ *.ui~ ui/*.ui~ ui/*.ui#
+	@rm -rfv locale schemas/gschemas.compiled "$(UUID).shell-extension.zip"
+	@rm -rfv po/*.po~ *.ui~ ui/*.ui~ ui/*.ui#
