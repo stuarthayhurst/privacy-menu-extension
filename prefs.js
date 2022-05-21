@@ -4,7 +4,7 @@
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 const { ExtensionHelper } = Me.imports.lib;
-const ShellVersion = ExtensionHelper.shellVersion;
+const ShellVersion = parseFloat(imports.misc.config.PACKAGE_VERSION);
 
 //Main imports
 const { Gtk, Gio, GLib } = imports.gi;
