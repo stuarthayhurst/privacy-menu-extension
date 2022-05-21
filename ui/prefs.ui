@@ -102,7 +102,7 @@
                   <object class="GtkListBoxRow">
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
-                    <property name="tooltip-text" translatable="yes" comments="This is a tooltip.">Force the icon to move to right side of the status area</property>
+                    <property name="tooltip-text" translatable="yes" comments="This is a tooltip">Force the icon to move to right side of the status area</property>
                     <child>
                       <object class="GtkBox">
                         <property name="visible">True</property>

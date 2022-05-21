@@ -61,7 +61,7 @@
                 <child>
                   <object class="GtkListBoxRow">
                     <property name="focusable">1</property>
-                    <property name="tooltip-text" translatable="1" comments="This is a tooltip.">Force the icon to move to right side of the status area</property>
+                    <property name="tooltip-text" translatable="1" comments="This is a tooltip">Force the icon to move to right side of the status area</property>
                     <property name="child">
                       <object class="GtkBox">
                         <property name="margin-top">12</property>
