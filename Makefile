@@ -1,11 +1,12 @@
-SHELL=bash
-UUID=PrivacyMenu@stuarthayhurst
-COMPRESSLEVEL=-o7
+SHELL = bash
+UUID = PrivacyMenu@stuarthayhurst
+COMPRESSLEVEL = -o7
 
-.PHONY: build check release translations prune compress install uninstall clean
+.PHONY: build check release translations gtk4 prune compress install uninstall clean
 
 build:
-	gnome-extensions pack --force --podir=po --extra-source=LICENSE.txt --extra-source=docs/CHANGELOG.md --extra-source=icons/ --extra-source=lib/
+	glib-compile-schemas schemas
+	gnome-extensions pack --force --podir=po --extra-source=LICENSE.txt --extra-source=docs/CHANGELOG.md --extra-source=icons/ --extra-source=ui --extra-source=lib/
 check:
 	@if [[ ! -f "$(UUID).shell-extension.zip" ]]; then \
 	  echo -e "WARNING! Extension zip couldn't be found"; exit 1; \
@@ -17,12 +18,15 @@ release:
 	  sed -i "s|  \"version\":.*|  \"version\": $(VERSION)|g" metadata.json; \
 	fi
 	#Call other targets required to make a release
+	$(MAKE) gtk4
 	$(MAKE) translations prune compress
 	$(MAKE) build
 	$(MAKE) check
 translations:
 	./scripts/update-pot.sh
 	./scripts/update-po.sh -a
+gtk4:
+	gtk4-builder-tool simplify --3to4 ui/prefs.ui > ui/prefs-gtk4.ui
 prune:
 	./scripts/clean-svgs.py
 compress:
@@ -32,4 +36,5 @@ install:
 uninstall:
 	gnome-extensions uninstall "$(UUID)"
 clean:
-	rm -rf locale po/*.po~ "$(UUID).shell-extension.zip"
+	rm -rfv locale schemas/gschemas.compiled "$(UUID).shell-extension.zip"
+	rm -rfv po/*.po~ *.ui~ ui/*.ui~ ui/*.ui#
