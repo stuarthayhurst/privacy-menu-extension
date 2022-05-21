@@ -43,8 +43,8 @@ const PrivacyMenu = GObject.registerClass(
       }));
 
       //Gsettings access
-      this.privacySettings = new Gio.Settings( {schema: 'org.gnome.desktop.privacy'} );
-      this.locationSettings = new Gio.Settings( {schema: 'org.gnome.system.location'} );
+      this.privacySettings = new Gio.Settings({ schema: 'org.gnome.desktop.privacy' });
+      this.locationSettings = new Gio.Settings({ schema: 'org.gnome.system.location' });
     }
 
     createSettingToggle(popupLabel, iconName) {
