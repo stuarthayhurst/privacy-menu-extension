@@ -1,3 +1,5 @@
+/* exported init enable disable */
+
 //Local extension imports
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
