@@ -106,6 +106,7 @@ const PrivacyMenu = GObject.registerClass(
 class Extension {
   constructor() {
     this.indicator = null;
+    this.extensionSettings = ExtensionUtils.getSettings();
   }
 
   createMenu() {
@@ -115,7 +116,13 @@ class Extension {
     //Add menu entries
     this.indicator.addEntries();
 
+    //Get position to insert icon (left or right)
+    let offset = 0;
+    if (this.extensionSettings.get_boolean('move-icon-right')) {
+      offset = Main.panel._rightBox.get_n_children() - 1;
+    }
+
     //Add to panel
-    Main.panel.addToStatusArea(Me.metadata.uuid, this.indicator, 0);
+    Main.panel.addToStatusArea(Me.metadata.uuid, this.indicator, offset);
   }
 }
