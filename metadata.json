@@ -3,6 +3,7 @@
   "description": "Add a privacy menu to the top bar for quick access to privacy settings",
   "uuid": "PrivacyMenu@stuarthayhurst",
   "gettext-domain": "PrivacyMenu@stuarthayhurst",
+  "settings-schema": "org.gnome.shell.extensions.privacy-menu",
   "url": "https://github.com/stuarthayhurst/privacy-menu-extension",
   "shell-version": [
     "3.38",

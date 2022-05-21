@@ -21,13 +21,13 @@ function enable() {
   privacyMenu = new Extension();
 
   //Create menu
-  privacyMenu.createMenu();
+  privacyMenu.initMenu();
 }
 
 function disable() {
-  //Destroy the menu
-  privacyMenu.indicator.remove_all_children();
-  privacyMenu.indicator.destroy();
+  //Disconnect listeners, then destroy the indicator and class
+  privacyMenu.disconnectListeners();
+  privacyMenu.destroyMenu();
   privacyMenu = null;
 }
 
@@ -106,6 +106,22 @@ const PrivacyMenu = GObject.registerClass(
 class Extension {
   constructor() {
     this.indicator = null;
+    this.extensionSettings = ExtensionUtils.getSettings();
+  }
+
+  disconnectListeners() {
+    this.extensionSettings.disconnect(this._settingsChangedSignal);
+  }
+
+  initMenu() {
+    //Create the indicator
+    this.createMenu();
+
+    //When settings change, recreate the indicator
+    this._settingsChangedSignal = this.extensionSettings.connect('changed', () => {
+      this.destroyMenu();
+      this.createMenu();
+    });
   }
 
   createMenu() {
@@ -115,8 +131,19 @@ class Extension {
     //Add menu entries
     this.indicator.addEntries();
 
-    //Add to panel with the correct position
-    let offset = Main.panel._rightBox.get_n_children() - 1;
+    //Get position to insert icon (left or right)
+    let offset = 0;
+    if (this.extensionSettings.get_boolean('move-icon-right')) {
+      offset = Main.panel._rightBox.get_n_children() - 1;
+    }
+
+    //Add to panel
     Main.panel.addToStatusArea(Me.metadata.uuid, this.indicator, offset);
+  }
+
+  destroyMenu() {
+    //Destroy the indicator
+    this.indicator.remove_all_children();
+    this.indicator.destroy();
   }
 }

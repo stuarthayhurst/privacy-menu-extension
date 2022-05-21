@@ -31,16 +31,18 @@
     - `make translations`: Updates translations
     - `make prune`: Removes rubbish from any .svgs in `docs/`
     - `make compress`: Losslessly compresses any .pngs in `docs/`
-    - `make release`: Updated translations, then creates and checks an extension zip
+    - `make release`: Updates the UI, translations and icons, then creates and checks an extension zip
 
 ## Install dependencies:
   - gettext
   - gnome-extensions
+  - libglib2.0-bin
 
 ## Build dependencies: (Only required if running `make release`)
   - `All install dependencies`
   - sed (`make translations`)
   - python3 (`make prune`)
+  - libgtk-4-bin (`make gtk4`)
   - optipng (`make compress`)
 
 ## Want to help?
