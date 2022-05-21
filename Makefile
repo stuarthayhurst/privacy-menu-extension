@@ -4,7 +4,7 @@ COMPRESSLEVEL = -o7
 
 .PHONY: build check release translations gtk4 prune compress install uninstall clean
 
-build:
+build: clean
 	glib-compile-schemas schemas
 	gnome-extensions pack --force --podir=po --extra-source=LICENSE.txt --extra-source=docs/CHANGELOG.md --extra-source=icons/ --extra-source=ui --extra-source=lib/
 check:
