@@ -1,3 +1,9 @@
+#Build files
 PrivacyMenu@stuarthayhurst.shell-extension.zip
+schemas/gschemas.compiled
 locale/
-po/*.po~
+
+#Backups
+*.po~
+*.ui~
+*.ui#
