@@ -1,14 +1,14 @@
 # Italian translation for the Privacy Settings Menu GNOME Shell Extension.
 # Copyright (C) 2021 Stuart Hayhurst
 # This file is distributed under the same license as the privacy-menu-extension package.
-# Albano Battistella <albano_battistella@hotmail.com>, 2021.
+# Albano Battistella <albano_battistella@hotmail.com>, 2021,2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-22 12:46+0100\n"
-"PO-Revision-Date: 2021-10-05 20:52+0100\n"
+"PO-Revision-Date: 2022-05-22 14:52+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <LL@li.org>\n"
 "Language: it\n"
@@ -50,7 +50,7 @@ msgstr "Ripristina le impostazioni predefinite"
 
 #: prefs.js:68 prefs.js:84
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 #. Translators: Reset is past tense, as in it's just reset the settings
 #: lib/ExtensionHelper.js:21
@@ -62,16 +62,18 @@ msgid ""
 "Found this useful?\n"
 "<a href=\"https://paypal.me/stuartahayhurst\">Consider donating</a> :)"
 msgstr ""
+"L'hai trovato utile?\n"
+"<a href=\"https://paypal.me/stuartahayhurst\">Considera una donazione</a> :)"
 
 #: ui/prefs.ui:69
 msgid "General settings"
-msgstr ""
+msgstr "Impostazioni generali"
 
 #. This is a tooltip
 #: ui/prefs.ui:105
 msgid "Force the icon to move to right side of the status area"
-msgstr ""
+msgstr "Forza lo spostamento dell'icona sul lato destro dell'area di stato"
 
 #: ui/prefs.ui:124
 msgid "Move status icon right"
-msgstr ""
+msgstr "Sposta l'icona di stato a destra"
