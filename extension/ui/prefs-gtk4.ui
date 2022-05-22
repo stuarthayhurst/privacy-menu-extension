@@ -12,6 +12,7 @@
           <object class="GtkBox" id="donate-box">
             <property name="valign">end</property>
             <property name="margin-top">4</property>
+            <property name="margin-bottom">2</property>
             <property name="vexpand">1</property>
             <property name="orientation">vertical</property>
             <child>
