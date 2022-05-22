@@ -27,11 +27,11 @@
 
 ## Translations:
   - To add a new language, use `./scripts/update-po.sh -l [LANGUAGE CODE]`
-  - `.po` files can be found in `po/`
+  - `.po` files can be found in `extension/po/`
   - All translations can be refreshed with `make translations`
   - Strings marked with `fuzzy` may need a better translation
   - Blank strings need a translation added
-  - If changes to the strings in `ui/*.ui` were made, `make gtk4` should be run
+  - If changes to the strings in `extension/ui/*.ui` were made, `make gtk4` should be run
 
 ## Documentation changes:
   - British English should be used in documentation, as well as consistent styling

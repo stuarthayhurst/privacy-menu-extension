@@ -5,8 +5,10 @@ COMPRESSLEVEL = -o7
 .PHONY: build check release translations gtk4 prune compress install uninstall clean
 
 build: clean
-	glib-compile-schemas schemas
-	gnome-extensions pack --force --podir=po --extra-source=LICENSE.txt --extra-source=docs/CHANGELOG.md --extra-source=icons/ --extra-source=ui --extra-source=lib/
+	glib-compile-schemas extension/schemas
+	cd "extension"; \
+	gnome-extensions pack --force --podir=po --extra-source=../LICENSE.txt --extra-source=../docs/CHANGELOG.md --extra-source=icons/ --extra-source=ui --extra-source=lib/; \
+	mv "$(UUID).shell-extension.zip" ../
 check:
 	@if [[ ! -f "$(UUID).shell-extension.zip" ]]; then \
 	  echo -e "WARNING! Extension zip couldn't be found"; exit 1; \
@@ -15,7 +17,7 @@ check:
 	fi
 release:
 	@if [[ "$(VERSION)" != "" ]]; then \
-	  sed -i "s|  \"version\":.*|  \"version\": $(VERSION)|g" metadata.json; \
+	  sed -i "s|  \"version\":.*|  \"version\": $(VERSION)|g" extension/metadata.json; \
 	fi
 	#Call other targets required to make a release
 	$(MAKE) gtk4
@@ -26,7 +28,7 @@ translations:
 	./scripts/update-pot.sh
 	./scripts/update-po.sh -a
 gtk4:
-	gtk4-builder-tool simplify --3to4 ui/prefs.ui > ui/prefs-gtk4.ui
+	gtk4-builder-tool simplify --3to4 extension/ui/prefs.ui > extension/ui/prefs-gtk4.ui
 prune:
 	./scripts/clean-svgs.py
 compress:
@@ -36,5 +38,7 @@ install:
 uninstall:
 	gnome-extensions uninstall "$(UUID)"
 clean:
+	@rm -rfv extension/locale extension/schemas/gschemas.compiled "$(UUID).shell-extension.zip"
 	@rm -rfv locale schemas/gschemas.compiled "$(UUID).shell-extension.zip"
+	@rm -rfv extension/po/*.po~ extension/*.ui~ extension/ui/*.ui~ extension/ui/*.ui#
 	@rm -rfv po/*.po~ *.ui~ ui/*.ui~ ui/*.ui#

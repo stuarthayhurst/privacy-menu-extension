@@ -30,7 +30,7 @@ jobs:
     - name: Check translation generation works
       run: |
         make translations
-        git restore po/
+        git restore extension/po/
 
     - name: Check GTK 4 UI generation works
       run: |
