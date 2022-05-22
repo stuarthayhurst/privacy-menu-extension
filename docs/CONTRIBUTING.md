@@ -33,6 +33,12 @@
   - Blank strings need a translation added
   - If changes to the strings in `extension/ui/*.ui` were made, `make gtk4` should be run
 
+## UI Changes:
+  - UI files are located in `extension/ui/`, please use Glade to modify them
+  - The GTK+ 4 UI files shouldn't be manually edited, instead generated with `make gtk4`
+  - No deprecated values should be used, and the UI files should be verified by Glade after modifications
+    - Files can be verified by going into the project settings in Glade, then verifying objects though the pop-up
+
 ## Documentation changes:
   - British English should be used in documentation, as well as consistent styling
   - Any new dependencies should be documented under the relevant dependency section
