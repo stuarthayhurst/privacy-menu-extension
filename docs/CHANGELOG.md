@@ -1,5 +1,14 @@
 ## Changelog:
 
+### v6: - `2022-05-22`:
+ - Updated GitHub runner to Ubuntu 22.04 and Python 3.10, test entire build system faster
+ - Added preferences menu (#8)
+ - Added preference for position of the status indicator (#8)
+ - Updated README for new build targets and dependencies (#8)
+ - Updated documentation
+ - Build system and structure improvements
+ - Code styling and quality improvements
+
 ### v5: - `2022-03-12`:
  - GNOME 42 support (no changes required)
  - Build system updates
