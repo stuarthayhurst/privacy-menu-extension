@@ -8,6 +8,10 @@
 
 ![Extension](docs/icon.png)
 
+## Why are apps ignoring my settings?
+ - Due to limitations in GNOME shell, only sandboxed (flatpak / snap) apps can be forced to respect privacy settings
+ - As long as the settings changed by the extension match inside GNOME Settings (privacy section), the extension is behaving correctly
+
 ## Install the extension from releases:
   - Extract the zip to `~/.local/share/gnome-shell-extensions/PrivacyMenu@stuarthayhurst/`
   - Reload GNOME
