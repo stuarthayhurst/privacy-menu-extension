@@ -1,5 +1,8 @@
 ## Changelog:
 
+### v7: - `2022-09-11`:
+ - Added GNOME 43 support
+
 ### v6: - `2022-05-22`:
  - Updated GitHub runner to Ubuntu 22.04 and Python 3.10, test entire build system faster
  - Added preferences menu (#8)
