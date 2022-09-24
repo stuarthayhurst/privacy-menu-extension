@@ -108,83 +108,83 @@ const PrivacyIndicator = GObject.registerClass(
 
 class Extension {
   constructor() {
-    this._indicator = null;
-    this._activeMenu = '';
-    this.extensionSettings = ExtensionUtils.getSettings();
+    this._activeMenu = null;
+    this._activeMenuType = '';
+    this._extensionSettings = ExtensionUtils.getSettings();
   }
 
   disconnectListeners() {
-    this.extensionSettings.disconnect(this._settingsChangedSignal);
-  }
-
-  useQuickSettings() {
-    //Return true if running GNOME 43+ and quick settings are enabled
-    return this.extensionSettings.get_boolean('use-quick-settings') && ShellVersion >= 43;
+    this._extensionSettings.disconnect(this._settingsChangedSignal);
   }
 
   initMenu() {
     //Create the correct type of menu
-    this.createMenu();
+    this._createMenu();
 
     //When settings change, recreate the menu
-    this._settingsChangedSignal = this.extensionSettings.connect('changed', () => {
+    this._settingsChangedSignal = this._extensionSettings.connect('changed', () => {
       //Destroy existing menu and create new menu
       this.destroyMenu();
-      this.createMenu();
+      this._createMenu();
     });
-  }
-
-  createMenu() {
-    //Create the correct type of menu
-    if (this.useQuickSettings()) {
-      this.createQuickSettings();
-    } else {
-      this.createIndicator();
-    }
   }
 
   destroyMenu() {
     //Destroy the active menu
-    if (this._activeMenu == 'quick-settings') {
-      this.destroyQuickSettings();
-    } else if (this._activeMenu == 'indicator') {
-      this.destroyIndicator();
+    if (this._activeMenuType == 'quick-settings') {
+      this._destroyQuickSettings();
+    } else if (this._activeMenuType == 'indicator') {
+      this._destroyIndicator();
     }
 
-    this._activeMenu = '';
+    this._activeMenuType = '';
   }
 
-  createQuickSettings() {
-    this._activeMenu = 'quick-settings';
+  _createMenu() {
+    //Create the correct type of menu
+    if (this._useQuickSettings()) {
+      this._createQuickSettings();
+    } else {
+      this._createIndicator();
+    }
+  }
+
+  _createQuickSettings() {
+    this._activeMenuType = 'quick-settings';
 
     return;
   }
 
-  destroyQuickSettings() {
+  _destroyQuickSettings() {
     return;
   }
 
-  createIndicator() {
+  _useQuickSettings() {
+    //Return true if running GNOME 43+ and quick settings are enabled
+    return this._extensionSettings.get_boolean('use-quick-settings') && ShellVersion >= 43;
+  }
+
+  _createIndicator() {
     //Create and setup indicator and menu
-    this._activeMenu = 'indicator';
-    this._indicator = new PrivacyIndicator();
+    this._activeMenuType = 'indicator';
+    this._activeMenu = new PrivacyIndicator();
 
     //Add menu entries
-    this._indicator.addEntries();
+    this._activeMenu.addEntries();
 
     //Get position to insert icon (left or right)
     let offset = 0;
-    if (this.extensionSettings.get_boolean('move-icon-right')) {
+    if (this._extensionSettings.get_boolean('move-icon-right')) {
       offset = Main.panel._rightBox.get_n_children() - 1;
     }
 
     //Add to panel
-    Main.panel.addToStatusArea(Me.metadata.uuid, this._indicator, offset);
+    Main.panel.addToStatusArea(Me.metadata.uuid, this._activeMenu, offset);
   }
 
-  destroyIndicator() {
+  _destroyIndicator() {
     //Destroy the indicator
-    this._indicator.remove_all_children();
-    this._indicator.destroy();
+    this._activeMenu.remove_all_children();
+    this._activeMenu.destroy();
   }
 }
