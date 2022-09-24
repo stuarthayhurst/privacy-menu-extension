@@ -4,6 +4,7 @@
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 const { ExtensionHelper } = Me.imports.lib;
+const ShellVersion = parseFloat(imports.misc.config.PACKAGE_VERSION);
 
 //Main imports
 const { St, Gio, GObject } = imports.gi;
@@ -27,14 +28,14 @@ function enable() {
 }
 
 function disable() {
-  //Disconnect listeners, then destroy the indicator and class
+  //Disconnect listeners, then destroy the menu and class
   privacyMenu.disconnectListeners();
   privacyMenu.destroyMenu();
   privacyMenu = null;
 }
 
-const PrivacyMenu = GObject.registerClass(
-  class PrivacyMenu extends PanelMenu.Button{
+const PrivacyIndicator = GObject.registerClass(
+  class PrivacyIndicator extends PanelMenu.Button{
     _init() {
       super._init(0.0, _('Privacy Settings Menu Indicator'));
 
@@ -107,7 +108,8 @@ const PrivacyMenu = GObject.registerClass(
 
 class Extension {
   constructor() {
-    this.indicator = null;
+    this._indicator = null;
+    this._activeMenu = '';
     this.extensionSettings = ExtensionUtils.getSettings();
   }
 
@@ -115,23 +117,60 @@ class Extension {
     this.extensionSettings.disconnect(this._settingsChangedSignal);
   }
 
+  useQuickSettings() {
+    //Return true if running GNOME 43+ and quick settings are enabled
+    return this.extensionSettings.get_boolean('use-quick-settings') && ShellVersion >= 43;
+  }
+
   initMenu() {
-    //Create the indicator
+    //Create the correct type of menu
     this.createMenu();
 
-    //When settings change, recreate the indicator
+    //When settings change, recreate the menu
     this._settingsChangedSignal = this.extensionSettings.connect('changed', () => {
+      //Destroy existing menu and create new menu
       this.destroyMenu();
       this.createMenu();
     });
   }
 
   createMenu() {
+    //Create the correct type of menu
+    if (this.useQuickSettings()) {
+      this.createQuickSettings();
+    } else {
+      this.createIndicator();
+    }
+  }
+
+  destroyMenu() {
+    //Destroy the active menu
+    if (this._activeMenu == 'quick-settings') {
+      this.destroyQuickSettings();
+    } else if (this._activeMenu == 'indicator') {
+      this.destroyIndicator();
+    }
+
+    this._activeMenu = '';
+  }
+
+  createQuickSettings() {
+    this._activeMenu = 'quick-settings';
+
+    return;
+  }
+
+  destroyQuickSettings() {
+    return;
+  }
+
+  createIndicator() {
     //Create and setup indicator and menu
-    this.indicator = new PrivacyMenu();
+    this._activeMenu = 'indicator';
+    this._indicator = new PrivacyIndicator();
 
     //Add menu entries
-    this.indicator.addEntries();
+    this._indicator.addEntries();
 
     //Get position to insert icon (left or right)
     let offset = 0;
@@ -140,12 +179,12 @@ class Extension {
     }
 
     //Add to panel
-    Main.panel.addToStatusArea(Me.metadata.uuid, this.indicator, offset);
+    Main.panel.addToStatusArea(Me.metadata.uuid, this._indicator, offset);
   }
 
-  destroyMenu() {
+  destroyIndicator() {
     //Destroy the indicator
-    this.indicator.remove_all_children();
-    this.indicator.destroy();
+    this._indicator.remove_all_children();
+    this._indicator.destroy();
   }
 }
