@@ -39,7 +39,7 @@
               <object class="GtkListBox" id="general-settings">
                 <property name="selection-mode">none</property>
                 <child>
-                  <object class="GtkListBoxRow">
+                  <object class="GtkListBoxRow" id="move-icon-setting">
                     <property name="focusable">1</property>
                     <property name="tooltip-text" translatable="1" comments="This is a tooltip">Force the icon to move to right side of the status area</property>
                     <property name="child">

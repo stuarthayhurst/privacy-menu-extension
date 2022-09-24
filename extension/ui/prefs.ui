@@ -70,7 +70,7 @@
                 <property name="can-focus">False</property>
                 <property name="selection-mode">none</property>
                 <child>
-                  <object class="GtkListBoxRow">
+                  <object class="GtkListBoxRow" id="move-icon-setting">
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="tooltip-text" translatable="yes" comments="This is a tooltip">Force the icon to move to right side of the status area</property>

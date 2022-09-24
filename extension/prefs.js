@@ -23,6 +23,22 @@ var PrefsPages = class PrefsPages {
     this.createPreferences();
   }
 
+  _updateEnabledSettings() {
+    //If using the quick settings area and on GNOME 43, disable 'move-icon-setting'
+    let moveIconBox = this._builder.get_object('move-icon-setting');
+    if (ShellVersion >= 43 && this._settings.get_boolean('use-quick-settings')) {
+      moveIconBox.set_sensitive(false);
+    } else {
+      moveIconBox.set_sensitive(true);
+    }
+
+    //Grey out GNOME 43+ settings on earlier version
+    if (ShellVersion < 43) {
+      let quickSettingsBox = this._builder.get_object('gnome-43-settings-area');
+      quickSettingsBox.set_sensitive(false);
+    }
+  }
+
   createPreferences() {
     //Use different UI file for GNOME 40+ and 3.38
     if (ShellVersion >= 40) {
@@ -55,11 +71,11 @@ var PrefsPages = class PrefsPages {
       );
     });
 
-    //Grey out GNOME 43+ settings on earlier version
-    if (ShellVersion < 43) {
-      this.quickSettingsBox = this._builder.get_object('gnome-43-settings-area');
-      this.quickSettingsBox.set_sensitive(false);
-    }
+    //Disable unavailable settings
+    this._settingsChangedSignal = this._settings.connect('changed', () => {
+      this._updateEnabledSettings();
+    });
+    this._updateEnabledSettings();
   }
 }
 
