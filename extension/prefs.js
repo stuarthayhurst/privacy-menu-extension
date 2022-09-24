@@ -21,11 +21,11 @@ var PrefsPages = class PrefsPages {
     this._builder.set_translation_domain(Me.metadata.uuid);
 
     this.preferencesWidget = null;
-    this.createPreferences();
+    this._createPreferences();
   }
 
   _updateEnabledSettings() {
-    //If using the quick settings area and on GNOME 43, disable 'move-icon-setting'
+    //If using the quick settings area and running GNOME 43, disable 'move-icon-setting'
     let moveIconBox = this._builder.get_object('move-icon-setting');
     if (ShellVersion >= 43 && this._settings.get_boolean('use-quick-settings')) {
       moveIconBox.set_sensitive(false);
@@ -40,7 +40,7 @@ var PrefsPages = class PrefsPages {
     }
   }
 
-  createPreferences() {
+  _createPreferences() {
     //Use different UI file for GNOME 40+ and 3.38
     if (ShellVersion >= 40) {
       this._builder.add_from_file(Me.path + '/ui/prefs-gtk4.ui');
@@ -101,7 +101,7 @@ function fillPreferencesWindow(window) {
   window.add(settingsPage);
 }
 
-//Create preferences window for GNOME 3.38-41
+//Create preferences window for GNOME 3.38 - 41
 function buildPrefsWidget() {
   let prefsPages = new PrefsPages();
   let settingsWindow = new Gtk.ScrolledWindow();
