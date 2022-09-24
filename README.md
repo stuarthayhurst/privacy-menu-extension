@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/stuarthayhurst/privacy-menu-extension/raw/master/docs/icon.svg" alt="privacy-settings-menu" width="200px">
+</p>
+
 ## Privacy Quick Settings Menu GNOME Extension
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN)
   - Add a privacy menu to the top bar for quick access to privacy settings in GNOME
@@ -5,8 +9,6 @@
   - Get the extension from [here](https://extensions.gnome.org/extension/4491/privacy-settings-menu/)
   - This project is licensed under GPL 3.0
   - Any donations are greatly appreciated :)
-
-![Extension](docs/icon.png)
 
 ## Why are apps ignoring my settings?
  - Due to limitations in GNOME shell, only sandboxed (flatpak / snap) apps can be forced to respect privacy settings
