@@ -50,6 +50,12 @@ var PrefsPages = class PrefsPages {
         Gio.SettingsBindFlags.DEFAULT
       );
     });
+
+    //Grey out GNOME 43+ settings on earlier version
+    if (ShellVersion < 43) {
+      this.quickSettingsBox = this._builder.get_object('gnome43-box');
+      this.quickSettingsBox.set_sensitive(false);
+    }
   }
 }
 
