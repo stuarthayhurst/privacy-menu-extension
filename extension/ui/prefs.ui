@@ -15,7 +15,7 @@
         <property name="margin-end">12</property>
         <property name="column-homogeneous">True</property>
         <child>
-          <object class="GtkBox" id="general-box">
+          <object class="GtkBox" id="general-settings-area">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="orientation">vertical</property>
@@ -143,7 +143,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="gnome43-box">
+          <object class="GtkBox" id="gnome-43-settings-area">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="orientation">vertical</property>
@@ -193,7 +193,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkListBox" id="gnome43-settings">
+              <object class="GtkListBox" id="gnome-43-settings">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="selection-mode">none</property>
