@@ -38,6 +38,10 @@ var PrefsPages = class PrefsPages {
       'move-icon-switch': {
         'settingKey': 'move-icon-right',
         'bindProperty': 'active'
+      },
+      'use-quick-settings-switch': {
+        'settingKey': 'use-quick-settings',
+        'bindProperty': 'active'
       }
     }
 
