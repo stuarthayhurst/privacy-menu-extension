@@ -45,9 +45,9 @@ const PrivacyIndicator = GObject.registerClass(
         style_class: 'system-status-icon'
       }));
 
-      //Gsettings access
-      this.privacySettings = new Gio.Settings({ schema: 'org.gnome.desktop.privacy' });
-      this.locationSettings = new Gio.Settings({ schema: 'org.gnome.system.location' });
+      //GSettings access
+      this._privacySettings = new Gio.Settings({ schema: 'org.gnome.desktop.privacy' });
+      this._locationSettings = new Gio.Settings({ schema: 'org.gnome.system.location' });
     }
 
     createSettingToggle(popupLabel, iconName) {
@@ -73,20 +73,20 @@ const PrivacyIndicator = GObject.registerClass(
         this.createSettingToggle(_('Microphone'), 'audio-input-microphone-symbolic')
       ];
 
-      this.gsettingsSchemas = [
+      let gsettingsSchemas = [
         //Schema, key, bind flags
-        [this.locationSettings, 'enabled', Gio.SettingsBindFlags.DEFAULT],
-        [this.privacySettings, 'disable-camera', Gio.SettingsBindFlags.INVERT_BOOLEAN],
-        [this.privacySettings, 'disable-microphone', Gio.SettingsBindFlags.INVERT_BOOLEAN]
+        [this._locationSettings, 'enabled', Gio.SettingsBindFlags.DEFAULT],
+        [this._privacySettings, 'disable-camera', Gio.SettingsBindFlags.INVERT_BOOLEAN],
+        [this._privacySettings, 'disable-microphone', Gio.SettingsBindFlags.INVERT_BOOLEAN]
       ];
 
       //Create menu entries for each setting toggle
       subMenus.forEach((subMenu, i) => {
-        this.gsettingsSchemas[i][0].bind(
-          this.gsettingsSchemas[i][1], //GSettings key to bind to
+        gsettingsSchemas[i][0].bind(
+          gsettingsSchemas[i][1], //GSettings key to bind to
           subMenu.menu.firstMenuItem._switch, //Toggle switch to bind to
           'state', //Property to share
-          this.gsettingsSchemas[i][2] //Binding flags
+          gsettingsSchemas[i][2] //Binding flags
         );
 
         //Add each submenu to the main menu
