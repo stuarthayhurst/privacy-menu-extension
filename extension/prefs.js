@@ -20,6 +20,7 @@ var PrefsPages = class PrefsPages {
     this._builder = new Gtk.Builder();
     this._builder.set_translation_domain(Me.metadata.uuid);
 
+    this.preferencesWidget = null;
     this.createPreferences();
   }
 
@@ -50,7 +51,7 @@ var PrefsPages = class PrefsPages {
     //Get the settings container widget
     this.preferencesWidget = this._builder.get_object('main-prefs');
 
-    this.settingElements = {
+    let settingElements = {
       'move-icon-switch': {
         'settingKey': 'move-icon-right',
         'bindProperty': 'active'
@@ -62,11 +63,11 @@ var PrefsPages = class PrefsPages {
     }
 
     //Loop through settings toggles and dropdowns and bind together
-    Object.keys(this.settingElements).forEach((element) => {
+    Object.keys(settingElements).forEach((element) => {
       this._settings.bind(
-        this.settingElements[element].settingKey, //GSettings key to bind to
+        settingElements[element].settingKey, //GSettings key to bind to
         this._builder.get_object(element), //GTK UI element to bind to
-        this.settingElements[element].bindProperty, //The property to share
+        settingElements[element].bindProperty, //The property to share
         Gio.SettingsBindFlags.DEFAULT
       );
     });
