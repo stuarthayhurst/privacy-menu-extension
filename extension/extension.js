@@ -12,6 +12,9 @@ const Main = imports.ui.main;
 const PanelMenu = imports.ui.panelMenu;
 const PopupMenu = imports.ui.popupMenu;
 
+const QuickSettings = ShellVersion >= 43 ? imports.ui.quickSettings : null;
+const QuickSettingsMenu = ShellVersion >= 43 ? imports.ui.main.panel.statusArea.quickSettings : null;
+
 //Use _() for translations
 const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
 
@@ -46,8 +49,8 @@ const PrivacyIndicator = GObject.registerClass(
       }));
 
       //GSettings access
-      this._privacySettings = new Gio.Settings({ schema: 'org.gnome.desktop.privacy' });
-      this._locationSettings = new Gio.Settings({ schema: 'org.gnome.system.location' });
+      this._privacySettings = new Gio.Settings({schema: 'org.gnome.desktop.privacy'});
+      this._locationSettings = new Gio.Settings({schema: 'org.gnome.system.location'});
     }
 
     createSettingToggle(popupLabel, iconName) {
@@ -106,11 +109,37 @@ const PrivacyIndicator = GObject.registerClass(
   }
 );
 
+//On GNOME 43+ create a class for privacy quick settings toggles
+const PrivacyQuickToggle = ShellVersion >= 43 ? GObject.registerClass(
+  class PrivacyQuickToggle extends QuickSettings.QuickToggle {
+    _init(settingName, settingIcon, settingSchema, settingKey, settingBindFlag) {
+      //Set up the quick setting toggle
+      super._init({
+        label: settingName,
+        iconName: settingIcon,
+        toggleMode: true,
+      });
+
+      //GSettings access
+      this._settings = new Gio.Settings({schema: settingSchema});
+
+      //Bind the setting and toggle together
+      this._settings.bind(
+        settingKey, //GSettings key to bind to
+        this, //UI element to bind to
+        'checked', //Property to share
+        settingBindFlag //Bind flag
+      );
+    }
+  }
+) : null;
+
 class Extension {
   constructor() {
     this._activeMenu = null;
     this._activeMenuType = '';
     this._extensionSettings = ExtensionUtils.getSettings();
+    this._quickSettingToggles = [];
   }
 
   disconnectListeners() {
@@ -143,20 +172,47 @@ class Extension {
   _createMenu() {
     //Create the correct type of menu
     if (this._useQuickSettings()) {
+      this._activeMenuType = 'quick-settings';
       this._createQuickSettings();
     } else {
+      this._activeMenuType = 'indicator';
       this._createIndicator();
     }
   }
 
   _createQuickSettings() {
-    this._activeMenuType = 'quick-settings';
+    //Info to create toggles: settingName, settingIcon, settingSchema, settingKey, settingBindFlag
+    let quickSettingsInfo = [
+      [_('Location'), 'location-services-active-symbolic', 'org.gnome.system.location', 'enabled', Gio.SettingsBindFlags.DEFAULT],
+      [_('Camera'), 'camera-photo-symbolic', 'org.gnome.desktop.privacy', 'disable-camera', Gio.SettingsBindFlags.INVERT_BOOLEAN],
+      [_('Microphone'), 'audio-input-microphone-symbolic', 'org.gnome.desktop.privacy', 'disable-microphone', Gio.SettingsBindFlags.INVERT_BOOLEAN]
+    ];
 
-    return;
+    //Create a quick setting toggle for each privacy setting
+    quickSettingsInfo.forEach((quickSettingInfo) => {
+      this._quickSettingToggles.push(
+        new PrivacyQuickToggle(
+          quickSettingInfo[0],
+          quickSettingInfo[1],
+          quickSettingInfo[2],
+          quickSettingInfo[3],
+          quickSettingInfo[4]
+        )
+      );
+    });
+
+    //Add the toggles to the system menu
+    QuickSettingsMenu._addItems(this._quickSettingToggles);
   }
 
   _destroyQuickSettings() {
-    return;
+    //Destroy each created quick settings toggle
+    this._quickSettingToggles.forEach((quickSettingToggle) => {
+      quickSettingToggle.destroy();
+     });
+
+    //Remove each tracked entry
+    this._quickSettingToggles = [];
   }
 
   _useQuickSettings() {
@@ -166,7 +222,6 @@ class Extension {
 
   _createIndicator() {
     //Create and setup indicator and menu
-    this._activeMenuType = 'indicator';
     this._activeMenu = new PrivacyIndicator();
 
     //Add menu entries
