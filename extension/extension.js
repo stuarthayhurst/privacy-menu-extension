@@ -136,7 +136,7 @@ const PrivacyQuickToggle = ShellVersion >= 43 ? GObject.registerClass(
 
 class Extension {
   constructor() {
-    this._activeMenu = null;
+    this._indicator = null;
     this._activeMenuType = '';
     this._extensionSettings = ExtensionUtils.getSettings();
     this._quickSettingToggles = [];
@@ -222,10 +222,10 @@ class Extension {
 
   _createIndicator() {
     //Create and setup indicator and menu
-    this._activeMenu = new PrivacyIndicator();
+    this._indicator = new PrivacyIndicator();
 
     //Add menu entries
-    this._activeMenu.addEntries();
+    this._indicator.addEntries();
 
     //Get position to insert icon (left or right)
     let offset = 0;
@@ -234,12 +234,12 @@ class Extension {
     }
 
     //Add to panel
-    Main.panel.addToStatusArea(Me.metadata.uuid, this._activeMenu, offset);
+    Main.panel.addToStatusArea(Me.metadata.uuid, this._indicator, offset);
   }
 
   _destroyIndicator() {
     //Destroy the indicator
-    this._activeMenu.remove_all_children();
-    this._activeMenu.destroy();
+    this._indicator.remove_all_children();
+    this._indicator.destroy();
   }
 }
