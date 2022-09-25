@@ -6,5 +6,10 @@
       <summary>Move status icon right</summary>
       <description>Force the icon to move to right side of the status area</description>
     </key>
+    <key name="use-quick-settings" type="b">
+      <default>true</default>
+      <summary>Use quick settings menu</summary>
+      <description>Use the system quick settings area, instead of an indicator</description>
+    </key>
   </schema>
 </schemalist>

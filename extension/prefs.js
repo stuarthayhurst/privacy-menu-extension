@@ -20,10 +20,27 @@ var PrefsPages = class PrefsPages {
     this._builder = new Gtk.Builder();
     this._builder.set_translation_domain(Me.metadata.uuid);
 
-    this.createPreferences();
+    this.preferencesWidget = null;
+    this._createPreferences();
   }
 
-  createPreferences() {
+  _updateEnabledSettings() {
+    //If using the quick settings area and running GNOME 43, disable 'move-icon-setting'
+    let moveIconBox = this._builder.get_object('move-icon-setting');
+    if (ShellVersion >= 43 && this._settings.get_boolean('use-quick-settings')) {
+      moveIconBox.set_sensitive(false);
+    } else {
+      moveIconBox.set_sensitive(true);
+    }
+
+    //Grey out GNOME 43+ settings on earlier version
+    if (ShellVersion < 43) {
+      let quickSettingsBox = this._builder.get_object('gnome-43-settings-area');
+      quickSettingsBox.set_sensitive(false);
+    }
+  }
+
+  _createPreferences() {
     //Use different UI file for GNOME 40+ and 3.38
     if (ShellVersion >= 40) {
       this._builder.add_from_file(Me.path + '/ui/prefs-gtk4.ui');
@@ -34,22 +51,32 @@ var PrefsPages = class PrefsPages {
     //Get the settings container widget
     this.preferencesWidget = this._builder.get_object('main-prefs');
 
-    this.settingElements = {
+    let settingElements = {
       'move-icon-switch': {
         'settingKey': 'move-icon-right',
+        'bindProperty': 'active'
+      },
+      'use-quick-settings-switch': {
+        'settingKey': 'use-quick-settings',
         'bindProperty': 'active'
       }
     }
 
     //Loop through settings toggles and dropdowns and bind together
-    Object.keys(this.settingElements).forEach((element) => {
+    Object.keys(settingElements).forEach((element) => {
       this._settings.bind(
-        this.settingElements[element].settingKey, //GSettings key to bind to
+        settingElements[element].settingKey, //GSettings key to bind to
         this._builder.get_object(element), //GTK UI element to bind to
-        this.settingElements[element].bindProperty, //The property to share
+        settingElements[element].bindProperty, //The property to share
         Gio.SettingsBindFlags.DEFAULT
       );
     });
+
+    //Disable unavailable settings
+    this._settingsChangedSignal = this._settings.connect('changed', () => {
+      this._updateEnabledSettings();
+    });
+    this._updateEnabledSettings();
   }
 }
 
@@ -74,7 +101,7 @@ function fillPreferencesWindow(window) {
   window.add(settingsPage);
 }
 
-//Create preferences window for GNOME 3.38-41
+//Create preferences window for GNOME 3.38 - 41
 function buildPrefsWidget() {
   let prefsPages = new PrefsPages();
   let settingsWindow = new Gtk.ScrolledWindow();
