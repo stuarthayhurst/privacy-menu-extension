@@ -4,7 +4,7 @@
 
 ## Privacy Quick Settings Menu GNOME Extension
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN)
-  - Add a privacy menu to the top bar for quick access to privacy settings in GNOME
+  - Add privacy quick settings to the system menu for quick access to privacy settings in GNOME
   - Supports GNOME 3.38+, earlier versions are untested
   - Get the extension from [here](https://extensions.gnome.org/extension/4491/privacy-settings-menu/)
   - This project is licensed under GPL 3.0
