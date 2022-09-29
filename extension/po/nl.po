@@ -1,4 +1,4 @@
-# Dutch translation for the Privacy Settings Menu GNOME Shell Extension.
+# Dutch translation for the Privacy Quick Settings Menu GNOME Extension.
 # Copyright (C) 2021 Stuart Hayhurst
 # This file is distributed under the same license as the privacy-menu-extension package.
 # Heimen Stoffels <vistausss@fastmail.com>, 2021.
@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-22 12:48+0100\n"
+"POT-Creation-Date: 2022-09-29 22:04+0100\n"
 "PO-Revision-Date: 2022-05-22 14:46+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -18,39 +18,39 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
 
-#: extension.js:39
+#: extension.js:43
 msgid "Privacy Settings Menu Indicator"
 msgstr "Privacyvoorkeuren-indicator"
 
-#: extension.js:58
+#: extension.js:62
 msgid "Enabled"
 msgstr "Ingeschakeld"
 
-#: extension.js:64
+#: extension.js:68
 msgid "Privacy Settings"
 msgstr "Privacyvoorkeuren"
 
-#: extension.js:70
+#: extension.js:74 extension.js:186
 msgid "Location"
 msgstr "Locatie"
 
-#: extension.js:71
+#: extension.js:75 extension.js:187
 msgid "Camera"
 msgstr "Camera"
 
-#: extension.js:72
+#: extension.js:76 extension.js:188
 msgid "Microphone"
 msgstr "Microfoon"
 
-#: extension.js:99
+#: extension.js:103
 msgid "Reset settings"
 msgstr "Standaardwaarden herstellen"
 
-#: extension.js:101
+#: extension.js:105
 msgid "Reset to defaults"
 msgstr "Standaardwaarden"
 
-#: prefs.js:68 prefs.js:84
+#: prefs.js:95 prefs.js:111
 msgid "Settings"
 msgstr "Voorkeuren"
 
@@ -59,23 +59,37 @@ msgstr "Voorkeuren"
 msgid "Reset privacy settings"
 msgstr "De standaardwaarden zijn hersteld"
 
-#: ui/prefs.ui:29
+#: ui/prefs.ui:40
+msgid "General settings"
+msgstr "Algemene voorkeuren"
+
+#. This is a tooltip
+#: ui/prefs.ui:76
+msgid "Force the icon to move to right side of the status area"
+msgstr "Verplaats het pictogram naar de rechterkant van het systeemvak"
+
+#: ui/prefs.ui:95
+msgid "Move status icon right"
+msgstr "Systeemvakpictogram naar rechts verplaatsen"
+
+#: ui/prefs.ui:168
+msgid "GNOME 43+ settings"
+msgstr ""
+
+#. This is a tooltip
+#: ui/prefs.ui:204
+msgid "Use the system quick settings area, instead of an indicator"
+msgstr ""
+
+#: ui/prefs.ui:223
+msgid "Use quick settings menu"
+msgstr ""
+
+#: ui/prefs.ui:286
 msgid ""
 "Found this useful?\n"
 "<a href=\"https://paypal.me/stuartahayhurst\">Consider donating</a> :)"
 msgstr ""
 "Gebruikt u deze uitbreiding graag?\n"
-"<a href=\"https://paypal.me/stuartahayhurst\">Overweeg dan een donatie te doen</a> :)"
-
-#: ui/prefs.ui:69
-msgid "General settings"
-msgstr "Algemene voorkeuren"
-
-#. This is a tooltip
-#: ui/prefs.ui:105
-msgid "Force the icon to move to right side of the status area"
-msgstr "Verplaats het pictogram naar de rechterkant van het systeemvak"
-
-#: ui/prefs.ui:124
-msgid "Move status icon right"
-msgstr "Systeemvakpictogram naar rechts verplaatsen"
+"<a href=\"https://paypal.me/stuartahayhurst\">Overweeg dan een donatie te "
+"doen</a> :)"

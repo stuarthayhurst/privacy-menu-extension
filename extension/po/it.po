@@ -1,4 +1,4 @@
-# Italian translation for the Privacy Settings Menu GNOME Shell Extension.
+# Italian translation for the Privacy Quick Settings Menu GNOME Extension.
 # Copyright (C) 2021 Stuart Hayhurst
 # This file is distributed under the same license as the privacy-menu-extension package.
 # Albano Battistella <albano_battistella@hotmail.com>, 2021,2022.
@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-22 12:46+0100\n"
+"POT-Creation-Date: 2022-09-29 22:01+0100\n"
 "PO-Revision-Date: 2022-05-22 14:52+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <LL@li.org>\n"
@@ -16,39 +16,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:39
+#: extension.js:43
 msgid "Privacy Settings Menu Indicator"
 msgstr "Indicatore del menu delle impostazioni sulla privacy"
 
-#: extension.js:58
+#: extension.js:62
 msgid "Enabled"
 msgstr "Abilitato"
 
-#: extension.js:64
+#: extension.js:68
 msgid "Privacy Settings"
 msgstr "Impostazioni Privacy"
 
-#: extension.js:70
+#: extension.js:74 extension.js:186
 msgid "Location"
 msgstr "Posizione"
 
-#: extension.js:71
+#: extension.js:75 extension.js:187
 msgid "Camera"
 msgstr "Fotocamera"
 
-#: extension.js:72
+#: extension.js:76 extension.js:188
 msgid "Microphone"
 msgstr "Microfono"
 
-#: extension.js:99
+#: extension.js:103
 msgid "Reset settings"
 msgstr "Ripristina impostazioni"
 
-#: extension.js:101
+#: extension.js:105
 msgid "Reset to defaults"
 msgstr "Ripristina le impostazioni predefinite"
 
-#: prefs.js:68 prefs.js:84
+#: prefs.js:95 prefs.js:111
 msgid "Settings"
 msgstr "Impostazioni"
 
@@ -57,23 +57,36 @@ msgstr "Impostazioni"
 msgid "Reset privacy settings"
 msgstr "Ripristina impostazioni privacy"
 
-#: ui/prefs.ui:29
+#: ui/prefs.ui:40
+msgid "General settings"
+msgstr "Impostazioni generali"
+
+#. This is a tooltip
+#: ui/prefs.ui:76
+msgid "Force the icon to move to right side of the status area"
+msgstr "Forza lo spostamento dell'icona sul lato destro dell'area di stato"
+
+#: ui/prefs.ui:95
+msgid "Move status icon right"
+msgstr "Sposta l'icona di stato a destra"
+
+#: ui/prefs.ui:168
+msgid "GNOME 43+ settings"
+msgstr ""
+
+#. This is a tooltip
+#: ui/prefs.ui:204
+msgid "Use the system quick settings area, instead of an indicator"
+msgstr ""
+
+#: ui/prefs.ui:223
+msgid "Use quick settings menu"
+msgstr ""
+
+#: ui/prefs.ui:286
 msgid ""
 "Found this useful?\n"
 "<a href=\"https://paypal.me/stuartahayhurst\">Consider donating</a> :)"
 msgstr ""
 "L'hai trovato utile?\n"
 "<a href=\"https://paypal.me/stuartahayhurst\">Considera una donazione</a> :)"
-
-#: ui/prefs.ui:69
-msgid "General settings"
-msgstr "Impostazioni generali"
-
-#. This is a tooltip
-#: ui/prefs.ui:105
-msgid "Force the icon to move to right side of the status area"
-msgstr "Forza lo spostamento dell'icona sul lato destro dell'area di stato"
-
-#: ui/prefs.ui:124
-msgid "Move status icon right"
-msgstr "Sposta l'icona di stato a destra"
