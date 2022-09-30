@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-09-29 22:04+0100\n"
-"PO-Revision-Date: 2022-05-22 14:46+0200\n"
+"PO-Revision-Date: 2022-09-30 14:08+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #: extension.js:43
 msgid "Privacy Settings Menu Indicator"
@@ -74,16 +74,18 @@ msgstr "Systeemvakpictogram naar rechts verplaatsen"
 
 #: ui/prefs.ui:168
 msgid "GNOME 43+ settings"
-msgstr ""
+msgstr "GNOME 43+-voorkeuren"
 
 #. This is a tooltip
 #: ui/prefs.ui:204
 msgid "Use the system quick settings area, instead of an indicator"
 msgstr ""
+"Voeg de voorkeuren toe aan de snelle voorkeuren in plaats van aan een "
+"losse indicator"
 
 #: ui/prefs.ui:223
 msgid "Use quick settings menu"
-msgstr ""
+msgstr "Toevoegen aan snelle voorkeuren"
 
 #: ui/prefs.ui:286
 msgid ""
