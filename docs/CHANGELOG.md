@@ -1,10 +1,17 @@
 ## Changelog:
 
-### v7: - `2022-09-11`:
+### v8: - `2022-10-03`
+ - Added support for new quick settings area (GNOME 43+)
+ - Renamed extension to display as "Privacy Quick Settings Menu"
+ - Updated extension logo and screenshot
+ - Updated README and styling
+ - Code quality improvements
+
+### v7: - `2022-09-11`
  - Added GNOME 43 support
  - Minor documentation changes
 
-### v6: - `2022-05-22`:
+### v6: - `2022-05-22`
  - Updated GitHub runner to Ubuntu 22.04 and Python 3.10, test entire build system faster
  - Added preferences menu (#8)
  - Added preference for position of the status indicator (#8)
@@ -13,7 +20,7 @@
  - Build system and structure improvements
  - Code styling and quality improvements
 
-### v5: - `2022-03-12`:
+### v5: - `2022-03-12`
  - GNOME 42 support (no changes required)
  - Build system updates
 
