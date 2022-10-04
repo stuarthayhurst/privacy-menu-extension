@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-09-29 22:01+0100\n"
-"PO-Revision-Date: 2022-05-22 14:52+0100\n"
+"PO-Revision-Date: 2022-10-04 18:52+0100\n"
 "Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
 "Language-Team: Italian <LL@li.org>\n"
 "Language: it\n"
@@ -72,16 +72,16 @@ msgstr "Sposta l'icona di stato a destra"
 
 #: ui/prefs.ui:168
 msgid "GNOME 43+ settings"
-msgstr ""
+msgstr "Impostazioni di GNOME 43+"
 
 #. This is a tooltip
 #: ui/prefs.ui:204
 msgid "Use the system quick settings area, instead of an indicator"
-msgstr ""
+msgstr "Utilizzare l'area delle impostazioni rapide del sistema, invece di un indicatore"
 
 #: ui/prefs.ui:223
 msgid "Use quick settings menu"
-msgstr ""
+msgstr "Usa il menu delle impostazioni rapide"
 
 #: ui/prefs.ui:286
 msgid ""
