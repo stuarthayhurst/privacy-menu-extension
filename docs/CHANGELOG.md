@@ -1,5 +1,9 @@
 ## Changelog:
 
+### v9: - `2022-10-09`
+ - Updated Italian translation #18
+ - Added Russian translation - [ikibastus1](https://github.com/ikibastus1)
+
 ### v8: - `2022-10-03`
  - Added support for new quick settings area (GNOME 43+)
  - Renamed extension to display as "Privacy Quick Settings Menu"
