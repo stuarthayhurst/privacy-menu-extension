@@ -7,7 +7,7 @@ const { ExtensionHelper } = Me.imports.lib;
 const ShellVersion = parseFloat(imports.misc.config.PACKAGE_VERSION);
 
 //Main imports
-const { Gtk, Gio, GLib } = imports.gi;
+const { Gtk, Gio } = imports.gi;
 const Adw = ShellVersion >= 42 ? imports.gi.Adw : null;
 
 //Use _() for translations
