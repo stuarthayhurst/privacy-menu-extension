@@ -5,7 +5,7 @@ COMPRESSLEVEL = -o7
 .PHONY: build check release translations gtk4 prune compress install uninstall clean
 
 build: clean
-	glib-compile-schemas extension/schemas
+	glib-compile-schemas --strict extension/schemas
 	cd "extension"; \
 	gnome-extensions pack --force --podir=po --extra-source=../LICENSE.txt --extra-source=../docs/CHANGELOG.md --extra-source=icons/ --extra-source=ui --extra-source=lib/; \
 	mv "$(UUID).shell-extension.zip" ../
