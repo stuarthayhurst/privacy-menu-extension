@@ -2,22 +2,32 @@ SHELL = bash
 UUID = PrivacyMenu@stuarthayhurst
 COMPRESSLEVEL = -o7
 
+BUILD_DIR = build
 PNG_FILES = $(wildcard ./docs/*.png)
+BUNDLE_PATH="$(BUILD_DIR)/$(UUID).shell-extension.zip"
 
 .PHONY: build package check release translations gtk4 prune compress install uninstall clean $(PNG_FILES)
 
 build: clean
-	glib-compile-schemas --strict extension/schemas
+	@mkdir -p $(BUILD_DIR)
+	glib-compile-schemas --strict extension/schemas --targetdir $(BUILD_DIR)
 	$(MAKE) package
 package:
+	@mkdir -p $(BUILD_DIR)
 	@echo "Packing files..."
 	@cd "extension"; \
-	gnome-extensions pack --force --podir=po --extra-source=../LICENSE.txt --extra-source=../docs/CHANGELOG.md --extra-source=icons/ --extra-source=ui --extra-source=lib/; \
-	mv "$(UUID).shell-extension.zip" ../
+	gnome-extensions pack --force \
+	--podir=po \
+	--extra-source=../LICENSE.txt \
+	--extra-source=../docs/CHANGELOG.md \
+	--extra-source=icons/ \
+	--extra-source=ui/ \
+	--extra-source=lib/ \
+	-o ../build/
 check:
-	@if [[ ! -f "$(UUID).shell-extension.zip" ]]; then \
-	  echo -e "WARNING! Extension zip couldn't be found"; exit 1; \
-	elif [[ "$$(stat -c %s $(UUID).shell-extension.zip)" -gt 4096000 ]]; then \
+	@if [[ ! -f $(BUNDLE_PATH) ]]; then \
+	  echo -e "\nWARNING! Extension zip couldn't be found"; exit 1; \
+	elif [[ "$$(stat -c %s $(BUNDLE_PATH))" -gt 4096000 ]]; then \
 	  echo -e "\nWARNING! The extension is too big to be uploaded to the extensions website, keep it smaller than 4096 KB"; exit 1; \
 	fi
 release:
@@ -42,13 +52,14 @@ $(PNG_FILES):
 	@echo "Compressing $@..."
 	@optipng $(COMPRESSLEVEL) -quiet -strip all "$@"
 install:
-	@if [[ ! -f "$(UUID).shell-extension.zip" ]]; then \
+	@if [[ ! -f $(BUNDLE_PATH) ]]; then \
 	  $(MAKE) build; \
 	fi
-	gnome-extensions install "$(UUID).shell-extension.zip" --force
+	gnome-extensions install $(BUNDLE_PATH) --force
 uninstall:
 	gnome-extensions uninstall "$(UUID)"
 clean:
+	@rm -rfv $(BUILD_DIR)
 	@rm -rfv extension/locale extension/schemas/gschemas.compiled "$(UUID).shell-extension.zip"
 	@rm -rfv locale schemas/gschemas.compiled "$(UUID).shell-extension.zip"
 	@rm -rfv extension/po/*.po~ extension/*.ui~ extension/ui/*.ui~ extension/ui/*.ui#
