@@ -2,7 +2,9 @@ SHELL = bash
 UUID = PrivacyMenu@stuarthayhurst
 COMPRESSLEVEL = -o7
 
-.PHONY: build check release translations gtk4 prune compress install uninstall clean
+PNG_FILES = $(wildcard ./docs/*.png)
+
+.PHONY: build check release translations gtk4 prune compress install uninstall clean $(PNG_FILES)
 
 build: clean
 	glib-compile-schemas --strict extension/schemas
@@ -32,7 +34,9 @@ gtk4:
 prune:
 	./scripts/clean-svgs.py
 compress:
-	optipng $(COMPRESSLEVEL) -strip all docs/*.png
+	$(MAKE) $(PNG_FILES)
+$(PNG_FILES):
+	optipng $(COMPRESSLEVEL) -strip all "$@"
 install:
 	gnome-extensions install "$(UUID).shell-extension.zip" --force
 uninstall:
