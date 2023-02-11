@@ -32,7 +32,7 @@ gtk4:
 prune:
 	./scripts/clean-svgs.py
 compress:
-	optipng "$(COMPRESSLEVEL)" -strip all docs/*.png
+	optipng $(COMPRESSLEVEL) -strip all docs/*.png
 install:
 	gnome-extensions install "$(UUID).shell-extension.zip" --force
 uninstall:
