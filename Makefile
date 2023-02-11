@@ -4,11 +4,14 @@ COMPRESSLEVEL = -o7
 
 PNG_FILES = $(wildcard ./docs/*.png)
 
-.PHONY: build check release translations gtk4 prune compress install uninstall clean $(PNG_FILES)
+.PHONY: build package check release translations gtk4 prune compress install uninstall clean $(PNG_FILES)
 
 build: clean
 	glib-compile-schemas --strict extension/schemas
-	cd "extension"; \
+	$(MAKE) package
+package:
+	@echo "Packing files..."
+	@cd "extension"; \
 	gnome-extensions pack --force --podir=po --extra-source=../LICENSE.txt --extra-source=../docs/CHANGELOG.md --extra-source=icons/ --extra-source=ui --extra-source=lib/; \
 	mv "$(UUID).shell-extension.zip" ../
 check:
@@ -36,8 +39,12 @@ prune:
 compress:
 	$(MAKE) $(PNG_FILES)
 $(PNG_FILES):
-	optipng $(COMPRESSLEVEL) -strip all "$@"
+	@echo "Compressing $@..."
+	@optipng $(COMPRESSLEVEL) -quiet -strip all "$@"
 install:
+	@if [[ ! -f "$(UUID).shell-extension.zip" ]]; then \
+	  $(MAKE) build; \
+	fi
 	gnome-extensions install "$(UUID).shell-extension.zip" --force
 uninstall:
 	gnome-extensions uninstall "$(UUID)"
