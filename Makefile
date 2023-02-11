@@ -1,6 +1,6 @@
 SHELL = bash
 UUID = PrivacyMenu@stuarthayhurst
-COMPRESSLEVEL = -o7
+COMPRESSLEVEL ?= -o7
 
 BUILD_DIR = build
 PNG_FILES = $(wildcard ./docs/*.png)
