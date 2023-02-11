@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-29 22:04+0100\n"
+"POT-Creation-Date: 2023-02-11 12:16+0000\n"
 "PO-Revision-Date: 2022-09-30 14:08+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -59,35 +59,35 @@ msgstr "Voorkeuren"
 msgid "Reset privacy settings"
 msgstr "De standaardwaarden zijn hersteld"
 
-#: ui/prefs.ui:40
+#: ui/prefs.ui:34
 msgid "General settings"
 msgstr "Algemene voorkeuren"
 
 #. This is a tooltip
-#: ui/prefs.ui:76
+#: ui/prefs.ui:57
 msgid "Force the icon to move to right side of the status area"
 msgstr "Verplaats het pictogram naar de rechterkant van het systeemvak"
 
-#: ui/prefs.ui:95
+#: ui/prefs.ui:73
 msgid "Move status icon right"
 msgstr "Systeemvakpictogram naar rechts verplaatsen"
 
-#: ui/prefs.ui:168
+#: ui/prefs.ui:131
 msgid "GNOME 43+ settings"
 msgstr "GNOME 43+-voorkeuren"
 
 #. This is a tooltip
-#: ui/prefs.ui:204
+#: ui/prefs.ui:154
 msgid "Use the system quick settings area, instead of an indicator"
 msgstr ""
-"Voeg de voorkeuren toe aan de snelle voorkeuren in plaats van aan een "
-"losse indicator"
+"Voeg de voorkeuren toe aan de snelle voorkeuren in plaats van aan een losse "
+"indicator"
 
-#: ui/prefs.ui:223
+#: ui/prefs.ui:170
 msgid "Use quick settings menu"
 msgstr "Toevoegen aan snelle voorkeuren"
 
-#: ui/prefs.ui:286
+#: ui/prefs.ui:221
 msgid ""
 "Found this useful?\n"
 "<a href=\"https://paypal.me/stuartahayhurst\">Consider donating</a> :)"
