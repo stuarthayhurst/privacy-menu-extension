@@ -114,11 +114,19 @@ const PrivacyQuickToggle = ShellVersion >= 43 ? GObject.registerClass(
   class PrivacyQuickToggle extends QuickSettings.QuickToggle {
     _init(settingName, settingIcon, settingSchema, settingKey, settingBindFlag) {
       //Set up the quick setting toggle
-      super._init({
-        label: settingName,
-        iconName: settingIcon,
-        toggleMode: true,
-      });
+      if (ShellVersion >= 44) {
+        super._init({
+          title: settingName,
+          iconName: settingIcon,
+          toggleMode: true,
+        });
+      } else {
+        super._init({
+          label: settingName,
+          iconName: settingIcon,
+          toggleMode: true,
+        });
+      }
 
       //GSettings access
       this._settings = new Gio.Settings({schema: settingSchema});
