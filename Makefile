@@ -6,7 +6,7 @@ BUILD_DIR ?= build
 PNG_FILES = $(wildcard ./docs/*.png)
 BUNDLE_PATH = "$(BUILD_DIR)/$(UUID).shell-extension.zip"
 
-.PHONY: build package check release translations gtk4 prune compress install uninstall clean $(PNG_FILES)
+.PHONY: build package check release translations gtk4 compress install uninstall clean $(PNG_FILES)
 
 build: clean
 	@mkdir -p $(BUILD_DIR)
@@ -45,8 +45,6 @@ translations:
 gtk4:
 	gtk-builder-tool simplify --replace extension/ui/prefs.ui
 	gtk4-builder-tool simplify --3to4 extension/ui/prefs.ui > extension/ui/prefs-gtk4.ui
-prune:
-	./scripts/clean-svgs.py
 compress:
 	$(MAKE) $(PNG_FILES)
 $(PNG_FILES):
