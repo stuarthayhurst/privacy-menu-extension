@@ -37,7 +37,6 @@
     - `make clean`: Deletes extension zip
     - `make translations`: Updates translations
     - `make gtk4`: Simplifies and converts UI files (Should be run after any changes to files in `ui/`)
-    - `make prune`: Removes rubbish from any .svgs in `docs/`
     - `make compress`: Losslessly compresses any .pngs in `docs/`
     - `make release`: Updates the UI, translations and icons, then creates and checks an extension zip
 
@@ -49,7 +48,6 @@
 ## Build dependencies: (Only required if running `make release`)
   - `All install dependencies`
   - sed (`make translations`)
-  - python3 (`make prune`)
   - libgtk-3-bin (`make gtk4`)
   - libgtk-4-bin (`make gtk4`)
   - optipng (`make compress`)
