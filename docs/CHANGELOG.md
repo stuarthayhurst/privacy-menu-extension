@@ -1,5 +1,11 @@
 ## Changelog:
 
+### v10: - `2023-03-01`
+ - Removed unused import from `prefs.js`
+ - Build system, runner and README improvements
+ - Simplify UI file definitions
+ - Added GNOME 44 support
+
 ### v9: - `2022-10-09`
  - Updated Italian translation #18
  - Added Russian translation - [ikibastus1](https://github.com/ikibastus1)
