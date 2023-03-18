@@ -211,6 +211,15 @@ class Extension {
 
     //Add the toggles to the system menu
     QuickSettingsMenu._addItems(this._quickSettingToggles);
+
+    //Place the toggles above the background apps entry
+    if (ShellVersion >= 44) {
+      this._quickSettingToggles.forEach((item) => {
+        QuickSettingsMenu.menu._grid.set_child_below_sibling(item,
+          QuickSettingsMenu._backgroundApps.quickSettingsItems[0]);
+      });
+    }
+
   }
 
   _destroyQuickSettings() {
