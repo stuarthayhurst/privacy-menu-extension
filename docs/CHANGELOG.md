@@ -1,5 +1,9 @@
 ## Changelog:
 
+### v11: - `2023-03-20`
+ - Added Finnish translation - [SamuLumio](https://github.com/SamuLumio) (#21)
+ - Moved settings toggles above background apps entry in GNOME 44
+
 ### v10: - `2023-03-01`
  - Removed unused import from `prefs.js`
  - Build system, runner and README improvements
