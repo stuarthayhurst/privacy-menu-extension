@@ -1,5 +1,5 @@
 {
-  "name": "Privacy Quick Settings Menu",
+  "name": "Privacy Quick Settings",
   "description": "Add privacy settings toggles to the GNOME system menu",
   "uuid": "PrivacyMenu@stuarthayhurst",
   "gettext-domain": "PrivacyMenu@stuarthayhurst",

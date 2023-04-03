@@ -2,7 +2,7 @@
   <img src="https://github.com/stuarthayhurst/privacy-menu-extension/raw/master/docs/icon.svg" alt="privacy-settings-menu" width="200px">
 </p>
 
-## Privacy Quick Settings Menu GNOME Extension
+## Privacy Quick Settings GNOME Extension
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate?hosted_button_id=G2REEPPNZK9GN)
   - Add privacy quick settings to the system menu for quick access to privacy settings in GNOME
   - Supports GNOME 3.38+, earlier versions are untested
