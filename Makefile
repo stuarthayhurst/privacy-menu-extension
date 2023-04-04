@@ -40,8 +40,8 @@ release:
 	$(MAKE) build
 	$(MAKE) check
 translations:
-	./scripts/update-pot.sh
-	./scripts/update-po.sh -a
+	@./scripts/update-pot.sh
+	@./scripts/update-po.sh -a
 gtk4:
 	gtk-builder-tool simplify --replace extension/ui/prefs.ui
 	gtk4-builder-tool simplify --3to4 extension/ui/prefs.ui > extension/ui/prefs-gtk4.ui
