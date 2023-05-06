@@ -1,0 +1,94 @@
+# <LANGUAGE> translation for the Privacy Quick Settings Menu GNOME Extension.
+# Copyright (C) 2023 Stuart Hayhurst
+# This file is distributed under the same license as the privacy-menu-extension package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: privacy-menu-extension\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-11 12:16+0000\n"
+"PO-Revision-Date: 2023-05-06 16:47+0330\n"
+"Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
+"Language-Team: \n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: extension.js:43
+msgid "Privacy Settings Menu Indicator"
+msgstr "نشانگر فهرست تنظیمات حریم خصوصی"
+
+#: extension.js:62
+msgid "Enabled"
+msgstr "به کار افتاده است"
+
+#: extension.js:68
+msgid "Privacy Settings"
+msgstr "تنظیمات حریم خصوصی"
+
+#: extension.js:74 extension.js:186
+msgid "Location"
+msgstr "مکان"
+
+#: extension.js:75 extension.js:187
+msgid "Camera"
+msgstr "دوربین"
+
+#: extension.js:76 extension.js:188
+msgid "Microphone"
+msgstr "صدابَر"
+
+#: extension.js:103
+msgid "Reset settings"
+msgstr "بازنشانی تنظیمات"
+
+#: extension.js:105
+msgid "Reset to defaults"
+msgstr "بازنشانی به پیش‌گزیده"
+
+#: prefs.js:95 prefs.js:111
+msgid "Settings"
+msgstr "تنظیمات"
+
+#. Translators: Reset is past tense, as in it's just reset the settings
+#: lib/ExtensionHelper.js:21
+msgid "Reset privacy settings"
+msgstr "بازنشانی تنظیمات حریم خصوصی"
+
+#: ui/prefs.ui:34
+msgid "General settings"
+msgstr "تنظیمات عمومی"
+
+#. This is a tooltip
+#: ui/prefs.ui:57
+msgid "Force the icon to move to right side of the status area"
+msgstr "انتقال اجباری نقشک به سمت راست ناحیهٔ وضعیت"
+
+#: ui/prefs.ui:73
+msgid "Move status icon right"
+msgstr "انتقال نقشک وضعیت به راست"
+
+#: ui/prefs.ui:131
+msgid "GNOME 43+ settings"
+msgstr "تنظیمات گنوم ۴۳+"
+
+#. This is a tooltip
+#: ui/prefs.ui:154
+msgid "Use the system quick settings area, instead of an indicator"
+msgstr "استفاده از ناحیهٔ تنظیمات سریع به جای نشانگر"
+
+#: ui/prefs.ui:170
+msgid "Use quick settings menu"
+msgstr "استفاده از فهرست تنظیمات سریع"
+
+#: ui/prefs.ui:221
+msgid ""
+"Found this useful?\n"
+"<a href=\"https://paypal.me/stuartahayhurst\">Consider donating</a> :)"
+msgstr ""
+"برایتان مفید بود؟\n"
+"<a href=\"https://paypal.me/stuartahayhurst\">اعانه فراموش نشود</a> :)"
