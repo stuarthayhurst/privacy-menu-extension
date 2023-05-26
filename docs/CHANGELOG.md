@@ -1,5 +1,11 @@
 ## Changelog:
 
+### v12: - `2023-05-27`
+ - Renamed extension to "Privacy Quick Settings"
+ - Replaced tray icon with system privacy icon
+ - Added Czech translation - [Amereyeu](https://github.com/Amereyeu) (#22)
+ - Added Persian translation - [mskf1383](https://github.com/mskf1383) (#23)
+
 ### v11: - `2023-03-20`
  - Added Finnish translation - [SamuLumio](https://github.com/SamuLumio) (#21)
  - Moved settings toggles above background apps entry in GNOME 44
