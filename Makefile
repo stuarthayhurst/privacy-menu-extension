@@ -20,7 +20,6 @@ package:
 	--podir=po \
 	--extra-source=../LICENSE.txt \
 	--extra-source=../docs/CHANGELOG.md \
-	--extra-source=icons/ \
 	--extra-source=ui/ \
 	--extra-source=lib/ \
 	-o ../$(BUILD_DIR)/

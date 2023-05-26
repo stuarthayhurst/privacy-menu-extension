@@ -44,7 +44,7 @@ const PrivacyIndicator = GObject.registerClass(
 
       //Set an icon for the indicator
       this.add_child(new St.Icon({
-        gicon: Gio.icon_new_for_string(Me.path + '/icons/privacy-indicator-symbolic.svg'),
+        gicon: Gio.ThemedIcon.new('preferences-system-privacy-symbolic'),
         style_class: 'system-status-icon'
       }));
 
