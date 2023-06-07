@@ -5,6 +5,9 @@
   "gettext-domain": "PrivacyMenu@stuarthayhurst",
   "settings-schema": "org.gnome.shell.extensions.privacy-menu",
   "url": "https://github.com/stuarthayhurst/privacy-menu-extension",
+  "donations": {
+    "paypal": "stuartahayhurst"
+  },
   "shell-version": [
     "3.38",
     "40",
