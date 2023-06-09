@@ -227,9 +227,15 @@ class Extension {
     this._extensionSettings.disconnect(this._settingsChangedSignal);
   }
 
-  _useQuickSettings() {
-    //Return true if running GNOME 43+ and quick settings are enabled
-    return this._extensionSettings.get_boolean('use-quick-settings') && ShellVersion >= 43;
+  _decideMenuType() {
+    //Return 'quick-toggles' if running GNOME 43+ and quick settings are enabled
+    if (this._extensionSettings.get_boolean('use-quick-settings')) {
+      if (ShellVersion >= 43) {
+        return 'quick-toggles';
+      }
+    }
+
+    return 'indicator';
   }
 
   initMenu() {
@@ -246,9 +252,10 @@ class Extension {
 
   _createMenu() {
     //Create the correct type of menu, from preference and capabilities
-    if (this._useQuickSettings()) {
+    let menuType = this._decideMenuType();
+    if (menuType == 'quick-toggles') {
       this._privacyManager = new QuickSettingsManager();
-    } else {
+    } else if (menuType == 'indicator') {
       this._privacyManager = new IndicatorSettingsManager();
     }
   }
