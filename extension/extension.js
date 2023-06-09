@@ -142,53 +142,10 @@ const PrivacyQuickToggle = ShellVersion >= 43 ? GObject.registerClass(
   }
 ) : null;
 
-class Extension {
+class QuickSettingsManager {
   constructor() {
-    this._indicator = null;
-    this._activeMenuType = '';
-    this._extensionSettings = ExtensionUtils.getSettings();
     this._quickSettingToggles = [];
-  }
 
-  disconnectListeners() {
-    this._extensionSettings.disconnect(this._settingsChangedSignal);
-  }
-
-  initMenu() {
-    //Create the correct type of menu
-    this._createMenu();
-
-    //When settings change, recreate the menu
-    this._settingsChangedSignal = this._extensionSettings.connect('changed', () => {
-      //Destroy existing menu and create new menu
-      this.destroyMenu();
-      this._createMenu();
-    });
-  }
-
-  destroyMenu() {
-    //Destroy the active menu
-    if (this._activeMenuType == 'quick-settings') {
-      this._destroyQuickSettings();
-    } else if (this._activeMenuType == 'indicator') {
-      this._destroyIndicator();
-    }
-
-    this._activeMenuType = '';
-  }
-
-  _createMenu() {
-    //Create the correct type of menu
-    if (this._useQuickSettings()) {
-      this._activeMenuType = 'quick-settings';
-      this._createQuickSettings();
-    } else {
-      this._activeMenuType = 'indicator';
-      this._createIndicator();
-    }
-  }
-
-  _createQuickSettings() {
     //Info to create toggles: settingName, settingIcon, settingSchema, settingKey, settingBindFlag
     let quickSettingsInfo = [
       [_('Location'), 'location-services-active-symbolic', 'org.gnome.system.location', 'enabled', Gio.SettingsBindFlags.DEFAULT],
@@ -222,7 +179,7 @@ class Extension {
 
   }
 
-  _destroyQuickSettings() {
+  clean() {
     //Destroy each created quick settings toggle
     this._quickSettingToggles.forEach((quickSettingToggle) => {
       quickSettingToggle.destroy();
@@ -231,15 +188,13 @@ class Extension {
     //Remove each tracked entry
     this._quickSettingToggles = [];
   }
+}
 
-  _useQuickSettings() {
-    //Return true if running GNOME 43+ and quick settings are enabled
-    return this._extensionSettings.get_boolean('use-quick-settings') && ShellVersion >= 43;
-  }
-
-  _createIndicator() {
+class IndicatorSettingsManager {
+  constructor() {
     //Create and setup indicator and menu
     this._indicator = new PrivacyIndicator();
+    this._extensionSettings = ExtensionUtils.getSettings();
 
     //Add menu entries
     this._indicator.addEntries();
@@ -254,9 +209,55 @@ class Extension {
     Main.panel.addToStatusArea(Me.metadata.uuid, this._indicator, offset);
   }
 
-  _destroyIndicator() {
+  clean() {
     //Destroy the indicator
     this._indicator.remove_all_children();
     this._indicator.destroy();
+    this._inidcator = null;
+  }
+}
+
+class Extension {
+  constructor() {
+    this._privacyManager = null;
+    this._extensionSettings = ExtensionUtils.getSettings();
+  }
+
+  disconnectListeners() {
+    this._extensionSettings.disconnect(this._settingsChangedSignal);
+  }
+
+  _useQuickSettings() {
+    //Return true if running GNOME 43+ and quick settings are enabled
+    return this._extensionSettings.get_boolean('use-quick-settings') && ShellVersion >= 43;
+  }
+
+  initMenu() {
+    //Create the correct type of menu
+    this._createMenu();
+
+    //When settings change, recreate the menu
+    this._settingsChangedSignal = this._extensionSettings.connect('changed', () => {
+      //Destroy existing menu and create new menu
+      this.destroyMenu();
+      this._createMenu();
+    });
+  }
+
+  _createMenu() {
+    //Create the correct type of menu, from preference and capabilities
+    if (this._useQuickSettings()) {
+      this._privacyManager = new QuickSettingsManager();
+    } else {
+      this._privacyManager = new IndicatorSettingsManager();
+    }
+  }
+
+  destroyMenu() {
+    //Destroy the menu, if created
+    if (this._privacyManager != null) {
+      this._privacyManager.clean();
+      this._privacyManager = null;
+    }
   }
 }
