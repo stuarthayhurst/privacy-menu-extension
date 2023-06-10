@@ -1,5 +1,9 @@
 ## Changelog:
 
+### v13: - `2023-06-10`
+ - Added donation information to metadata
+ - Internal code structure changes (preparation for future)
+
 ### v12: - `2023-05-27`
  - Renamed extension to "Privacy Quick Settings"
  - Replaced tray icon with system privacy icon
