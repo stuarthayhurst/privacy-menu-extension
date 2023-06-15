@@ -43,9 +43,9 @@ var PrefsPages = class PrefsPages {
   _createPreferences() {
     //Use different UI file for GNOME 40+ and 3.38
     if (ShellVersion >= 40) {
-      this._builder.add_from_file(Me.path + '/ui/prefs-gtk4.ui');
+      this._builder.add_from_file(Me.path + '/ui/gtk4/prefs.ui');
     } else {
-      this._builder.add_from_file(Me.path + '/ui/prefs.ui');
+      this._builder.add_from_file(Me.path + '/ui/gtk3/prefs.ui');
     }
 
     //Get the settings container widget

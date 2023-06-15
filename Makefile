@@ -42,8 +42,8 @@ translations:
 	@./scripts/update-pot.sh
 	@./scripts/update-po.sh -a
 gtk4:
-	gtk-builder-tool simplify --replace extension/ui/prefs.ui
-	gtk4-builder-tool simplify --3to4 extension/ui/prefs.ui > extension/ui/prefs-gtk4.ui
+	gtk-builder-tool simplify --replace extension/ui/gtk3/prefs.ui
+	gtk4-builder-tool simplify --3to4 extension/ui/gtk3/prefs.ui > extension/ui/gtk4/prefs.ui
 compress:
 	$(MAKE) $(PNG_FILES)
 $(PNG_FILES):
