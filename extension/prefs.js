@@ -59,6 +59,10 @@ var PrefsPages = class PrefsPages {
       'use-quick-settings-switch': {
         'settingKey': 'use-quick-settings',
         'bindProperty': 'active'
+      },
+      'group-quick-settings-switch': {
+        'settingKey': 'group-quick-settings',
+        'bindProperty': 'active'
       }
     }
 
