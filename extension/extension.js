@@ -53,7 +53,7 @@ const PrivacyIndicator = GObject.registerClass(
       this._locationSettings = new Gio.Settings({schema: 'org.gnome.system.location'});
     }
 
-    createSettingToggle(popupLabel, iconName) {
+    _createSettingToggle(popupLabel, iconName) {
       //Create sub menu with an icon
       let subMenu = new PopupMenu.PopupSubMenuMenuItem(popupLabel, true);
       subMenu.icon.icon_name = iconName;
@@ -71,9 +71,9 @@ const PrivacyIndicator = GObject.registerClass(
       this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
 
       let subMenus = [
-        this.createSettingToggle(_('Location'), 'location-services-active-symbolic'),
-        this.createSettingToggle(_('Camera'), 'camera-photo-symbolic'),
-        this.createSettingToggle(_('Microphone'), 'audio-input-microphone-symbolic')
+        this._createSettingToggle(_('Location'), 'location-services-active-symbolic'),
+        this._createSettingToggle(_('Camera'), 'camera-photo-symbolic'),
+        this._createSettingToggle(_('Microphone'), 'audio-input-microphone-symbolic')
       ];
 
       let gsettingsSchemas = [
