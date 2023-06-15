@@ -5,13 +5,12 @@
   <object class="GtkBox" id="main-prefs">
     <property name="visible">1</property>
     <property name="orientation">vertical</property>
-    <!-- n-columns=3 n-rows=3 -->
     <child>
-      <object class="GtkGrid">
+      <object class="GtkBox">
         <property name="visible">1</property>
         <property name="margin-start">12</property>
         <property name="margin-end">12</property>
-        <property name="column-homogeneous">1</property>
+        <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox" id="general-settings-area">
             <property name="visible">1</property>
@@ -104,10 +103,6 @@
               </packing>
             </child>
           </object>
-          <packing>
-            <property name="left-attach">0</property>
-            <property name="top-attach">0</property>
-          </packing>
         </child>
         <child>
           <object class="GtkBox" id="gnome-43-settings-area">
@@ -259,8 +254,7 @@
             </child>
           </object>
           <packing>
-            <property name="left-attach">0</property>
-            <property name="top-attach">1</property>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
@@ -283,8 +277,7 @@
             </child>
           </object>
           <packing>
-            <property name="left-attach">0</property>
-            <property name="top-attach">2</property>
+            <property name="position">2</property>
           </packing>
         </child>
       </object>

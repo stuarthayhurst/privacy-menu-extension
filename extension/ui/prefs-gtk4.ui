@@ -4,10 +4,10 @@
   <object class="GtkBox" id="main-prefs">
     <property name="orientation">vertical</property>
     <child>
-      <object class="GtkGrid">
+      <object class="GtkBox">
         <property name="margin-start">12</property>
         <property name="margin-end">12</property>
-        <property name="column-homogeneous">1</property>
+        <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox" id="general-settings-area">
             <property name="orientation">vertical</property>
@@ -78,10 +78,6 @@
                 </style>
               </object>
             </child>
-            <layout>
-              <property name="column">0</property>
-              <property name="row">0</property>
-            </layout>
           </object>
         </child>
         <child>
@@ -198,10 +194,6 @@
                 </style>
               </object>
             </child>
-            <layout>
-              <property name="column">0</property>
-              <property name="row">1</property>
-            </layout>
           </object>
         </child>
         <child>
@@ -220,10 +212,6 @@
                 <property name="justify">center</property>
               </object>
             </child>
-            <layout>
-              <property name="column">0</property>
-              <property name="row">2</property>
-            </layout>
           </object>
         </child>
       </object>
