@@ -3,10 +3,11 @@ UUID = PrivacyMenu@stuarthayhurst
 COMPRESSLEVEL ?= -o7
 
 BUILD_DIR ?= build
+UI_FILES = $(wildcard ./extension/ui/gtk3/*.ui)
 PNG_FILES = $(wildcard ./docs/*.png)
 BUNDLE_PATH = "$(BUILD_DIR)/$(UUID).shell-extension.zip"
 
-.PHONY: build package check release translations gtk4 compress install uninstall clean $(PNG_FILES)
+.PHONY: build package check release translations gtk4 compress install uninstall clean $(UI_FILES) $(PNG_FILES)
 
 build: clean
 	@mkdir -p $(BUILD_DIR)
@@ -42,8 +43,14 @@ translations:
 	@./scripts/update-pot.sh
 	@./scripts/update-po.sh -a
 gtk4:
-	gtk-builder-tool simplify --replace extension/ui/gtk3/prefs.ui
-	gtk4-builder-tool simplify --3to4 extension/ui/gtk3/prefs.ui > extension/ui/gtk4/prefs.ui
+	@$(MAKE) $(UI_FILES)
+$(UI_FILES):
+	@fileNameGtk4=$@; \
+	fileNameGtk4="$${fileNameGtk4//gtk3/gtk4}"; \
+	echo "Cleaning $@"; \
+	gtk-builder-tool simplify --replace "$@"; \
+	echo "Converting $@ -> $$fileNameGtk4"; \
+	gtk4-builder-tool simplify --3to4 "$@" > "$$fileNameGtk4"
 compress:
 	$(MAKE) $(PNG_FILES)
 $(PNG_FILES):
