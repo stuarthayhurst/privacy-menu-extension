@@ -142,6 +142,69 @@ const PrivacyQuickToggle = ShellVersion >= 43 ? GObject.registerClass(
   }
 ) : null;
 
+//On GNOME 43+ create a class for the privacy quick settings group
+const PrivacyQuickGroup = ShellVersion >= 43 ? GObject.registerClass(
+  class PrivacyQuickGroup extends QuickSettings.QuickMenuToggle {
+    _init() {
+      //Set up the quick setting toggle
+      if (ShellVersion >= 44) {
+        super._init({
+          title: _('Privacy Settings'),
+          iconName: 'preferences-system-privacy-symbolic',
+          toggleMode: true,
+        });
+      } else {
+        super._init({
+          label: _('Privacy Settings'),
+          iconName: 'preferences-system-privacy-symbolic',
+          toggleMode: true,
+        });
+      }
+
+      //GSettings access
+      this._privacySettings = new Gio.Settings({schema: 'org.gnome.desktop.privacy'});
+      this._locationSettings = new Gio.Settings({schema: 'org.gnome.system.location'});
+
+      let subMenus = [
+        this._createSettingToggle(_('Location'), 'location-services-active-symbolic'),
+        this._createSettingToggle(_('Camera'), 'camera-photo-symbolic'),
+        this._createSettingToggle(_('Microphone'), 'audio-input-microphone-symbolic')
+      ];
+
+      let gsettingsSchemas = [
+        //Schema, key, bind flags
+        [this._locationSettings, 'enabled', Gio.SettingsBindFlags.DEFAULT],
+        [this._privacySettings, 'disable-camera', Gio.SettingsBindFlags.INVERT_BOOLEAN],
+        [this._privacySettings, 'disable-microphone', Gio.SettingsBindFlags.INVERT_BOOLEAN]
+      ];
+
+      //Create menu entries for each setting toggle
+      subMenus.forEach((subMenu, i) => {
+        gsettingsSchemas[i][0].bind(
+          gsettingsSchemas[i][1], //GSettings key to bind to
+          subMenu.menu.firstMenuItem._switch, //Toggle switch to bind to
+          'state', //Property to share
+          gsettingsSchemas[i][2] //Binding flags
+        );
+
+        //Add each submenu to the main menu
+        this.menu.addMenuItem(subMenu);
+      });
+    }
+
+//TODO: Rewrite this to support new design
+    _createSettingToggle(popupLabel, iconName) {
+      //Create sub menu with an icon
+      let subMenu = new PopupMenu.PopupSubMenuMenuItem(popupLabel, true);
+      subMenu.icon.icon_name = iconName;
+
+      //Add a toggle to the submenu, then return it
+      subMenu.menu.addMenuItem(new PopupMenu.PopupSwitchMenuItem(_('Enabled'), true, null));
+      return subMenu;
+    }
+  }
+) : null;
+
 class QuickSettingsManager {
   constructor() {
     this._quickSettingToggles = [];
@@ -176,7 +239,6 @@ class QuickSettingsManager {
           QuickSettingsMenu._backgroundApps.quickSettingsItems[0]);
       });
     }
-
   }
 
   clean() {
@@ -187,6 +249,26 @@ class QuickSettingsManager {
 
     //Remove each tracked entry
     this._quickSettingToggles = [];
+  }
+}
+
+class QuickGroupManager {
+  constructor() {
+    this._quickSettingsGroup = new PrivacyQuickGroup();
+
+    //Add the toggles to the system menu
+    QuickSettingsMenu._addItems([this._quickSettingsGroup]);
+
+    //Place the toggles above the background apps entry
+    if (ShellVersion >= 44) {
+      QuickSettingsMenu.menu._grid.set_child_below_sibling(this._quickSettingsGroup,
+        QuickSettingsMenu._backgroundApps.quickSettingsItems[0]);
+    }
+  }
+
+  clean() {
+    this._quickSettingsGroup.destroy();
+    this._quickSettingsGroup = null;
   }
 }
 
@@ -228,9 +310,16 @@ class Extension {
   }
 
   _decideMenuType() {
-    //Return 'quick-toggles' if running GNOME 43+ and quick settings are enabled
+    /*
+     - Return 'quick-toggles' if running GNOME 43+ and quick settings are enabled
+       - If quick settings grouping is enabled, return 'quick-group' instead
+     - Otherwise return 'indiactors'
+    */
     if (this._extensionSettings.get_boolean('use-quick-settings')) {
       if (ShellVersion >= 43) {
+        if (this._extensionSettings.get_boolean('group-quick-settings')) {
+          return 'quick-group';
+        }
         return 'quick-toggles';
       }
     }
@@ -255,6 +344,8 @@ class Extension {
     let menuType = this._decideMenuType();
     if (menuType == 'quick-toggles') {
       this._privacyManager = new QuickSettingsManager();
+    } else if (menuType == 'quick-group') {
+      this._privacyManager = new QuickGroupManager();
     } else if (menuType == 'indicator') {
       this._privacyManager = new IndicatorSettingsManager();
     }
