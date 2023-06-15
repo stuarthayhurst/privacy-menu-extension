@@ -200,7 +200,7 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkListBoxRow">
+                  <object class="GtkListBoxRow" id="group-quick-settings-setting">
                     <property name="visible">1</property>
                     <property name="can-focus">1</property>
                     <property name="tooltip-text" translatable="yes" comments="This is a tooltip">Group quick settings together, into a menu</property>

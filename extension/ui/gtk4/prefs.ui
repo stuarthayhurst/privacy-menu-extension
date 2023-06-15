@@ -155,7 +155,7 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkListBoxRow">
+                  <object class="GtkListBoxRow" id="group-quick-settings-setting">
                     <property name="focusable">1</property>
                     <property name="tooltip-text" translatable="1" comments="This is a tooltip">Group quick settings together, into a menu</property>
                     <property name="child">

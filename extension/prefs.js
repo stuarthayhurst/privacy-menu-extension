@@ -33,7 +33,15 @@ var PrefsPages = class PrefsPages {
       moveIconBox.set_sensitive(true);
     }
 
-    //Grey out GNOME 43+ settings on earlier version
+    //If the quick settings aren't in use, disable settings group option
+    let groupQuickSettingsBox = this._builder.get_object('group-quick-settings-setting');
+    if (!this._settings.get_boolean('use-quick-settings')) {
+      groupQuickSettingsBox.set_sensitive(false);
+    } else {
+      groupQuickSettingsBox.set_sensitive(true);
+    }
+
+    //Grey out GNOME 43+ settings on earlier versions
     if (ShellVersion < 43) {
       let quickSettingsBox = this._builder.get_object('gnome-43-settings-area');
       quickSettingsBox.set_sensitive(false);
