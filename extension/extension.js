@@ -149,13 +149,13 @@ const PrivacyQuickGroup = ShellVersion >= 43 ? GObject.registerClass(
       //Set up the quick setting toggle
       if (ShellVersion >= 44) {
         super._init({
-          title: _('Privacy Settings'),
+          title: _('Privacy'),
           iconName: 'preferences-system-privacy-symbolic',
           toggleMode: true,
         });
       } else {
         super._init({
-          label: _('Privacy Settings'),
+          label: _('Privacy'),
           iconName: 'preferences-system-privacy-symbolic',
           toggleMode: true,
         });
