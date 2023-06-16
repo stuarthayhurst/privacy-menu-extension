@@ -31,7 +31,7 @@
   - All translations can be refreshed with `make translations`
   - Strings marked with `fuzzy` may need a better translation
   - Blank strings need a translation added
-  - If changes to the strings in `extension/ui/*.ui` were made, `make gtk4` should be run
+  - If changes to the strings in `extension/ui/gtk3/*.ui` were made, `make gtk4` should be run
 
 ## UI Changes:
   - UI files are located in `extension/ui/`, please use Glade to modify them
