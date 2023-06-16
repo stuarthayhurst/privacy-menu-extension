@@ -18,7 +18,7 @@ function resetSettings() {
   privacySettings.reset('disable-microphone');
 
   //Translators: Reset is past tense, as in it's just reset the settings
-  logMessage(_('Reset privacy settings'));
+  logMessage('Reset privacy settings');
 }
 
 function logMessage(message) {
