@@ -195,7 +195,6 @@ const PrivacyQuickGroup = ShellVersion >= 43 ? GObject.registerClass(
       });
     }
 
-//TODO: Rewrite this to support new design
     _createSettingToggle(popupLabel, iconName) {
       //Create sub menu with an icon
       let subMenu = new PopupMenu.PopupSubMenuMenuItem(popupLabel, true);
