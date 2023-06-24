@@ -275,17 +275,16 @@ class QuickGroupManager {
 }
 
 class IndicatorSettingsManager {
-  constructor() {
+  constructor(forceIconRight) {
     //Create and setup indicator and menu
     this._indicator = new PrivacyIndicator();
-    this._extensionSettings = ExtensionUtils.getSettings();
 
     //Add menu entries
     this._indicator.addEntries();
 
     //Get position to insert icon (left or right)
     let offset = 0;
-    if (this._extensionSettings.get_boolean('move-icon-right')) {
+    if (forceIconRight) {
       offset = Main.panel._rightBox.get_n_children() - 1;
     }
 
@@ -349,7 +348,8 @@ class Extension {
     } else if (menuType == 'quick-group') {
       this._privacyManager = new QuickGroupManager();
     } else if (menuType == 'indicator') {
-      this._privacyManager = new IndicatorSettingsManager();
+      let forceIconRight = this._extensionSettings.get_boolean('move-icon-right')
+      this._privacyManager = new IndicatorSettingsManager(forceIconRight);
     }
   }
 
