@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-11 12:16+0000\n"
+"POT-Creation-Date: 2023-06-25 17:25+0100\n"
 "PO-Revision-Date: 2023-05-06 16:47+0330\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: \n"
@@ -22,23 +22,23 @@ msgstr ""
 msgid "Privacy Settings Menu Indicator"
 msgstr "نشانگر فهرست تنظیمات حریم خصوصی"
 
-#: extension.js:62
+#: extension.js:62 extension.js:204
 msgid "Enabled"
 msgstr "به کار افتاده است"
 
-#: extension.js:68
+#: extension.js:68 extension.js:165
 msgid "Privacy Settings"
 msgstr "تنظیمات حریم خصوصی"
 
-#: extension.js:74 extension.js:186
+#: extension.js:74 extension.js:172 extension.js:216
 msgid "Location"
 msgstr "مکان"
 
-#: extension.js:75 extension.js:187
+#: extension.js:75 extension.js:173 extension.js:217
 msgid "Camera"
 msgstr "دوربین"
 
-#: extension.js:76 extension.js:188
+#: extension.js:76 extension.js:174 extension.js:218
 msgid "Microphone"
 msgstr "صدابَر"
 
@@ -50,42 +50,50 @@ msgstr "بازنشانی تنظیمات"
 msgid "Reset to defaults"
 msgstr "بازنشانی به پیش‌گزیده"
 
-#: prefs.js:95 prefs.js:111
+#: extension.js:152 extension.js:158
+msgid "Privacy"
+msgstr ""
+
+#: prefs.js:107 prefs.js:123
 msgid "Settings"
 msgstr "تنظیمات"
 
-#. Translators: Reset is past tense, as in it's just reset the settings
-#: lib/ExtensionHelper.js:21
-msgid "Reset privacy settings"
-msgstr "بازنشانی تنظیمات حریم خصوصی"
-
-#: ui/prefs.ui:34
+#: ui/gtk3/prefs.ui:33
 msgid "General settings"
 msgstr "تنظیمات عمومی"
 
 #. This is a tooltip
-#: ui/prefs.ui:57
+#: ui/gtk3/prefs.ui:56
 msgid "Force the icon to move to right side of the status area"
 msgstr "انتقال اجباری نقشک به سمت راست ناحیهٔ وضعیت"
 
-#: ui/prefs.ui:73
+#: ui/gtk3/prefs.ui:72
 msgid "Move status icon right"
 msgstr "انتقال نقشک وضعیت به راست"
 
-#: ui/prefs.ui:131
+#: ui/gtk3/prefs.ui:126
 msgid "GNOME 43+ settings"
 msgstr "تنظیمات گنوم ۴۳+"
 
 #. This is a tooltip
-#: ui/prefs.ui:154
+#: ui/gtk3/prefs.ui:149
 msgid "Use the system quick settings area, instead of an indicator"
 msgstr "استفاده از ناحیهٔ تنظیمات سریع به جای نشانگر"
 
-#: ui/prefs.ui:170
+#: ui/gtk3/prefs.ui:165
 msgid "Use quick settings menu"
 msgstr "استفاده از فهرست تنظیمات سریع"
 
-#: ui/prefs.ui:221
+#. This is a tooltip
+#: ui/gtk3/prefs.ui:206
+msgid "Group quick settings together, into a menu"
+msgstr ""
+
+#: ui/gtk3/prefs.ui:222
+msgid "Group quick settings"
+msgstr ""
+
+#: ui/gtk3/prefs.ui:272
 msgid ""
 "Found this useful?\n"
 "<a href=\"https://paypal.me/stuartahayhurst\">Consider donating</a> :)"
