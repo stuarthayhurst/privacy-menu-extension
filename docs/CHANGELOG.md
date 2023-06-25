@@ -1,5 +1,13 @@
 ## Changelog:
 
+### v14: - `2023-06-25`
+ - Added setting to group quick setting toggles
+ - Use GtkBox as parent element, instead of GtkGrid
+ - Stopped translating log messages
+ - Build system improvements
+ - General code cleanup
+ - README and documentation fixes
+
 ### v13: - `2023-06-10`
  - Added donation information to metadata
  - Internal code structure changes (preparation for future)
