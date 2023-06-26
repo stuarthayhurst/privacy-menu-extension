@@ -1,15 +1,15 @@
 # Italian translation for the Privacy Quick Settings Menu GNOME Extension.
 # Copyright (C) 2021 Stuart Hayhurst
 # This file is distributed under the same license as the privacy-menu-extension package.
-# Albano Battistella <albano_battistella@hotmail.com>, 2021,2022.
+# Albano Battistella <albano_battistella@hotmail.com>, 2021,2022,2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-25 17:25+0100\n"
-"PO-Revision-Date: 2022-10-04 18:52+0100\n"
-"Last-Translator: Albano Battistella <albano_battistella@hotmail.com>\n"
+"PO-Revision-Date: 2023-06-26 19:52+0100\n"
+"Last-Translator: Albano Battistella <albanobattistella@>\n"
 "Language-Team: Italian <LL@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +50,7 @@ msgstr "Ripristina le impostazioni predefinite"
 
 #: extension.js:152 extension.js:158
 msgid "Privacy"
-msgstr ""
+msgstr "Privacy"
 
 #: prefs.js:107 prefs.js:123
 msgid "Settings"
@@ -87,11 +87,11 @@ msgstr "Usa il menu delle impostazioni rapide"
 #. This is a tooltip
 #: ui/gtk3/prefs.ui:206
 msgid "Group quick settings together, into a menu"
-msgstr ""
+msgstr "Raggruppa le impostazioni rapide in un menu"
 
 #: ui/gtk3/prefs.ui:222
 msgid "Group quick settings"
-msgstr ""
+msgstr "Impostazioni rapide di gruppo"
 
 #: ui/gtk3/prefs.ui:272
 msgid ""
