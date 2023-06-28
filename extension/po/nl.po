@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-25 17:25+0100\n"
-"PO-Revision-Date: 2022-09-30 14:08+0200\n"
+"POT-Creation-Date: 2023-06-25 17:32+0100\n"
+"PO-Revision-Date: 2023-06-28 11:51+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #: extension.js:43
 msgid "Privacy Settings Menu Indicator"
@@ -52,7 +52,7 @@ msgstr "Standaardwaarden"
 
 #: extension.js:152 extension.js:158
 msgid "Privacy"
-msgstr ""
+msgstr "Privacy"
 
 #: prefs.js:107 prefs.js:123
 msgid "Settings"
@@ -89,11 +89,11 @@ msgstr "Toevoegen aan snelle voorkeuren"
 #. This is a tooltip
 #: ui/gtk3/prefs.ui:206
 msgid "Group quick settings together, into a menu"
-msgstr ""
+msgstr "Groepeer de snelle voorkeuren in een menu"
 
 #: ui/gtk3/prefs.ui:222
 msgid "Group quick settings"
-msgstr ""
+msgstr "Snelle voorkeuren groeperen"
 
 #: ui/gtk3/prefs.ui:272
 msgid ""
