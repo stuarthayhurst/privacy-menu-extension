@@ -7,7 +7,7 @@ const { ExtensionHelper } = Me.imports.lib;
 const ShellVersion = parseFloat(imports.misc.config.PACKAGE_VERSION);
 
 //Main imports
-const { St, Gio, GObject } = imports.gi;
+const { St, Gio, GObject, Clutter } = imports.gi;
 const Main = imports.ui.main;
 const PanelMenu = imports.ui.panelMenu;
 const PopupMenu = imports.ui.popupMenu;
@@ -36,6 +36,22 @@ function disable() {
   privacyMenu.destroyMenu();
   privacyMenu = null;
 }
+
+const PrivacySettingImageSwitchItem = GObject.registerClass(
+  class PrivacySettingImageSwitchItem extends PopupMenu.PopupSwitchMenuItem {
+    _init(text, icon, active) {
+      super._init(text, active, {});
+
+      this._icon = new St.Icon({
+        style_class: 'popup-menu-icon',
+        x_align: Clutter.ActorAlign.END
+      });
+
+      this.insert_child_at_index(this._icon, 0);
+      this._icon.icon_name = icon;
+    }
+  }
+);
 
 const PrivacyIndicator = GObject.registerClass(
   class PrivacyIndicator extends PanelMenu.Button{
@@ -169,9 +185,9 @@ const PrivacyQuickGroup = ShellVersion >= 43 ? GObject.registerClass(
       this._locationSettings = new Gio.Settings({schema: 'org.gnome.system.location'});
 
       let toggleItems = [
-        this._createSettingToggle(_('Location')),
-        this._createSettingToggle(_('Camera')),
-        this._createSettingToggle(_('Microphone'))
+        new PrivacySettingImageSwitchItem(_('Location'), 'location-services-active-symbolic', true),
+        new PrivacySettingImageSwitchItem(_('Camera'), 'camera-photo-symbolic', true),
+        new PrivacySettingImageSwitchItem(_('Microphone'), 'audio-input-microphone-symbolic', true)
       ];
 
       let gsettingsSchemas = [
@@ -193,11 +209,6 @@ const PrivacyQuickGroup = ShellVersion >= 43 ? GObject.registerClass(
         //Add each submenu to the main menu
         this.menu.addMenuItem(toggleItem);
       });
-    }
-
-    _createSettingToggle(itemLabel) {
-      //Add a toggle with the setting name and return it
-      return new PopupMenu.PopupSwitchMenuItem(itemLabel, true, null);
     }
   }
 ) : null;
