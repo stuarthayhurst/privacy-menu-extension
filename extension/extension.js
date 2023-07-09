@@ -168,10 +168,10 @@ const PrivacyQuickGroup = ShellVersion >= 43 ? GObject.registerClass(
       this._privacySettings = new Gio.Settings({schema: 'org.gnome.desktop.privacy'});
       this._locationSettings = new Gio.Settings({schema: 'org.gnome.system.location'});
 
-      let subMenus = [
-        this._createSettingToggle(_('Location'), 'location-services-active-symbolic'),
-        this._createSettingToggle(_('Camera'), 'camera-photo-symbolic'),
-        this._createSettingToggle(_('Microphone'), 'audio-input-microphone-symbolic')
+      let toggleItems = [
+        this._createSettingToggle(_('Location')),
+        this._createSettingToggle(_('Camera')),
+        this._createSettingToggle(_('Microphone'))
       ];
 
       let gsettingsSchemas = [
@@ -182,27 +182,22 @@ const PrivacyQuickGroup = ShellVersion >= 43 ? GObject.registerClass(
       ];
 
       //Create menu entries for each setting toggle
-      subMenus.forEach((subMenu, i) => {
+      toggleItems.forEach((toggleItem, i) => {
         gsettingsSchemas[i][0].bind(
           gsettingsSchemas[i][1], //GSettings key to bind to
-          subMenu.menu.firstMenuItem._switch, //Toggle switch to bind to
+          toggleItem._switch, //Toggle switch to bind to
           'state', //Property to share
           gsettingsSchemas[i][2] //Binding flags
         );
 
         //Add each submenu to the main menu
-        this.menu.addMenuItem(subMenu);
+        this.menu.addMenuItem(toggleItem);
       });
     }
 
-    _createSettingToggle(popupLabel, iconName) {
-      //Create sub menu with an icon
-      let subMenu = new PopupMenu.PopupSubMenuMenuItem(popupLabel, true);
-      subMenu.icon.icon_name = iconName;
-
-      //Add a toggle to the submenu, then return it
-      subMenu.menu.addMenuItem(new PopupMenu.PopupSwitchMenuItem(_('Enabled'), true, null));
-      return subMenu;
+    _createSettingToggle(itemLabel) {
+      //Add a toggle with the setting name and return it
+      return new PopupMenu.PopupSwitchMenuItem(itemLabel, true, null);
     }
   }
 ) : null;
