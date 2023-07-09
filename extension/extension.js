@@ -45,10 +45,10 @@ const PrivacySettingImageSwitchItem = GObject.registerClass(
 
       this._icon = new St.Icon({
         style_class: 'popup-menu-icon',
-        x_align: Clutter.ActorAlign.END
       });
 
-      this.insert_child_at_index(this._icon, 0);
+      this.add_child(this._icon);
+      this.set_child_below_sibling(this._icon, this.label);
       this._icon.icon_name = icon;
     }
   }
