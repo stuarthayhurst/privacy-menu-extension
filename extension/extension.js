@@ -37,6 +37,7 @@ function disable() {
   privacyMenu = null;
 }
 
+//Custom PopupMenuItem with an icon, label and switch
 const PrivacySettingImageSwitchItem = GObject.registerClass(
   class PrivacySettingImageSwitchItem extends PopupMenu.PopupSwitchMenuItem {
     _init(text, icon, active) {
@@ -86,10 +87,10 @@ const PrivacyIndicator = GObject.registerClass(
       ));
       this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
 
-      let subMenus = [
-        this._createSettingToggle(_('Location'), 'location-services-active-symbolic'),
-        this._createSettingToggle(_('Camera'), 'camera-photo-symbolic'),
-        this._createSettingToggle(_('Microphone'), 'audio-input-microphone-symbolic')
+      let toggleItems = [
+        new PrivacySettingImageSwitchItem(_('Location'), 'location-services-active-symbolic', true),
+        new PrivacySettingImageSwitchItem(_('Camera'), 'camera-photo-symbolic', true),
+        new PrivacySettingImageSwitchItem(_('Microphone'), 'audio-input-microphone-symbolic', true)
       ];
 
       let gsettingsSchemas = [
@@ -100,16 +101,16 @@ const PrivacyIndicator = GObject.registerClass(
       ];
 
       //Create menu entries for each setting toggle
-      subMenus.forEach((subMenu, i) => {
+      toggleItems.forEach((toggleItem, i) => {
         gsettingsSchemas[i][0].bind(
           gsettingsSchemas[i][1], //GSettings key to bind to
-          subMenu.menu.firstMenuItem._switch, //Toggle switch to bind to
+          toggleItem._switch, //Toggle switch to bind to
           'state', //Property to share
           gsettingsSchemas[i][2] //Binding flags
         );
 
-        //Add each submenu to the main menu
-        this.menu.addMenuItem(subMenu);
+        //Add each item to the main menu
+        this.menu.addMenuItem(toggleItem);
       });
 
       //Separator to separate reset option
@@ -206,7 +207,7 @@ const PrivacyQuickGroup = ShellVersion >= 43 ? GObject.registerClass(
           gsettingsSchemas[i][2] //Binding flags
         );
 
-        //Add each submenu to the main menu
+        //Add each item to the main menu
         this.menu.addMenuItem(toggleItem);
       });
     }
