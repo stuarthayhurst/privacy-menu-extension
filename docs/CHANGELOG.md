@@ -1,5 +1,8 @@
 ## Changelog:
 
+### v16: - `2023-07-10`
+ - Hotfix: removed unused import (Clutter)
+
 ### v15: - `2023-07-10`
  - New design for grouped quick settings
    - Moved settings out of submenus
