@@ -7,7 +7,7 @@ const { ExtensionHelper } = Me.imports.lib;
 const ShellVersion = parseFloat(imports.misc.config.PACKAGE_VERSION);
 
 //Main imports
-const { St, Gio, GObject, Clutter } = imports.gi;
+const { St, Gio, GObject } = imports.gi;
 const Main = imports.ui.main;
 const PanelMenu = imports.ui.panelMenu;
 const PopupMenu = imports.ui.popupMenu;
