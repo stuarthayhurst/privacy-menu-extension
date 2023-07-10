@@ -170,6 +170,11 @@ const PrivacyQuickGroup = ShellVersion >= 43 ? GObject.registerClass(
       //Set a menu header
       this.menu.setHeader('preferences-system-privacy-symbolic', _('Privacy Settings'))
 
+      //Open the menu when the body is clicked
+      this.connect('clicked', () => {
+        this.menu.open();
+      });
+
       //GSettings access
       this._privacySettings = new Gio.Settings({schema: 'org.gnome.desktop.privacy'});
       this._locationSettings = new Gio.Settings({schema: 'org.gnome.system.location'});
