@@ -179,32 +179,88 @@ const PrivacyQuickGroup = ShellVersion >= 43 ? GObject.registerClass(
       this._privacySettings = new Gio.Settings({schema: 'org.gnome.desktop.privacy'});
       this._locationSettings = new Gio.Settings({schema: 'org.gnome.system.location'});
 
-      let toggleItems = [
-        new PrivacySettingImageSwitchItem(_('Location'), 'location-services-active-symbolic', true),
-        new PrivacySettingImageSwitchItem(_('Camera'), 'camera-photo-symbolic', true),
-        new PrivacySettingImageSwitchItem(_('Microphone'), 'audio-input-microphone-symbolic', true)
+      this._toggleDisplayInfo = [
+        //Display name, icon name
+        [_('Location'), 'location-services-active-symbolic'],
+        [_('Camera'), 'camera-photo-symbolic'],
+        [_('Microphone'), 'audio-input-microphone-symbolic']
       ];
 
-      let gsettingsSchemas = [
+      this._settingsInfo = [
         //Schema, key, bind flags
         [this._locationSettings, 'enabled', Gio.SettingsBindFlags.DEFAULT],
         [this._privacySettings, 'disable-camera', Gio.SettingsBindFlags.INVERT_BOOLEAN],
         [this._privacySettings, 'disable-microphone', Gio.SettingsBindFlags.INVERT_BOOLEAN]
       ];
 
+      this._toggleItems = [];
+      this._signals = [];
+
       //Create menu entries for each setting toggle
-      toggleItems.forEach((toggleItem, i) => {
-        gsettingsSchemas[i][0].bind(
-          gsettingsSchemas[i][1], //GSettings key to bind to
-          toggleItem._switch, //Toggle switch to bind to
+      this._toggleDisplayInfo.forEach((displayInfo, i) => {
+        this._toggleItems.push(
+          new PrivacySettingImageSwitchItem(displayInfo[0], displayInfo[1], true)
+        );
+
+        //Update subtitle when settings changed
+        let event = 'changed::' + this._settingsInfo[i][1];
+        this._signals[i] = this._settingsInfo[i][0].connect(event, () => {
+          this._updateSubtitle();
+        });
+
+        //Link the setting value and the switch state
+        this._settingsInfo[i][0].bind(
+          this._settingsInfo[i][1], //GSettings key to bind to
+          this._toggleItems[i]._switch, //Toggle switch to bind to
           'state', //Property to share
-          gsettingsSchemas[i][2] //Binding flags
+          this._settingsInfo[i][2] //Binding flags
         );
 
         //Add each item to the main menu
-        this.menu.addMenuItem(toggleItem);
+        this.menu.addMenuItem(this._toggleItems[i]);
+      });
+
+      //Set the subtitle
+      this._updateSubtitle();
+    }
+
+    _updateSubtitle() {
+      //Not supported below GNOME 44
+      if (ShellVersion < 44) {
+        return;
+      }
+
+      //Get the number of enabled settings
+      let enabledSettingsCount = 0;
+      let enabledSettingName = '';
+      this._settingsInfo.forEach((settingInfo, i) => {
+        let settingEnabled = settingInfo[0].get_boolean(settingInfo[1]);
+        if (settingEnabled == (settingInfo[2] != Gio.SettingsBindFlags.INVERT_BOOLEAN)) {
+          enabledSettingsCount += 1;
+          enabledSettingName = this._toggleDisplayInfo[i][0];
+        }
+      });
+
+      if (enabledSettingsCount == 0) {
+        //If no settings are enabled, display 'All disabled'
+        this.subtitle = _('All disabled');
+      } else if (enabledSettingsCount == 1) {
+        //If 1 setting is enabled, mention it by name
+        this.subtitle = enabledSettingName;
+      } else {
+        //If multiple are enabled, display how many
+        //Translators: this displays which setting is enabled, e.g. 'Location enabled'
+        this.subtitle = enabledSettingsCount + _(' enabled');
+      }
+    }
+
+    clean() {
+      //Disconnect from settings
+      this._signals.forEach((signalId, i) => {
+        this._settingsInfo[i][0].disconnect(signalId);
       });
     }
+
   }
 ) : null;
 
@@ -270,6 +326,7 @@ class QuickGroupManager {
   }
 
   clean() {
+    this._quickSettingsGroup.clean();
     this._quickSettingsGroup.destroy();
     this._quickSettingsGroup = null;
   }
