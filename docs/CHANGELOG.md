@@ -1,5 +1,12 @@
 ## Changelog:
 
+### v15: - `2023-07-10`
+ - New design for grouped quick settings
+   - Moved settings out of submenus
+   - Each setting gets an icon, label and toggle switch
+ - Updated Italian translation (#25)
+ - Updated Dutch translation (#26)
+
 ### v14: - `2023-06-25`
  - Added setting to group quick setting toggles
  - Use GtkBox as parent element, instead of GtkGrid
