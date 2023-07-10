@@ -47,8 +47,7 @@ const PrivacySettingImageSwitchItem = GObject.registerClass(
         style_class: 'popup-menu-icon',
       });
 
-      this.add_child(this._icon);
-      this.set_child_below_sibling(this._icon, this.label);
+      this.insert_child_below(this._icon, this.label);
       this._icon.icon_name = icon;
     }
   }
