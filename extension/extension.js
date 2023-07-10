@@ -69,16 +69,6 @@ const PrivacyIndicator = GObject.registerClass(
       this._locationSettings = new Gio.Settings({schema: 'org.gnome.system.location'});
     }
 
-    _createSettingToggle(popupLabel, iconName) {
-      //Create sub menu with an icon
-      let subMenu = new PopupMenu.PopupSubMenuMenuItem(popupLabel, true);
-      subMenu.icon.icon_name = iconName;
-
-      //Add a toggle to the submenu, then return it
-      subMenu.menu.addMenuItem(new PopupMenu.PopupSwitchMenuItem(_('Enabled'), true, null));
-      return subMenu;
-    }
-
     addEntries() {
       this.menu.addMenuItem(new PopupMenu.PopupMenuItem(
         _('Privacy Settings'),
