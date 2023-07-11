@@ -151,7 +151,7 @@ const PrivacyQuickToggle = ShellVersion >= 43 ? GObject.registerClass(
 //On GNOME 43+ create a class for the privacy quick settings group
 const PrivacyQuickGroup = ShellVersion >= 43 ? GObject.registerClass(
   class PrivacyQuickGroup extends QuickSettings.QuickMenuToggle {
-    _init() {
+    _init(useQuickSubtitle) {
       //Set up the quick setting toggle
       if (ShellVersion >= 44) {
         super._init({
@@ -221,12 +221,15 @@ const PrivacyQuickGroup = ShellVersion >= 43 ? GObject.registerClass(
       });
 
       //Set the subtitle
+      this._useQuickSubtitle = useQuickSubtitle;
       this._updateSubtitle();
     }
 
     _updateSubtitle() {
       //Not supported below GNOME 44
       if (ShellVersion < 44) {
+        return;
+      } else if (!this._useQuickSubtitle) {
         return;
       }
 
@@ -312,8 +315,8 @@ class QuickSettingsManager {
 }
 
 class QuickGroupManager {
-  constructor() {
-    this._quickSettingsGroup = new PrivacyQuickGroup();
+  constructor(useQuickSubtitle) {
+    this._quickSettingsGroup = new PrivacyQuickGroup(useQuickSubtitle);
 
     //Add the toggles to the system menu
     QuickSettingsMenu._addItems([this._quickSettingsGroup]);
@@ -404,7 +407,8 @@ class Extension {
     if (menuType == 'quick-toggles') {
       this._privacyManager = new QuickSettingsManager();
     } else if (menuType == 'quick-group') {
-      this._privacyManager = new QuickGroupManager();
+      let useQuickSubtitle = this._extensionSettings.get_boolean('use-quick-subtitle')
+      this._privacyManager = new QuickGroupManager(useQuickSubtitle);
     } else if (menuType == 'indicator') {
       let forceIconRight = this._extensionSettings.get_boolean('move-icon-right');
       this._privacyManager = new IndicatorSettingsManager(forceIconRight);
