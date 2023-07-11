@@ -197,6 +197,78 @@
           </object>
         </child>
         <child>
+          <object class="GtkBox" id="gnome-44-settings-area">
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkBox">
+                <property name="margin-top">12</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkBox">
+                    <property name="margin-start">2</property>
+                    <property name="margin-top">4</property>
+                    <property name="margin-bottom">6</property>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="label" translatable="1">GNOME 44+ settings</property>
+                        <property name="xalign">0</property>
+                        <attributes>
+                          <attribute name="weight" value="bold"></attribute>
+                          <attribute name="scale" value="1"></attribute>
+                        </attributes>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkListBox" id="gnome-44-settings">
+                <property name="selection-mode">none</property>
+                <child>
+                  <object class="GtkListBoxRow" id="use-quick-subtitle-setting">
+                    <property name="focusable">1</property>
+                    <property name="tooltip-text" translatable="1" comments="This is a tooltip">Show the privacy status in the quick settings subtitle</property>
+                    <property name="child">
+                      <object class="GtkBox">
+                        <property name="margin-top">12</property>
+                        <property name="margin-bottom">12</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="spacing">32</property>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="hexpand">1</property>
+                                <property name="valign">center</property>
+                                <property name="margin-start">10</property>
+                                <property name="label" translatable="1">Use quick settings subtitle</property>
+                                <property name="xalign">0</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkSwitch" id="use-quick-subtitle-switch">
+                                <property name="focusable">1</property>
+                                <property name="valign">center</property>
+                                <property name="margin-end">10</property>
+                                <property name="active">1</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <style>
+                  <class name="frame"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
           <object class="GtkBox" id="donate-box">
             <property name="valign">end</property>
             <property name="margin-top">4</property>

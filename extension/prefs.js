@@ -25,7 +25,7 @@ var PrefsPages = class PrefsPages {
   }
 
   _updateEnabledSettings() {
-    //If using the quick settings area and running GNOME 43, disable 'move-icon-setting'
+    //If using the quick settings area and running GNOME 43+, disable 'move-icon-setting'
     let moveIconRow = this._builder.get_object('move-icon-setting');
     if (ShellVersion >= 43 && this._settings.get_boolean('use-quick-settings')) {
       moveIconRow.set_sensitive(false);
@@ -33,18 +33,31 @@ var PrefsPages = class PrefsPages {
       moveIconRow.set_sensitive(true);
     }
 
-    //If the quick settings aren't in use, disable settings group option
+    //If the quick settings aren't in use, disable related options
     let groupQuickSettingsRow = this._builder.get_object('group-quick-settings-setting');
+    let quickSubtitleSettingsRow = this._builder.get_object('use-quick-subtitle-setting');
     if (!this._settings.get_boolean('use-quick-settings')) {
       groupQuickSettingsRow.set_sensitive(false);
+      quickSubtitleSettingsRow.set_sensitive(false);
     } else {
       groupQuickSettingsRow.set_sensitive(true);
+      if (!this._settings.get_boolean('group-quick-settings')) {
+        quickSubtitleSettingsRow.set_sensitive(false);
+      } else {
+        quickSubtitleSettingsRow.set_sensitive(true);
+      }
     }
 
     //Grey out GNOME 43+ settings on earlier versions
     if (ShellVersion < 43) {
-      let quickSettingsRow = this._builder.get_object('gnome-43-settings-area');
-      quickSettingsRow.set_sensitive(false);
+      let settingsArea = this._builder.get_object('gnome-43-settings-area');
+      settingsArea.set_sensitive(false);
+    }
+
+    //Grey out GNOME 44+ settings on earlier versions
+    if (ShellVersion < 44) {
+      let settingsArea = this._builder.get_object('gnome-44-settings-area');
+      settingsArea.set_sensitive(false);
     }
   }
 
@@ -70,6 +83,10 @@ var PrefsPages = class PrefsPages {
       },
       'group-quick-settings-switch': {
         'settingKey': 'group-quick-settings',
+        'bindProperty': 'active'
+      },
+      'use-quick-subtitle-switch': {
+        'settingKey': 'use-quick-subtitle',
         'bindProperty': 'active'
       }
     }
