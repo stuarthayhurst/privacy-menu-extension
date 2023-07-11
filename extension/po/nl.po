@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-25 17:32+0100\n"
+"POT-Creation-Date: 2023-07-11 01:22+0100\n"
 "PO-Revision-Date: 2023-06-28 11:51+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -18,43 +18,48 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.3.1\n"
 
-#: extension.js:43
+#: extension.js:59
 msgid "Privacy Settings Menu Indicator"
 msgstr "Privacyvoorkeuren-indicator"
 
-#: extension.js:62 extension.js:204
-msgid "Enabled"
-msgstr "Ingeschakeld"
-
-#: extension.js:68 extension.js:165
+#: extension.js:74 extension.js:171
 msgid "Privacy Settings"
 msgstr "Privacyvoorkeuren"
 
-#: extension.js:74 extension.js:172 extension.js:216
+#: extension.js:80 extension.js:184 extension.js:276
 msgid "Location"
 msgstr "Locatie"
 
-#: extension.js:75 extension.js:173 extension.js:217
+#: extension.js:81 extension.js:185 extension.js:277
 msgid "Camera"
 msgstr "Camera"
 
-#: extension.js:76 extension.js:174 extension.js:218
+#: extension.js:82 extension.js:186 extension.js:278
 msgid "Microphone"
 msgstr "Microfoon"
 
-#: extension.js:103
+#: extension.js:109
 msgid "Reset settings"
 msgstr "Standaardwaarden herstellen"
 
-#: extension.js:105
+#: extension.js:111
 msgid "Reset to defaults"
 msgstr "Standaardwaarden"
 
-#: extension.js:152 extension.js:158
+#: extension.js:158 extension.js:164
 msgid "Privacy"
 msgstr "Privacy"
 
-#: prefs.js:107 prefs.js:123
+#: extension.js:249
+msgid "All disabled"
+msgstr ""
+
+#. Translators: this displays which setting is enabled, e.g. 'Location enabled'
+#: extension.js:256
+msgid " enabled"
+msgstr ""
+
+#: prefs.js:124 prefs.js:140
 msgid "Settings"
 msgstr "Voorkeuren"
 
@@ -95,7 +100,20 @@ msgstr "Groepeer de snelle voorkeuren in een menu"
 msgid "Group quick settings"
 msgstr "Snelle voorkeuren groeperen"
 
-#: ui/gtk3/prefs.ui:272
+#: ui/gtk3/prefs.ui:279
+msgid "GNOME 44+ settings"
+msgstr "GNOME 44+-voorkeuren"
+
+#. This is a tooltip
+#: ui/gtk3/prefs.ui:302
+msgid "Show the privacy status in the quick settings subtitle"
+msgstr ""
+
+#: ui/gtk3/prefs.ui:318
+msgid "Use quick settings subtitle"
+msgstr ""
+
+#: ui/gtk3/prefs.ui:368
 msgid ""
 "Found this useful?\n"
 "<a href=\"https://paypal.me/stuartahayhurst\">Consider donating</a> :)"

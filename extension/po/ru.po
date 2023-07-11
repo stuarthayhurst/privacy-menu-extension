@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-25 17:25+0100\n"
+"POT-Creation-Date: 2023-07-11 01:22+0100\n"
 "PO-Revision-Date: 2022-10-09 02:20+0700\n"
 "Last-Translator: Vyacheslav Kostromin <ikibastusloh1337@gmail.com>\n"
 "Language-Team: \n"
@@ -16,43 +16,48 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:43
+#: extension.js:59
 msgid "Privacy Settings Menu Indicator"
 msgstr "Индикатор меню настроек конфиденциальности"
 
-#: extension.js:62 extension.js:204
-msgid "Enabled"
-msgstr "Включено"
-
-#: extension.js:68 extension.js:165
+#: extension.js:74 extension.js:171
 msgid "Privacy Settings"
 msgstr "Настройки конфиденциальности"
 
-#: extension.js:74 extension.js:172 extension.js:216
+#: extension.js:80 extension.js:184 extension.js:276
 msgid "Location"
 msgstr "Местоположение"
 
-#: extension.js:75 extension.js:173 extension.js:217
+#: extension.js:81 extension.js:185 extension.js:277
 msgid "Camera"
 msgstr "Камера"
 
-#: extension.js:76 extension.js:174 extension.js:218
+#: extension.js:82 extension.js:186 extension.js:278
 msgid "Microphone"
 msgstr "Микрофон"
 
-#: extension.js:103
+#: extension.js:109
 msgid "Reset settings"
 msgstr "Сбросить настройки"
 
-#: extension.js:105
+#: extension.js:111
 msgid "Reset to defaults"
 msgstr "Сбросить по умолчанию"
 
-#: extension.js:152 extension.js:158
+#: extension.js:158 extension.js:164
 msgid "Privacy"
 msgstr ""
 
-#: prefs.js:107 prefs.js:123
+#: extension.js:249
+msgid "All disabled"
+msgstr ""
+
+#. Translators: this displays which setting is enabled, e.g. 'Location enabled'
+#: extension.js:256
+msgid " enabled"
+msgstr ""
+
+#: prefs.js:124 prefs.js:140
 msgid "Settings"
 msgstr "Настройки"
 
@@ -91,7 +96,20 @@ msgstr ""
 msgid "Group quick settings"
 msgstr ""
 
-#: ui/gtk3/prefs.ui:272
+#: ui/gtk3/prefs.ui:279
+msgid "GNOME 44+ settings"
+msgstr "Настройки GNOME 44+"
+
+#. This is a tooltip
+#: ui/gtk3/prefs.ui:302
+msgid "Show the privacy status in the quick settings subtitle"
+msgstr ""
+
+#: ui/gtk3/prefs.ui:318
+msgid "Use quick settings subtitle"
+msgstr ""
+
+#: ui/gtk3/prefs.ui:368
 msgid ""
 "Found this useful?\n"
 "<a href=\"https://paypal.me/stuartahayhurst\">Consider donating</a> :)"
