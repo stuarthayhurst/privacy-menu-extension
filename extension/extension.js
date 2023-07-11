@@ -406,7 +406,7 @@ class Extension {
     } else if (menuType == 'quick-group') {
       this._privacyManager = new QuickGroupManager();
     } else if (menuType == 'indicator') {
-      let forceIconRight = this._extensionSettings.get_boolean('move-icon-right')
+      let forceIconRight = this._extensionSettings.get_boolean('move-icon-right');
       this._privacyManager = new IndicatorSettingsManager(forceIconRight);
     }
   }
