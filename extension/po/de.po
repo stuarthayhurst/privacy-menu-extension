@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-11 01:22+0100\n"
-"PO-Revision-Date: 2022-05-22 18:39+0200\n"
+"PO-Revision-Date: 2023-07-12 13:02+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -49,16 +49,16 @@ msgstr "Auf Voreinstellungen zurücksetzen"
 
 #: extension.js:158 extension.js:164
 msgid "Privacy"
-msgstr ""
+msgstr "Privatsphäre"
 
 #: extension.js:249
 msgid "All disabled"
-msgstr ""
+msgstr "Alles deaktiviert"
 
 #. Translators: this displays which setting is enabled, e.g. 'Location enabled'
 #: extension.js:256
 msgid " enabled"
-msgstr ""
+msgstr " aktiviert"
 
 #: prefs.js:124 prefs.js:140
 msgid "Settings"
@@ -81,38 +81,41 @@ msgstr "Status-Symbol nach rechts verschieben"
 
 #: ui/gtk3/prefs.ui:126
 msgid "GNOME 43+ settings"
-msgstr ""
+msgstr "Einstellungen für GNOME 43+"
 
 #. This is a tooltip
 #: ui/gtk3/prefs.ui:149
 msgid "Use the system quick settings area, instead of an indicator"
 msgstr ""
+"Den Schnelleinstellungen-Bereich des Systems statt eines Indikators "
+"verwenden"
 
 #: ui/gtk3/prefs.ui:165
 msgid "Use quick settings menu"
-msgstr ""
+msgstr "Schnelleinstellungsmenü verwenden"
 
 #. This is a tooltip
 #: ui/gtk3/prefs.ui:206
 msgid "Group quick settings together, into a menu"
-msgstr ""
+msgstr "Schnelleinstellungen in einem Menü bündeln"
 
 #: ui/gtk3/prefs.ui:222
 msgid "Group quick settings"
-msgstr ""
+msgstr "Schnelleinstellungen bündeln"
 
 #: ui/gtk3/prefs.ui:279
 msgid "GNOME 44+ settings"
-msgstr ""
+msgstr "Einstellungen für GNOME 44+"
 
 #. This is a tooltip
 #: ui/gtk3/prefs.ui:302
 msgid "Show the privacy status in the quick settings subtitle"
 msgstr ""
+"Den Privatsphäre-Status im Untertitel für Schnelleinstellungen anzeigen"
 
 #: ui/gtk3/prefs.ui:318
 msgid "Use quick settings subtitle"
-msgstr ""
+msgstr "Untertitel für Schnelleinstellungen verwenden"
 
 #: ui/gtk3/prefs.ui:368
 msgid ""
