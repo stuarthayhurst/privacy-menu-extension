@@ -1,15 +1,15 @@
 # Italian translation for the Privacy Quick Settings Menu GNOME Extension.
 # Copyright (C) 2021 Stuart Hayhurst
 # This file is distributed under the same license as the privacy-menu-extension package.
-# Albano Battistella <albano_battistella@hotmail.com>, 2021,2022,2023.
+# Albano Battistella <albanobattistella@gmail.com>, 2021,2022,2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-07-11 01:22+0100\n"
-"PO-Revision-Date: 2023-06-26 19:52+0100\n"
-"Last-Translator: Albano Battistella <albanobattistella@>\n"
+"PO-Revision-Date: 2023-07-21 14:52+0100\n"
+"Last-Translator: Albano Battistella <albanobattistella@gmail.om>\n"
 "Language-Team: Italian <LL@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -50,12 +50,12 @@ msgstr "Privacy"
 
 #: extension.js:249
 msgid "All disabled"
-msgstr ""
+msgstr "Tutto disabilitato"
 
 #. Translators: this displays which setting is enabled, e.g. 'Location enabled'
 #: extension.js:256
 msgid " enabled"
-msgstr ""
+msgstr "abilitato"
 
 #: prefs.js:124 prefs.js:140
 msgid "Settings"
@@ -105,11 +105,11 @@ msgstr "Impostazioni di GNOME 44+"
 #. This is a tooltip
 #: ui/gtk3/prefs.ui:302
 msgid "Show the privacy status in the quick settings subtitle"
-msgstr ""
+msgstr "Mostra lo stato della privacy nel sottotitolo delle impostazioni rapide"
 
 #: ui/gtk3/prefs.ui:318
 msgid "Use quick settings subtitle"
-msgstr ""
+msgstr "Usa i sottotitoli delle impostazioni rapide"
 
 #: ui/gtk3/prefs.ui:368
 msgid ""
