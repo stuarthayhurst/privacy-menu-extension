@@ -1,5 +1,12 @@
 ## Changelog:
 
+### v17: - `2023-07-21`
+ - Code cleanup
+ - Open the grouped settings when any part of the indicator is pressed
+ - Added a subtitle to grouped settings to show current status
+   - Added a setting to control new subtitle status
+ - Updated translations (#28, #29, #30, #31)
+
 ### v16: - `2023-07-10`
  - Hotfix: removed unused import (Clutter)
 
