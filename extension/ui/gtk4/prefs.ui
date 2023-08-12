@@ -73,43 +73,15 @@
                     </property>
                   </object>
                 </child>
-                <style>
-                  <class name="frame"/>
-                </style>
-              </object>
-            </child>
-          </object>
-        </child>
-        <child>
-          <object class="GtkBox" id="gnome-43-settings-area">
-            <property name="orientation">vertical</property>
-            <child>
-              <object class="GtkBox">
-                <property name="margin-top">12</property>
-                <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkBox">
-                    <property name="margin-start">2</property>
-                    <property name="margin-top">4</property>
-                    <property name="margin-bottom">6</property>
-                    <property name="orientation">vertical</property>
-                    <child>
-                      <object class="GtkLabel">
-                        <property name="label" translatable="1">GNOME 43+ settings</property>
-                        <property name="xalign">0</property>
-                        <attributes>
-                          <attribute name="weight" value="bold"></attribute>
-                          <attribute name="scale" value="1"></attribute>
-                        </attributes>
-                      </object>
-                    </child>
+                  <object class="GtkListBoxRow">
+                    <property name="focusable">1</property>
+                    <property name="activatable">0</property>
+                    <property name="child">
+                      <object class="GtkSeparator"/>
+                    </property>
                   </object>
                 </child>
-              </object>
-            </child>
-            <child>
-              <object class="GtkListBox" id="gnome-43-settings">
-                <property name="selection-mode">none</property>
                 <child>
                   <object class="GtkListBoxRow">
                     <property name="focusable">1</property>

@@ -25,9 +25,9 @@ var PrefsPages = class PrefsPages {
   }
 
   _updateEnabledSettings() {
-    //If using the quick settings area and running GNOME 43+, disable 'move-icon-setting'
+    //If using the quick settings area, disable 'move-icon-setting'
     let moveIconRow = this._builder.get_object('move-icon-setting');
-    if (ShellVersion >= 43 && this._settings.get_boolean('use-quick-settings')) {
+    if (this._settings.get_boolean('use-quick-settings')) {
       moveIconRow.set_sensitive(false);
     } else {
       moveIconRow.set_sensitive(true);
@@ -46,12 +46,6 @@ var PrefsPages = class PrefsPages {
       } else {
         quickSubtitleSettingsRow.set_sensitive(true);
       }
-    }
-
-    //Grey out GNOME 43+ settings on earlier versions
-    if (ShellVersion < 43) {
-      let settingsArea = this._builder.get_object('gnome-43-settings-area');
-      settingsArea.set_sensitive(false);
     }
 
     //Grey out GNOME 44+ settings on earlier versions
@@ -108,7 +102,7 @@ function init() {
   ExtensionUtils.initTranslations();
 }
 
-//Create preferences window for GNOME 42+
+//Create preferences window with libadwaita
 function fillPreferencesWindow(window) {
   //Create pages and widgets
   let prefsPages = new PrefsPages();
