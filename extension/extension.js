@@ -12,8 +12,8 @@ const Main = imports.ui.main;
 const PanelMenu = imports.ui.panelMenu;
 const PopupMenu = imports.ui.popupMenu;
 
-const QuickSettings = ShellVersion >= 43 ? imports.ui.quickSettings : null;
-const QuickSettingsMenu = ShellVersion >= 43 ? imports.ui.main.panel.statusArea.quickSettings : null;
+const QuickSettings = imports.ui.quickSettings;
+const QuickSettingsMenu = imports.ui.main.panel.statusArea.quickSettings;
 
 //Use _() for translations
 const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
@@ -115,8 +115,8 @@ const PrivacyIndicator = GObject.registerClass(
   }
 );
 
-//On GNOME 43+ create a class for privacy quick settings toggles
-const PrivacyQuickToggle = ShellVersion >= 43 ? GObject.registerClass(
+//Class for individual privacy quick settings toggles
+const PrivacyQuickToggle = GObject.registerClass(
   class PrivacyQuickToggle extends QuickSettings.QuickToggle {
     _init(settingName, settingIcon, settingSchema, settingKey, settingBindFlag) {
       //Set up the quick setting toggle
@@ -146,10 +146,10 @@ const PrivacyQuickToggle = ShellVersion >= 43 ? GObject.registerClass(
       );
     }
   }
-) : null;
+);
 
-//On GNOME 43+ create a class for the privacy quick settings group
-const PrivacyQuickGroup = ShellVersion >= 43 ? GObject.registerClass(
+//Class for the privacy quick settings group
+const PrivacyQuickGroup = GObject.registerClass(
   class PrivacyQuickGroup extends QuickSettings.QuickMenuToggle {
     _init(useQuickSubtitle) {
       //Set up the quick setting toggle
@@ -265,7 +265,7 @@ const PrivacyQuickGroup = ShellVersion >= 43 ? GObject.registerClass(
     }
 
   }
-) : null;
+);
 
 class QuickSettingsManager {
   constructor() {
@@ -373,17 +373,15 @@ class Extension {
 
   _decideMenuType() {
     /*
-     - Return 'quick-toggles' if running GNOME 43+ and quick settings are enabled
-       - If quick settings grouping is enabled, return 'quick-group' instead
-     - Otherwise return 'indiactors'
+     - Return 'quick-toggles' if quick settings are enabled
+       - If quick settings grouping is also enabled, return 'quick-group' instead
+     - Otherwise return 'indicators'
     */
     if (this._extensionSettings.get_boolean('use-quick-settings')) {
-      if (ShellVersion >= 43) {
-        if (this._extensionSettings.get_boolean('group-quick-settings')) {
-          return 'quick-group';
-        }
-        return 'quick-toggles';
+      if (this._extensionSettings.get_boolean('group-quick-settings')) {
+        return 'quick-group';
       }
+      return 'quick-toggles';
     }
 
     return 'indicator';
