@@ -62,7 +62,7 @@ var PrefsPages = class PrefsPages {
   }
 
   _createPreferences() {
-    this._builder.add_from_file(Me.path + '/ui/gtk4/prefs.ui');
+    this._builder.add_from_file(Me.path + '/gtk4/prefs.ui');
 
     //Get the settings container widget
     this.preferencesWidget = this._builder.get_object('main-prefs');

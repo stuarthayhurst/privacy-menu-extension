@@ -21,7 +21,7 @@ package:
 	--podir=po \
 	--extra-source=../LICENSE.txt \
 	--extra-source=../docs/CHANGELOG.md \
-	--extra-source=ui/ \
+	--extra-source=ui/gtk4/ \
 	--extra-source=lib/ \
 	-o ../$(BUILD_DIR)/
 check:
