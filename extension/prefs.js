@@ -3,7 +3,6 @@
 //Local extension imports
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
-const { ExtensionHelper } = Me.imports.lib;
 const ShellVersion = parseFloat(imports.misc.config.PACKAGE_VERSION);
 
 //Main imports

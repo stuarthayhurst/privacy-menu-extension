@@ -21,7 +21,6 @@ package:
 	--extra-source=../LICENSE.txt \
 	--extra-source=../docs/CHANGELOG.md \
 	--extra-source=ui/gtk4/ \
-	--extra-source=lib/ \
 	-o ../$(BUILD_DIR)/
 check:
 	@if [[ ! -f $(BUNDLE_PATH) ]]; then \
