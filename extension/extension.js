@@ -4,7 +4,6 @@
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 const { ExtensionHelper } = Me.imports.lib;
-const ShellVersion = parseFloat(imports.misc.config.PACKAGE_VERSION);
 
 //Main imports
 const { St, Gio, GObject } = imports.gi;
@@ -120,19 +119,11 @@ const PrivacyQuickToggle = GObject.registerClass(
   class PrivacyQuickToggle extends QuickSettings.QuickToggle {
     _init(settingName, settingIcon, settingSchema, settingKey, settingBindFlag) {
       //Set up the quick setting toggle
-      if (ShellVersion >= 44) {
-        super._init({
-          title: settingName,
-          iconName: settingIcon,
-          toggleMode: true,
-        });
-      } else {
-        super._init({
-          label: settingName,
-          iconName: settingIcon,
-          toggleMode: true,
-        });
-      }
+      super._init({
+        title: settingName,
+        iconName: settingIcon,
+        toggleMode: true,
+      });
 
       //GSettings access
       this._settings = new Gio.Settings({schema: settingSchema});
@@ -153,19 +144,11 @@ const PrivacyQuickGroup = GObject.registerClass(
   class PrivacyQuickGroup extends QuickSettings.QuickMenuToggle {
     _init(useQuickSubtitle) {
       //Set up the quick setting toggle
-      if (ShellVersion >= 44) {
-        super._init({
-          title: _('Privacy'),
-          iconName: 'preferences-system-privacy-symbolic',
-          toggleMode: false,
-        });
-      } else {
-        super._init({
-          label: _('Privacy'),
-          iconName: 'preferences-system-privacy-symbolic',
-          toggleMode: false,
-        });
-      }
+      super._init({
+        title: _('Privacy'),
+        iconName: 'preferences-system-privacy-symbolic',
+        toggleMode: false,
+      });
 
       //Set a menu header
       this.menu.setHeader('preferences-system-privacy-symbolic', _('Privacy Settings'))
@@ -226,10 +209,8 @@ const PrivacyQuickGroup = GObject.registerClass(
     }
 
     _updateSubtitle() {
-      //Not supported below GNOME 44
-      if (ShellVersion < 44) {
-        return;
-      } else if (!this._useQuickSubtitle) {
+      //Skip if disabled
+      if (!this._useQuickSubtitle) {
         return;
       }
 
@@ -263,7 +244,6 @@ const PrivacyQuickGroup = GObject.registerClass(
         this._settingsInfo[i][0].disconnect(signalId);
       });
     }
-
   }
 );
 
@@ -295,12 +275,10 @@ class QuickSettingsManager {
     QuickSettingsMenu._addItems(this._quickSettingToggles);
 
     //Place the toggles above the background apps entry
-    if (ShellVersion >= 44) {
-      this._quickSettingToggles.forEach((item) => {
-        QuickSettingsMenu.menu._grid.set_child_below_sibling(item,
-          QuickSettingsMenu._backgroundApps.quickSettingsItems[0]);
-      });
-    }
+    this._quickSettingToggles.forEach((item) => {
+      QuickSettingsMenu.menu._grid.set_child_below_sibling(item,
+        QuickSettingsMenu._backgroundApps.quickSettingsItems[0]);
+    });
   }
 
   clean() {
@@ -322,10 +300,8 @@ class QuickGroupManager {
     QuickSettingsMenu._addItems([this._quickSettingsGroup]);
 
     //Place the toggles above the background apps entry
-    if (ShellVersion >= 44) {
-      QuickSettingsMenu.menu._grid.set_child_below_sibling(this._quickSettingsGroup,
-        QuickSettingsMenu._backgroundApps.quickSettingsItems[0]);
-    }
+    QuickSettingsMenu.menu._grid.set_child_below_sibling(this._quickSettingsGroup,
+      QuickSettingsMenu._backgroundApps.quickSettingsItems[0]);
   }
 
   clean() {
