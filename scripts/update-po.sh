@@ -1,5 +1,5 @@
 #!/bin/bash
-#This script takes 'po/messages.pot' and compiles the latest '.po' file(s) from it
+#This script generates the latest '.po' file(s) from the source
 #Usage: 'update-po.sh -l <LANG-CODE>', use '-a' to update all '.po' files
 
 #Create a new translation from 'po/messages.pot'
@@ -23,11 +23,12 @@ updateTranslation() {
   msgfmt --check --verbose --output-file=/dev/null "$1"
 }
 
-
 #Change to repository root and exit on failure
 set -e
 cd "$( cd "$( dirname "$0" )" && pwd )/.." || exit 1
 cd "extension" || exit 1
+
+../scripts/update-pot.sh
 
 if [[ "$1" == "-l" ]]; then #Update / create one specific '.po' file
   #Check if a valid language code was given
