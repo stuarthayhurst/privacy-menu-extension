@@ -48,7 +48,6 @@
 ## Install dependencies:
   - gettext
   - gnome-extensions
-  - libglib2.0-bin
 
 ## Build dependencies: (Only required if running `make release`)
   - `All install dependencies`
