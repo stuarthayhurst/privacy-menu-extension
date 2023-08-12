@@ -8,7 +8,7 @@ const ShellVersion = parseFloat(imports.misc.config.PACKAGE_VERSION);
 
 //Main imports
 const { Gtk, Gio } = imports.gi;
-const Adw = ShellVersion >= 42 ? imports.gi.Adw : null;
+const Adw = imports.gi.Adw;
 
 //Use _() for translations
 const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
@@ -123,33 +123,4 @@ function fillPreferencesWindow(window) {
 
   //Add the pages to the window
   window.add(settingsPage);
-}
-
-//Create preferences window for GNOME 40 - 41
-function buildPrefsWidget() {
-  let prefsPages = new PrefsPages();
-  let settingsWindow = new Gtk.ScrolledWindow();
-
-  //Use a stack to store pages
-  let pageStack = new Gtk.Stack();
-  pageStack.add_titled(prefsPages.preferencesWidget, 'settings', _('Settings'));
-
-  let pageSwitcher = new Gtk.StackSwitcher();
-  pageSwitcher.set_stack(pageStack);
-
-  //Add the stack to the scrolled window
-  settingsWindow.set_child(pageStack);
-  settingsWindow.show();
-
-  //Modify top bar to add a page menu, when the window is ready
-  settingsWindow.connect('realize', () => {
-    let window = settingsWindow.get_root();
-    let headerBar = window.get_titlebar();
-
-    //Add page switching menu to header
-    headerBar.set_title_widget(pageSwitcher);
-    pageSwitcher.show();
-  });
-
-  return settingsWindow;
 }
