@@ -46,12 +46,6 @@ var PrefsPages = class PrefsPages {
         quickSubtitleSettingsRow.set_sensitive(true);
       }
     }
-
-    //Grey out GNOME 44+ settings on earlier versions
-    if (ShellVersion < 44) {
-      let settingsArea = this._builder.get_object('gnome-44-settings-area');
-      settingsArea.set_sensitive(false);
-    }
   }
 
   _createPreferences() {

@@ -208,54 +208,18 @@
                     </child>
                   </object>
                 </child>
-                <style>
-                  <class name="frame"/>
-                </style>
-              </object>
-              <packing>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-        </child>
-        <child>
-          <object class="GtkBox" id="gnome-44-settings-area">
-            <property name="visible">1</property>
-            <property name="orientation">vertical</property>
-            <child>
-              <object class="GtkBox">
-                <property name="visible">1</property>
-                <property name="margin-top">12</property>
-                <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkBox">
+                  <object class="GtkListBoxRow">
                     <property name="visible">1</property>
-                    <property name="margin-start">2</property>
-                    <property name="margin-top">4</property>
-                    <property name="margin-bottom">6</property>
-                    <property name="orientation">vertical</property>
+                    <property name="can-focus">1</property>
+                    <property name="activatable">0</property>
                     <child>
-                      <object class="GtkLabel">
+                      <object class="GtkSeparator">
                         <property name="visible">1</property>
-                        <property name="label" translatable="yes">GNOME 44+ settings</property>
-                        <property name="xalign">0</property>
-                        <attributes>
-                          <attribute name="weight" value="bold"/>
-                          <attribute name="scale" value="1"/>
-                        </attributes>
                       </object>
                     </child>
                   </object>
-                  <packing>
-                    <property name="position">1</property>
-                  </packing>
                 </child>
-              </object>
-            </child>
-            <child>
-              <object class="GtkListBox" id="gnome-44-settings">
-                <property name="visible">1</property>
-                <property name="selection-mode">none</property>
                 <child>
                   <object class="GtkListBoxRow" id="use-quick-subtitle-setting">
                     <property name="visible">1</property>
@@ -310,9 +274,6 @@
               </packing>
             </child>
           </object>
-          <packing>
-            <property name="position">1</property>
-          </packing>
         </child>
         <child>
           <object class="GtkBox" id="donate-box">
@@ -334,7 +295,7 @@
             </child>
           </object>
           <packing>
-            <property name="position">2</property>
+            <property name="position">1</property>
           </packing>
         </child>
       </object>
