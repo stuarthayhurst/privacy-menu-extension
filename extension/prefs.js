@@ -24,27 +24,28 @@ var PrefsPages = class PrefsPages {
   }
 
   _updateEnabledSettings() {
-    //If using the quick settings area, disable 'move-icon-setting'
-    let moveIconRow = this._builder.get_object('move-icon-setting');
-    if (this._settings.get_boolean('use-quick-settings')) {
-      moveIconRow.set_sensitive(false);
-    } else {
-      moveIconRow.set_sensitive(true);
-    }
+    /*
+     - If quick settings are enabled, disable 'move-icon-setting'
+     - If quick settings grouping is disabled, disable 'use-quick-subtitle'
+    */
 
-    //If the quick settings aren't in use, disable related options
+    let moveIconRow = this._builder.get_object('move-icon-setting');
     let groupQuickSettingsRow = this._builder.get_object('group-quick-settings-setting');
     let quickSubtitleSettingsRow = this._builder.get_object('use-quick-subtitle-setting');
-    if (!this._settings.get_boolean('use-quick-settings')) {
-      groupQuickSettingsRow.set_sensitive(false);
-      quickSubtitleSettingsRow.set_sensitive(false);
-    } else {
+
+    if (this._settings.get_boolean('use-quick-settings')) {
+      moveIconRow.set_sensitive(false);
       groupQuickSettingsRow.set_sensitive(true);
+
       if (!this._settings.get_boolean('group-quick-settings')) {
         quickSubtitleSettingsRow.set_sensitive(false);
       } else {
         quickSubtitleSettingsRow.set_sensitive(true);
       }
+    } else {
+      moveIconRow.set_sensitive(true);
+      groupQuickSettingsRow.set_sensitive(false);
+      quickSubtitleSettingsRow.set_sensitive(false);
     }
   }
 
