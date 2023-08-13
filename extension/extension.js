@@ -1,8 +1,4 @@
-/* exported init enable disable */
-
-//Local extension imports
-const ExtensionUtils = imports.misc.extensionUtils;
-const Me = ExtensionUtils.getCurrentExtension();
+/* exported ExtensionManager */
 
 //Main imports
 import St from 'gi://St';
@@ -17,26 +13,7 @@ import * as QuickSettings from 'resource:///org/gnome/shell/ui/quickSettings.js'
 const QuickSettingsMenu = Main.panel.statusArea.quickSettings;
 
 //Use _() for translations
-const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
-
-function init() {
-  ExtensionUtils.initTranslations();
-}
-
-function enable() {
-  //Create new extension
-  privacyMenu = new Extension();
-
-  //Create menu
-  privacyMenu.initMenu();
-}
-
-function disable() {
-  //Disconnect listeners, then destroy the menu and class
-  privacyMenu.disconnectListeners();
-  privacyMenu.destroyMenu();
-  privacyMenu = null;
-}
+import {Extension, gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
 
 //Custom PopupMenuItem with an icon, label and switch
 const PrivacySettingImageSwitchItem = GObject.registerClass(
@@ -338,7 +315,7 @@ class IndicatorSettingsManager {
     }
 
     //Add to panel
-    Main.panel.addToStatusArea(Me.metadata.uuid, this._indicator, offset);
+    Main.panel.addToStatusArea('privacy-menu', this._indicator, offset);
   }
 
   clean() {
@@ -349,10 +326,27 @@ class IndicatorSettingsManager {
   }
 }
 
-class Extension {
-  constructor() {
+export default class ExtensionManager extends Extension {
+  enable() {
+    //Create new extension
+    this._privacyMenu = new PrivacyExtension(this.getSettings);
+
+    //Create menu
+    this._privacyMenu.initMenu();
+  }
+
+  disable() {
+    //Disconnect listeners, then destroy the menu and class
+    this._privacyMenu.disconnectListeners();
+    this._privacyMenu.destroyMenu();
+    this._privacyMenu = null;
+  }
+}
+
+class PrivacyExtension {
+  constructor(extensionSettings) {
     this._privacyManager = null;
-    this._extensionSettings = ExtensionUtils.getSettings();
+    this._extensionSettings = extensionSettings;
   }
 
   disconnectListeners() {
