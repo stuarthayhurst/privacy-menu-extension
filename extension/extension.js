@@ -329,7 +329,7 @@ class IndicatorSettingsManager {
 export default class ExtensionManager extends Extension {
   enable() {
     //Create new extension
-    this._privacyMenu = new PrivacyExtension(this.getSettings);
+    this._privacyMenu = new PrivacyExtension(this.getSettings());
 
     //Create menu
     this._privacyMenu.initMenu();
