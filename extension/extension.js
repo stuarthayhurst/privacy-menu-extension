@@ -3,6 +3,7 @@
 //Main imports
 import St from 'gi://St';
 import Gio from 'gi://Gio';
+import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
@@ -263,10 +264,19 @@ class QuickSettingsManager {
     //Add the toggles to the system menu
     QuickSettingsMenu._addItems(this._quickSettingToggles);
 
+/* TODO:
+ - This is a bad idea
+ - When the shell provides a better way to add above background apps, it should be used instead
+ - This is a temporary hacky fix
+ - GLib import should also be dropped when the fix is removed
+*/
+
     //Place the toggles above the background apps entry
-    this._quickSettingToggles.forEach((item) => {
-      QuickSettingsMenu.menu._grid.set_child_below_sibling(item,
-        QuickSettingsMenu._backgroundApps.quickSettingsItems[0]);
+    GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => {
+      this._quickSettingToggles.forEach((item) => {
+        QuickSettingsMenu.menu._grid.set_child_below_sibling(item,
+          QuickSettingsMenu._backgroundApps.quickSettingsItems[0]);
+      });
     });
   }
 
