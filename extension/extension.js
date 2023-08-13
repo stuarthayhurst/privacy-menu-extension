@@ -13,7 +13,7 @@ import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 import * as QuickSettings from 'resource:///org/gnome/shell/ui/quickSettings.js';
 const QuickSettingsMenu = Main.panel.statusArea.quickSettings;
 
-//Use _() for translations
+//Extension system imports
 import {Extension, gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
 
 //Custom PopupMenuItem with an icon, label and switch

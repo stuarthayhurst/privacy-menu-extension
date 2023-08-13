@@ -1,23 +1,20 @@
-/* exported init fillPreferencesWindow buildPrefsWidget */
-
-//Local extension imports
-const ExtensionUtils = imports.misc.extensionUtils;
-const Me = ExtensionUtils.getCurrentExtension();
-const ShellVersion = parseFloat(imports.misc.config.PACKAGE_VERSION);
+/* exported PrivacyPreferences */
 
 //Main imports
-const { Gtk, Gio } = imports.gi;
-const Adw = imports.gi.Adw;
+import Gtk from 'gi://Gtk';
+import Gio from 'gi://Gio';
+import Adw from 'gi://Adw';
 
-//Use _() for translations
-const _ = imports.gettext.domain(Me.metadata.uuid).gettext;
+//Extension system imports
+import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
 var PrefsPages = class PrefsPages {
-  constructor() {
-    this._settings = ExtensionUtils.getSettings('org.gnome.shell.extensions.privacy-menu');
+  constructor(path, uuid, settings) {
+    this._settings = settings;
+    this._path = path;
 
     this._builder = new Gtk.Builder();
-    this._builder.set_translation_domain(Me.metadata.uuid);
+    this._builder.set_translation_domain(uuid);
 
     this.preferencesWidget = null;
     this._createPreferences();
@@ -50,7 +47,7 @@ var PrefsPages = class PrefsPages {
   }
 
   _createPreferences() {
-    this._builder.add_from_file(Me.path + '/gtk4/prefs.ui');
+    this._builder.add_from_file(this._path + '/gtk4/prefs.ui');
 
     //Get the settings container widget
     this.preferencesWidget = this._builder.get_object('main-prefs');
@@ -92,23 +89,21 @@ var PrefsPages = class PrefsPages {
   }
 }
 
-function init() {
-  ExtensionUtils.initTranslations();
-}
+export default class PrivacyPreferences extends ExtensionPreferences {
+  //Create preferences window with libadwaita
+  fillPreferencesWindow(window) {
+    //Create pages and widgets
+    let prefsPages = new PrefsPages(this.path, this.uuid, this.getSettings());
+    let settingsPage = new Adw.PreferencesPage();
+    let settingsGroup = new Adw.PreferencesGroup();
 
-//Create preferences window with libadwaita
-function fillPreferencesWindow(window) {
-  //Create pages and widgets
-  let prefsPages = new PrefsPages();
-  let settingsPage = new Adw.PreferencesPage();
-  let settingsGroup = new Adw.PreferencesGroup();
+    //Build the settings page
+    settingsPage.set_title(_('Settings'));
+    settingsPage.set_icon_name('preferences-system-symbolic');
+    settingsGroup.add(prefsPages.preferencesWidget);
+    settingsPage.add(settingsGroup);
 
-  //Build the settings page
-  settingsPage.set_title(_('Settings'));
-  settingsPage.set_icon_name('preferences-system-symbolic');
-  settingsGroup.add(prefsPages.preferencesWidget);
-  settingsPage.add(settingsGroup);
-
-  //Add the pages to the window
-  window.add(settingsPage);
+    //Add the pages to the window
+    window.add(settingsPage);
+  }
 }
