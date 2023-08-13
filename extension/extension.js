@@ -272,7 +272,7 @@ class QuickSettingsManager {
 */
 
     //Place the toggles above the background apps entry
-    GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => {
+    GLib.idle_add(GLib.PRIORITY_LOW, () => {
       this._quickSettingToggles.forEach((item) => {
         QuickSettingsMenu.menu._grid.set_child_below_sibling(item,
           QuickSettingsMenu._backgroundApps.quickSettingsItems[0]);
