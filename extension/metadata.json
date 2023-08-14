@@ -6,6 +6,7 @@
   "settings-schema": "org.gnome.shell.extensions.privacy-menu",
   "url": "https://github.com/stuarthayhurst/privacy-menu-extension",
   "donations": {
+    "github": "stuarthayhurst",
     "paypal": "stuartahayhurst"
   },
   "shell-version": [
