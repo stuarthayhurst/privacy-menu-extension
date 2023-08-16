@@ -1,5 +1,11 @@
 ## Changelog:
 
+### v18: - `2023-08-16`
+**This release will be the final release to support pre-45 versions of GNOME**
+ - Updated translations (#32)
+ - Added Brazilian Portuguese translation - [Daimar](https://github.com/not-a-dev-stein) (#33)
+ - Added GitHub sponsor link to metadata
+
 ### v17: - `2023-07-21`
  - Code cleanup
  - Open the grouped settings when any part of the indicator is pressed
