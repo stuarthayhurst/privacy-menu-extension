@@ -249,34 +249,17 @@ class QuickSettingsManager {
     ];
 
     //Create a quick setting toggle for each privacy setting
-    quickSettingsInfo.forEach((quickSettingInfo) => {
+    quickSettingsInfo.forEach((quickSettingInfo, i) => {
       this._quickSettingToggles.push(
         new PrivacyQuickToggle(
-          quickSettingInfo[0],
-          quickSettingInfo[1],
-          quickSettingInfo[2],
-          quickSettingInfo[3],
+          quickSettingInfo[0], quickSettingInfo[1],
+          quickSettingInfo[2], quickSettingInfo[3],
           quickSettingInfo[4]
         )
       );
-    });
 
-    //Add the toggles to the system menu
-    QuickSettingsMenu._addItems(this._quickSettingToggles);
-
-/* TODO:
- - This is a bad idea
- - When the shell provides a better way to add above background apps, it should be used instead
- - This is a temporary hacky fix
- - GLib import should also be dropped when the fix is removed
-*/
-
-    //Place the toggles above the background apps entry
-    GLib.idle_add(GLib.PRIORITY_LOW, () => {
-      this._quickSettingToggles.forEach((item) => {
-        QuickSettingsMenu.menu._grid.set_child_below_sibling(item,
-          QuickSettingsMenu._backgroundApps.quickSettingsItems[0]);
-      });
+      //Add the toggle to the system menu
+      QuickSettingsMenu.addExternalIndicator(this._quickSettingToggles[i]);
     });
   }
 
@@ -293,14 +276,9 @@ class QuickSettingsManager {
 
 class QuickGroupManager {
   constructor(useQuickSubtitle) {
+    //Create quick settings group and add to the system menu
     this._quickSettingsGroup = new PrivacyQuickGroup(useQuickSubtitle);
-
-    //Add the toggles to the system menu
-    QuickSettingsMenu._addItems([this._quickSettingsGroup]);
-
-    //Place the toggles above the background apps entry
-    QuickSettingsMenu.menu._grid.set_child_below_sibling(this._quickSettingsGroup,
-      QuickSettingsMenu._backgroundApps.quickSettingsItems[0]);
+    QuickSettingsMenu.addExternalIndicator(this._quickSettingsGroup);
   }
 
   clean() {
