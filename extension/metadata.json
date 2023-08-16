@@ -10,12 +10,7 @@
     "paypal": "stuartahayhurst"
   },
   "shell-version": [
-    "3.38",
-    "40",
-    "41",
-    "42",
-    "43",
-    "44"
+    "45"
   ],
   "version": 18
 }
