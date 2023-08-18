@@ -18,6 +18,7 @@ class PrefsPage extends Adw.PreferencesPage {
 
     this._extensionSettings = settings;
     this._settingGroups = {};
+    this._settingRows = {};
 
     //Setup settings
     this._createGroups(groupsInfo);
@@ -60,27 +61,27 @@ class PrefsPage extends Adw.PreferencesPage {
         Gio.SettingsBindFlags.DEFAULT
       );
 
-      //Add the row to the group
+      //Add the row to the group, and save for later
       this._settingGroups[settingInfo[0]].add(settingRow);
+      this._settingRows[settingInfo[1]] = settingRow;
     });
   }
 
   _updateEnabledSettings() {
-    return; //TODO
     /*
-     - If quick settings are enabled, disable 'move-icon-setting'
-     - If quick settings grouping is disabled, disable 'use-quick-subtitle'
+     - If quick settings are enabled, disable 'move-icon-setting' option
+     - If quick settings grouping is disabled, disable 'use-quick-subtitle' option
     */
-/*
-    let moveIconRow = this._builder.get_object('move-icon-setting');
-    let groupQuickSettingsRow = this._builder.get_object('group-quick-settings-setting');
-    let quickSubtitleSettingsRow = this._builder.get_object('use-quick-subtitle-setting');
 
-    if (this._settings.get_boolean('use-quick-settings')) {
+    let moveIconRow = this._settingRows['move-icon-right'];
+    let groupQuickSettingsRow = this._settingRows['group-quick-settings'];
+    let quickSubtitleSettingsRow = this._settingRows['use-quick-subtitle'];
+
+    if (this._extensionSettings.get_boolean('use-quick-settings')) {
       moveIconRow.set_sensitive(false);
       groupQuickSettingsRow.set_sensitive(true);
 
-      if (!this._settings.get_boolean('group-quick-settings')) {
+      if (!this._extensionSettings.get_boolean('group-quick-settings')) {
         quickSubtitleSettingsRow.set_sensitive(false);
       } else {
         quickSubtitleSettingsRow.set_sensitive(true);
@@ -89,7 +90,7 @@ class PrefsPage extends Adw.PreferencesPage {
       moveIconRow.set_sensitive(true);
       groupQuickSettingsRow.set_sensitive(false);
       quickSubtitleSettingsRow.set_sensitive(false);
-    }*/
+    }
   }
 });
 
