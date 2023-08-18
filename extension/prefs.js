@@ -1,31 +1,77 @@
 /* exported PrivacyPreferences */
 
 //Main imports
-import Gtk from 'gi://Gtk';
 import Gio from 'gi://Gio';
 import Adw from 'gi://Adw';
+import GObject from 'gi://GObject';
 
 //Extension system imports
 import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
-var PrefsPages = class PrefsPages {
-  constructor(path, uuid, settings) {
-    this._settings = settings;
-    this._path = path;
+var PrefsPage = GObject.registerClass(
+class PrefsPage extends Adw.PreferencesPage {
+  _init(pageInfo, groupsInfo, settingsInfo, settings) {
+    super._init({
+      title: pageInfo[0],
+      icon_name: pageInfo[1]
+    });
 
-    this._builder = new Gtk.Builder();
-    this._builder.set_translation_domain(uuid);
+    this._extensionSettings = settings;
+    this._settingGroups = {};
 
-    this.preferencesWidget = null;
-    this._createPreferences();
+    //Setup settings
+    this._createGroups(groupsInfo);
+    this._createSettings(settingsInfo);
+
+    //Disable unavailable settings
+    this._settingsChangedSignal = this._extensionSettings.connect('changed', () => {
+      this._updateEnabledSettings();
+    });
+    this._updateEnabledSettings();
+  }
+
+  _createGroups(groupsInfo) {
+    //Store groups, set title and add to window
+    groupsInfo.forEach((groupInfo) => {
+      this._settingGroups[groupInfo[0]] = new Adw.PreferencesGroup();
+      this._settingGroups[groupInfo[0]].set_title(groupInfo[1]);
+      this.add(this._settingGroups[groupInfo[0]]);
+    });
+  }
+
+  _createSettings(settingsInfo) {
+    settingsInfo.forEach(settingInfo => {
+      //Check the target group exists
+      if (!(settingInfo[0] in this._settingGroups)) {
+        return;
+      }
+
+      //Create a row with a switch, title and subtitle
+      let settingRow = new Adw.SwitchRow({
+        title: settingInfo[2],
+        subtitle: settingInfo[3]
+      });
+
+      //Connect the switch to the setting
+      this._extensionSettings.bind(
+        settingInfo[1], //GSettings key to bind to
+        settingRow, //Object to bind to
+        'active', //The property to share
+        Gio.SettingsBindFlags.DEFAULT
+      );
+
+      //Add the row to the group
+      this._settingGroups[settingInfo[0]].add(settingRow);
+    });
   }
 
   _updateEnabledSettings() {
+    return; //TODO
     /*
      - If quick settings are enabled, disable 'move-icon-setting'
      - If quick settings grouping is disabled, disable 'use-quick-subtitle'
     */
-
+/*
     let moveIconRow = this._builder.get_object('move-icon-setting');
     let groupQuickSettingsRow = this._builder.get_object('group-quick-settings-setting');
     let quickSubtitleSettingsRow = this._builder.get_object('use-quick-subtitle-setting');
@@ -43,65 +89,31 @@ var PrefsPages = class PrefsPages {
       moveIconRow.set_sensitive(true);
       groupQuickSettingsRow.set_sensitive(false);
       quickSubtitleSettingsRow.set_sensitive(false);
-    }
+    }*/
   }
-
-  _createPreferences() {
-    this._builder.add_from_file(this._path + '/gtk4/prefs.ui');
-
-    //Get the settings container widget
-    this.preferencesWidget = this._builder.get_object('main-prefs');
-
-    let settingElements = {
-      'move-icon-switch': {
-        'settingKey': 'move-icon-right',
-        'bindProperty': 'active'
-      },
-      'use-quick-settings-switch': {
-        'settingKey': 'use-quick-settings',
-        'bindProperty': 'active'
-      },
-      'group-quick-settings-switch': {
-        'settingKey': 'group-quick-settings',
-        'bindProperty': 'active'
-      },
-      'use-quick-subtitle-switch': {
-        'settingKey': 'use-quick-subtitle',
-        'bindProperty': 'active'
-      }
-    }
-
-    //Loop through settings toggles and dropdowns and bind together
-    Object.keys(settingElements).forEach((element) => {
-      this._settings.bind(
-        settingElements[element].settingKey, //GSettings key to bind to
-        this._builder.get_object(element), //GTK UI element to bind to
-        settingElements[element].bindProperty, //The property to share
-        Gio.SettingsBindFlags.DEFAULT
-      );
-    });
-
-    //Disable unavailable settings
-    this._settingsChangedSignal = this._settings.connect('changed', () => {
-      this._updateEnabledSettings();
-    });
-    this._updateEnabledSettings();
-  }
-}
+});
 
 export default class PrivacyPreferences extends ExtensionPreferences {
   //Create preferences window with libadwaita
   fillPreferencesWindow(window) {
-    //Create pages and widgets
-    let prefsPages = new PrefsPages(this.path, this.uuid, this.getSettings());
-    let settingsPage = new Adw.PreferencesPage();
-    let settingsGroup = new Adw.PreferencesGroup();
+    //Translated title, icon name
+    let pageInfo = [_('Settings'), 'preferences-system-symbolic'];
 
-    //Build the settings page
-    settingsPage.set_title(_('Settings'));
-    settingsPage.set_icon_name('preferences-system-symbolic');
-    settingsGroup.add(prefsPages.preferencesWidget);
-    settingsPage.add(settingsGroup);
+    let groupsInfo = [
+      //Group ID, translated title
+      ['general', _('General settings')]
+    ];
+
+    let settingsInfo = [
+      //Group ID, setting key, title, subtitle
+      ['general', 'move-icon-right', _('Move status icon right'), _('Force the icon to move to right side of the status area')],
+      ['general', 'use-quick-settings',  _('Use quick settings menu'), _('Use the system quick settings area, instead of an indicator')],
+      ['general', 'group-quick-settings',  _('Group quick settings'), _('Group quick settings together, into a menu')],
+      ['general', 'use-quick-subtitle',  _('Use quick settings subtitle'), _('Show the privacy status in the quick settings subtitle')]
+    ];
+
+    //Create settings page from info
+    let settingsPage = new PrefsPage(pageInfo, groupsInfo, settingsInfo, this.getSettings());
 
     //Add the pages to the window
     window.add(settingsPage);
