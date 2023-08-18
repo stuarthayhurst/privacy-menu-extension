@@ -115,7 +115,8 @@ export default class PrivacyPreferences extends ExtensionPreferences {
     //Create settings page from info
     let settingsPage = new PrefsPage(pageInfo, groupsInfo, settingsInfo, this.getSettings());
 
-    //Add the pages to the window
+    //Add the pages to the window, enable searching
     window.add(settingsPage);
+    window.set_search_enabled(true);
   }
 }
