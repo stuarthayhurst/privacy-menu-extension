@@ -41,9 +41,8 @@
   - ### Development targets: These targets are aimed at developers and translators
     - `make clean`: Deletes extension zip
     - `make translations`: Updates translations
-    - `make gtk4`: Simplifies and converts UI files (Should be run after any changes to files in `ui/`)
     - `make compress`: Losslessly compresses any .pngs in `docs/`
-    - `make release`: Updates the UI, translations and icons, then creates and checks an extension zip
+    - `make release`: Updates the translations and icons, then creates and checks an extension zip
 
 ## Install dependencies:
   - gettext
@@ -52,8 +51,6 @@
 ## Build dependencies: (Only required if running `make release`)
   - `All install dependencies`
   - sed (`make translations`)
-  - libgtk-3-bin (`make gtk4`)
-  - libgtk-4-bin (`make gtk4`)
   - optipng (`make compress`)
 
 ## Want to help?
