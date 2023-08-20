@@ -78,6 +78,7 @@ class PrefsPage extends Adw.PreferencesPage {
       //Create a row for the link widget
       let linkEntryRow = new Adw.ActionRow({
         title: linkInfo[0],
+        subtitle: linkInfo[1],
         activatable: true
       });
 
@@ -145,9 +146,9 @@ export default class PrivacyPreferences extends ExtensionPreferences {
     //Define and add links
     let linksInfo = [
       //Translated title, link
-      [_("Report an issue"), "https://github.com/stuarthayhurst/privacy-menu-extension/issues"],
-      [_("Donate via GitHub"), "https://github.com/sponsors/stuarthayhurst"],
-      [_("Donate via PayPal"), "https://www.paypal.me/stuartahayhurst"]
+      [_('Report an issue'), _('GitHub issue tracker'), 'https://github.com/stuarthayhurst/privacy-menu-extension/issues'],
+      [_('Donate via GitHub'), _('Become a sponsor'), 'https://github.com/sponsors/stuarthayhurst'],
+      [_('Donate via PayPal'), _('Thanks for your support :)'), 'https://www.paypal.me/stuartahayhurst']
     ];
     settingsPage.addLinks(window, linksInfo, _("Links"));
 
