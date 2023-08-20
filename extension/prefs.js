@@ -2,6 +2,7 @@
 
 //Main imports
 import Gio from 'gi://Gio';
+import Gtk from 'gi://Gtk';
 import Adw from 'gi://Adw';
 import GObject from 'gi://GObject';
 
@@ -67,6 +68,30 @@ class PrefsPage extends Adw.PreferencesPage {
     });
   }
 
+  addLinks(window, linksInfo, groupName) {
+    //Setup and add links group to window
+    let linksGroup = new Adw.PreferencesGroup();
+    linksGroup.set_title(groupName);
+    this.add(linksGroup);
+
+    linksInfo.forEach((linkInfo) => {
+      //Create a row for the link widget
+      let linkEntryRow = new Adw.ActionRow({
+        title: linkInfo[0],
+        activatable: true/
+      });
+
+      //Open the link when clicked
+      linkEntryRow.connect('activated', () => {
+        let uriLauncher = new Gtk.UriLauncher();
+        uriLauncher.set_uri(linkInfo[1]);
+        uriLauncher.launch(window, null, null);
+      });
+
+      linksGroup.add(linkEntryRow);
+    });
+  }
+
   _updateEnabledSettings() {
     /*
      - If quick settings are enabled, disable 'move-icon-setting' option
@@ -116,6 +141,15 @@ export default class PrivacyPreferences extends ExtensionPreferences {
 
     //Create settings page from info
     let settingsPage = new PrefsPage(pageInfo, groupsInfo, settingsInfo, this.getSettings());
+
+    //Define and add links
+    let linksInfo = [
+      //Translated title, link
+      [_("Report an issue"), "https://github.com/stuarthayhurst/privacy-menu-extension/issues"],
+      [_("Donate via GitHub"), "https://github.com/sponsors/stuarthayhurst"],
+      [_("Donate via PayPal"), "https://www.paypal.me/stuartahayhurst"]
+    ];
+    settingsPage.addLinks(window, linksInfo, _("Links"));
 
     //Add the pages to the window, enable searching
     window.add(settingsPage);
