@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-16 12:51+0100\n"
+"POT-Creation-Date: 2023-08-20 19:26+0100\n"
 "PO-Revision-Date: 2023-07-21 14:52+0100\n"
 "Last-Translator: Albano Battistella <albanobattistella@gmail.om>\n"
 "Language-Team: Italian <LL@li.org>\n"
@@ -16,101 +16,121 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension/extension.js:38
+#: extension/extension.js:37
 msgid "Privacy Settings Menu Indicator"
 msgstr "Indicatore del menu delle impostazioni sulla privacy"
 
-#: extension/extension.js:63 extension/extension.js:144
+#: extension/extension.js:62 extension/extension.js:143
 msgid "Privacy Settings"
 msgstr "Impostazioni Privacy"
 
-#: extension/extension.js:69 extension/extension.js:157
-#: extension/extension.js:246
+#: extension/extension.js:68 extension/extension.js:156
+#: extension/extension.js:245
 msgid "Location"
 msgstr "Posizione"
 
-#: extension/extension.js:70 extension/extension.js:158
-#: extension/extension.js:247
+#: extension/extension.js:69 extension/extension.js:157
+#: extension/extension.js:246
 msgid "Camera"
 msgstr "Fotocamera"
 
-#: extension/extension.js:71 extension/extension.js:159
-#: extension/extension.js:248
+#: extension/extension.js:70 extension/extension.js:158
+#: extension/extension.js:247
 msgid "Microphone"
 msgstr "Microfono"
 
-#: extension/extension.js:98
+#: extension/extension.js:97
 msgid "Reset settings"
 msgstr "Ripristina impostazioni"
 
-#: extension/extension.js:100
+#: extension/extension.js:99
 msgid "Reset to defaults"
 msgstr "Ripristina le impostazioni predefinite"
 
-#: extension/extension.js:138
+#: extension/extension.js:137
 msgid "Privacy"
 msgstr "Privacy"
 
-#: extension/extension.js:220
+#: extension/extension.js:219
 msgid "All disabled"
 msgstr "Tutto disabilitato"
 
 #. Translators: this displays which setting is enabled, e.g. 'Location enabled'
-#: extension/extension.js:227
+#: extension/extension.js:226
 msgid " enabled"
 msgstr "abilitato"
 
-#: extension/prefs.js:101
+#: extension/prefs.js:127
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: extension/ui/gtk3/prefs.ui:33
+#: extension/prefs.js:131
 msgid "General settings"
 msgstr "Impostazioni generali"
 
-#. This is a tooltip
-#: extension/ui/gtk3/prefs.ui:56
-msgid "Force the icon to move to right side of the status area"
-msgstr "Forza lo spostamento dell'icona sul lato destro dell'area di stato"
+#: extension/prefs.js:132
+msgid "Menu settings"
+msgstr ""
 
-#: extension/ui/gtk3/prefs.ui:72
+#: extension/prefs.js:137
 msgid "Move status icon right"
 msgstr "Sposta l'icona di stato a destra"
 
-#. This is a tooltip
-#: extension/ui/gtk3/prefs.ui:113
+#: extension/prefs.js:137
+msgid "Force the icon to move to right side of the status area"
+msgstr "Forza lo spostamento dell'icona sul lato destro dell'area di stato"
+
+#: extension/prefs.js:138
+msgid "Use quick settings menu"
+msgstr "Usa il menu delle impostazioni rapide"
+
+#: extension/prefs.js:138
 msgid "Use the system quick settings area, instead of an indicator"
 msgstr ""
 "Utilizzare l'area delle impostazioni rapide del sistema, invece di un "
 "indicatore"
 
-#: extension/ui/gtk3/prefs.ui:129
-msgid "Use quick settings menu"
-msgstr "Usa il menu delle impostazioni rapide"
-
-#. This is a tooltip
-#: extension/ui/gtk3/prefs.ui:170
-msgid "Group quick settings together, into a menu"
-msgstr "Raggruppa le impostazioni rapide in un menu"
-
-#: extension/ui/gtk3/prefs.ui:186
+#: extension/prefs.js:139
 msgid "Group quick settings"
 msgstr "Impostazioni rapide di gruppo"
 
-#. This is a tooltip
-#: extension/ui/gtk3/prefs.ui:227
+#: extension/prefs.js:139
+msgid "Group quick settings together, into a menu"
+msgstr "Raggruppa le impostazioni rapide in un menu"
+
+#: extension/prefs.js:140
+msgid "Use quick settings subtitle"
+msgstr "Usa i sottotitoli delle impostazioni rapide"
+
+#: extension/prefs.js:140
 msgid "Show the privacy status in the quick settings subtitle"
 msgstr ""
 "Mostra lo stato della privacy nel sottotitolo delle impostazioni rapide"
 
-#: extension/ui/gtk3/prefs.ui:243
-msgid "Use quick settings subtitle"
-msgstr "Usa i sottotitoli delle impostazioni rapide"
-
-#: extension/ui/gtk3/prefs.ui:290
-msgid ""
-"Found this useful?\n"
-"<a href=\"https://paypal.me/stuartahayhurst\">Consider donating</a> :)"
+#: extension/prefs.js:149
+msgid "Report an issue"
 msgstr ""
-"L'hai trovato utile?\n"
-"<a href=\"https://paypal.me/stuartahayhurst\">Considera una donazione</a> :)"
+
+#: extension/prefs.js:149
+msgid "GitHub issue tracker"
+msgstr ""
+
+#: extension/prefs.js:150
+msgid "Donate via GitHub"
+msgstr ""
+
+#: extension/prefs.js:150
+msgid "Become a sponsor"
+msgstr ""
+
+#: extension/prefs.js:151
+msgid "Donate via PayPal"
+msgstr ""
+
+#: extension/prefs.js:151
+msgid "Thanks for your support :)"
+msgstr ""
+
+#: extension/prefs.js:153
+msgid "Links"
+msgstr ""
