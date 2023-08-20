@@ -102,15 +102,16 @@ export default class PrivacyPreferences extends ExtensionPreferences {
 
     let groupsInfo = [
       //Group ID, translated title
-      ['general', _('General settings')]
+      ['general', _('General settings')],
+      ['menu', _('Menu settings')]
     ];
 
     let settingsInfo = [
       //Group ID, setting key, title, subtitle
       ['general', 'move-icon-right', _('Move status icon right'), _('Force the icon to move to right side of the status area')],
-      ['general', 'use-quick-settings',  _('Use quick settings menu'), _('Use the system quick settings area, instead of an indicator')],
-      ['general', 'group-quick-settings',  _('Group quick settings'), _('Group quick settings together, into a menu')],
-      ['general', 'use-quick-subtitle',  _('Use quick settings subtitle'), _('Show the privacy status in the quick settings subtitle')]
+      ['menu', 'use-quick-settings',  _('Use quick settings menu'), _('Use the system quick settings area, instead of an indicator')],
+      ['menu', 'group-quick-settings',  _('Group quick settings'), _('Group quick settings together, into a menu')],
+      ['menu', 'use-quick-subtitle',  _('Use quick settings subtitle'), _('Show the privacy status in the quick settings subtitle')]
     ];
 
     //Create settings page from info
