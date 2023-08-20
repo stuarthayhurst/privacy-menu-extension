@@ -78,7 +78,7 @@ class PrefsPage extends Adw.PreferencesPage {
       //Create a row for the link widget
       let linkEntryRow = new Adw.ActionRow({
         title: linkInfo[0],
-        activatable: true/
+        activatable: true
       });
 
       //Open the link when clicked
