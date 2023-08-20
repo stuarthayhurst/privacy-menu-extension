@@ -258,7 +258,8 @@ class QuickSettingsManager {
       );
 
       //Add the toggle to the system menu
-      QuickSettingsMenu.addExternalIndicator(this._quickSettingToggles[i]);
+      let backgroundApps = QuickSettingsMenu._backgroundApps?.quickSettingsItems?.at(-1) ?? null;
+      QuickSettingsMenu.insertItemBefore(this._quickSettingToggles[i], backgroundApps);
     });
   }
 
@@ -277,7 +278,8 @@ class QuickGroupManager {
   constructor(useQuickSubtitle) {
     //Create quick settings group and add to the system menu
     this._quickSettingsGroup = new PrivacyQuickGroup(useQuickSubtitle);
-    QuickSettingsMenu.addExternalIndicator(this._quickSettingsGroup);
+    let backgroundApps = QuickSettingsMenu._backgroundApps?.quickSettingsItems?.at(-1) ?? null;
+    QuickSettingsMenu.insertItemBefore(this._quickSettingsGroup, backgroundApps);
   }
 
   clean() {
