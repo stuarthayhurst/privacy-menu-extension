@@ -85,7 +85,7 @@ class PrefsPage extends Adw.PreferencesPage {
       //Open the link when clicked
       linkEntryRow.connect('activated', () => {
         let uriLauncher = new Gtk.UriLauncher();
-        uriLauncher.set_uri(linkInfo[1]);
+        uriLauncher.set_uri(linkInfo[2]);
         uriLauncher.launch(window, null, null);
       });
 
