@@ -10,6 +10,7 @@
   - New or improved translations
   - Fixes and additions to documentation
   - Bug fixes and feature additions
+  - UI improvements
 
 ## Working with issues:
   - If someone else is already working on a reported issue, feel free help them out. Please don't try and commandeer the issue, if you want to work on something on your own, find another issue
