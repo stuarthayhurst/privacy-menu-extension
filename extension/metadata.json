@@ -1,6 +1,6 @@
 {
   "name": "Privacy Quick Settings",
-  "description": "Add privacy settings toggles to the GNOME system menu",
+  "description": "Add privacy settings toggles to the GNOME system menu\nNOTE: This only provides quick access to settings, it doesn't directly access hardware",
   "uuid": "PrivacyMenu@stuarthayhurst",
   "gettext-domain": "PrivacyMenu@stuarthayhurst",
   "settings-schema": "org.gnome.shell.extensions.privacy-menu",
