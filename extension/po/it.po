@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 19:26+0100\n"
-"PO-Revision-Date: 2023-07-21 14:52+0100\n"
+"PO-Revision-Date: 2023-08-21 20:17+0100\n"
 "Last-Translator: Albano Battistella <albanobattistella@gmail.om>\n"
 "Language-Team: Italian <LL@li.org>\n"
 "Language: it\n"
@@ -70,7 +70,7 @@ msgstr "Impostazioni generali"
 
 #: extension/prefs.js:132
 msgid "Menu settings"
-msgstr ""
+msgstr "Impostazioni del menù"
 
 #: extension/prefs.js:137
 msgid "Move status icon right"
@@ -109,28 +109,28 @@ msgstr ""
 
 #: extension/prefs.js:149
 msgid "Report an issue"
-msgstr ""
+msgstr "Segnala un problema"
 
 #: extension/prefs.js:149
 msgid "GitHub issue tracker"
-msgstr ""
+msgstr "Tracciatore di problemi GitHub"
 
 #: extension/prefs.js:150
 msgid "Donate via GitHub"
-msgstr ""
+msgstr "Dona tramite GitHub"
 
 #: extension/prefs.js:150
 msgid "Become a sponsor"
-msgstr ""
+msgstr "Diventa uno sponsor"
 
 #: extension/prefs.js:151
 msgid "Donate via PayPal"
-msgstr ""
+msgstr "Dona tramite PayPal"
 
 #: extension/prefs.js:151
 msgid "Thanks for your support :)"
-msgstr ""
+msgstr "Grazie per il vostro sostegno :)"
 
 #: extension/prefs.js:153
 msgid "Links"
-msgstr ""
+msgstr "Link"
