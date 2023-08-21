@@ -39,10 +39,17 @@
     - `make install`: Installs the extension
     - `make uninstall`: Uninstalls the extension
   - ### Development targets: These targets are aimed at developers and translators
-    - `make clean`: Deletes extension zip
+    - `make clean`: Cleans the extension repository, including built files and translations
     - `make translations`: Updates translations
-    - `make compress`: Losslessly compresses any .pngs in `docs/`
-    - `make release`: Updates the translations and icons, then creates and checks an extension zip
+    - `make compress`: Losslessly compresses any `.png`s in `docs/`
+      - Allows passing `COMPRESSLEVEL="-o[X]"`, where `[X]` is an integer between 0-7
+      - Supports `-j[X]`, where `[X]` is the number of threads to use
+    - `make release`: Updates translations and icons, then creates and checks an extension zip
+      - Calls `make translations compress build check`
+      - Supports any variables / arguments supported by these targets
+      - Also allows passing `VERSION="[XX]"`, where `[XX]` is the version to update `metadata.json` to
+      - Supports `-j[X]`, where `[X]` is the number of threads to use
+    - `make package`: Creates the extension zip from the project's current state (only useful for debugging)
 
 ## Install dependencies:
   - gettext
@@ -58,8 +65,11 @@
   - [Documentation](docs/CONTRIBUTING.md#documentation-changes), [code](docs/CONTRIBUTING.md#code-changes), [translations](docs/CONTRIBUTING.md#translations) and UI improvements are all welcome!
 
 ## Bug reporting / debugging:
+  - If you were simply told "Error" while installing, reboot and see if there's still an issue
+    - When installing an extension from GNOME's extension site, this is normal
+  - A log of what the extension is doing is very helpful for fixing issues
+  - The extension logs to the system logs when enabled, which can be accessed with `journalctl /usr/bin/gnome-shell`
   - A live feed of GNOME's logs can be accessed with `journalctl /usr/bin/gnome-shell -f -o cat`
-  - If the extension is crashing, an output from this is very helpful for fixing it
 
 ### Credits:
   - `scripts/update-po.sh` and `scripts/update-pot.sh` were derived from [Fly-Pie](https://github.com/Schneegans/Fly-Pie), originally licensed under the [MIT license](https://github.com/Schneegans/Fly-Pie/blob/develop/LICENSE)
