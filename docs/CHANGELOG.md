@@ -1,5 +1,12 @@
 ## Changelog:
 
+### v19: - `2023-08-21`
+ - Support GNOME 45
+   - **Support for earlier versions has been removed**
+ - Added a new interface, using `libadwaita`
+ - General code improvements
+ - Build system improvements
+
 ### v18: - `2023-08-16`
 **This release will be the final release to support pre-45 versions of GNOME**
  - Updated translations (#32)
