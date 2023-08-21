@@ -1,6 +1,9 @@
 ## Changelog:
 
 ### v19: - `2023-08-21`
+ - Hotfix: Stopped exporting generic class names
+
+### v19: - `2023-08-21`
  - Support GNOME 45
    - **Support for earlier versions has been removed**
  - Added a new interface, using `libadwaita`
