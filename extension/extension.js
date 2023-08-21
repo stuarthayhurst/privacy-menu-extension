@@ -1,4 +1,4 @@
-/* exported ExtensionManager */
+/* exported PrivacyQuickSettingsManager */
 
 //Main imports
 import St from 'gi://St';
@@ -315,7 +315,7 @@ class IndicatorSettingsManager {
   }
 }
 
-export default class ExtensionManager extends Extension {
+export default class PrivacyQuickSettingsManager extends Extension {
   enable() {
     //Create new extension
     this._privacyMenu = new PrivacyExtension(this.getSettings());

@@ -1,4 +1,4 @@
-/* exported PrivacyPreferences */
+/* exported PrivacyQuickSettingsPrefs */
 
 //Main imports
 import Gio from 'gi://Gio';
@@ -120,7 +120,7 @@ class PrefsPage extends Adw.PreferencesPage {
   }
 });
 
-export default class PrivacyPreferences extends ExtensionPreferences {
+export default class PrivacyQuickSettingsPrefs extends ExtensionPreferences {
   //Create preferences window with libadwaita
   fillPreferencesWindow(window) {
     //Translated title, icon name
