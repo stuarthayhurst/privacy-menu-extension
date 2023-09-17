@@ -1,6 +1,11 @@
 ## Changelog:
 
-### v19: - `2023-08-21`
+### v21: - `2023-09-17`
+ - Updated extension description
+ - Updated Italian translation (#36)
+ - Updated README and documentation
+
+### v20: - `2023-08-21`
  - Hotfix: Stopped exporting generic class names
 
 ### v19: - `2023-08-21`
