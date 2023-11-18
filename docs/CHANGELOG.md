@@ -1,5 +1,9 @@
 ## Changelog:
 
+### v22: - `2023-11-18`
+ - Added Japanese translation - [Gnuey56](https://github.com/gnuey56) (#37)
+ - Updated GitHub runners
+
 ### v21: - `2023-09-17`
  - Updated extension description
  - Updated Italian translation (#36)
