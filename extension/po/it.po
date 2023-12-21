@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 19:26+0100\n"
-"PO-Revision-Date: 2023-08-21 20:17+0100\n"
+"PO-Revision-Date: 2023-12-21 21:00+0100\n"
 "Last-Translator: Albano Battistella <albanobattistella@gmail.om>\n"
 "Language-Team: Italian <LL@li.org>\n"
 "Language: it\n"
@@ -87,8 +87,7 @@ msgstr "Usa il menu delle impostazioni rapide"
 #: extension/prefs.js:138
 msgid "Use the system quick settings area, instead of an indicator"
 msgstr ""
-"Utilizzare l'area delle impostazioni rapide del sistema, invece di un "
-"indicatore"
+"Utilizzare l'area delle impostazioni rapide del sistema, invece di un indicatore"
 
 #: extension/prefs.js:139
 msgid "Group quick settings"
@@ -96,7 +95,7 @@ msgstr "Impostazioni rapide di gruppo"
 
 #: extension/prefs.js:139
 msgid "Group quick settings together, into a menu"
-msgstr "Raggruppa le impostazioni rapide in un menu"
+msgstr "Raggruppa le impostazioni rapide in un menù"
 
 #: extension/prefs.js:140
 msgid "Use quick settings subtitle"
