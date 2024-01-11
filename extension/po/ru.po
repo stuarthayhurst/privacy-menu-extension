@@ -49,16 +49,16 @@ msgstr "Сбросить по умолчанию"
 
 #: extension/extension.js:137
 msgid "Privacy"
-msgstr ""
+msgstr "Конфиденциальность"
 
 #: extension/extension.js:219
 msgid "All disabled"
-msgstr ""
+msgstr "Всё отключено"
 
 #. Translators: this displays which setting is enabled, e.g. 'Location enabled'
 #: extension/extension.js:226
 msgid " enabled"
-msgstr ""
+msgstr " включено"
 
 #: extension/prefs.js:127
 msgid "Settings"
@@ -90,43 +90,43 @@ msgstr "Использовать меню быстрых настроек вме
 
 #: extension/prefs.js:139
 msgid "Group quick settings"
-msgstr ""
+msgstr "Группировать быстрые настройки"
 
 #: extension/prefs.js:139
 msgid "Group quick settings together, into a menu"
-msgstr ""
+msgstr "Сгруппируйте быстрые настройки"
 
 #: extension/prefs.js:140
 msgid "Use quick settings subtitle"
-msgstr ""
+msgstr "Использовать подзаголовок группы"
 
 #: extension/prefs.js:140
 msgid "Show the privacy status in the quick settings subtitle"
-msgstr ""
+msgstr "Показывать статус конфиденциальности в подзаголовке группы"
 
 #: extension/prefs.js:149
 msgid "Report an issue"
-msgstr ""
+msgstr "Сообщить о проблеме"
 
 #: extension/prefs.js:149
 msgid "GitHub issue tracker"
-msgstr ""
+msgstr "Трекер проблем GitHub"
 
 #: extension/prefs.js:150
 msgid "Donate via GitHub"
-msgstr ""
+msgstr "Пожертвовать через GitHub"
 
 #: extension/prefs.js:150
 msgid "Become a sponsor"
-msgstr ""
+msgstr "Стать спонсором"
 
 #: extension/prefs.js:151
 msgid "Donate via PayPal"
-msgstr ""
+msgstr "Пожертвовать через PayPal"
 
 #: extension/prefs.js:151
 msgid "Thanks for your support :)"
-msgstr ""
+msgstr "Спасибо за вашу поддержку :)"
 
 #: extension/prefs.js:153
 msgid "Links"
