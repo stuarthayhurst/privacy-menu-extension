@@ -2,14 +2,15 @@
 # Copyright (C) 2022 Stuart Hayhurst
 # This file is distributed under the same license as the privacy-menu-extension package.
 # Vyacheslav Kostromin <ikibastusloh1337@gmail.com>, 2022.
+# Dmitry Maksimetny <maksimetny@gmail.com>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-08-20 19:26+0100\n"
-"PO-Revision-Date: 2022-10-09 02:20+0700\n"
-"Last-Translator: Vyacheslav Kostromin <ikibastusloh1337@gmail.com>\n"
+"PO-Revision-Date: 2024-01-11 20:00+0100\n"
+"Last-Translator: Dmitry Maksimetny <maksimetny@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -94,11 +95,11 @@ msgstr "Группировать быстрые настройки"
 
 #: extension/prefs.js:139
 msgid "Group quick settings together, into a menu"
-msgstr "Сгруппируйте быстрые настройки"
+msgstr "Объедините быстрые настройки в меню"
 
 #: extension/prefs.js:140
 msgid "Use quick settings subtitle"
-msgstr "Использовать подзаголовок группы"
+msgstr "Использовать подзаголовок группы быстрых настроек"
 
 #: extension/prefs.js:140
 msgid "Show the privacy status in the quick settings subtitle"
