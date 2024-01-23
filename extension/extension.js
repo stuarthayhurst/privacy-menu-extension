@@ -166,7 +166,6 @@ const PrivacyQuickGroup = GObject.registerClass(
       ];
 
       this._toggleItems = [];
-      this._signals = [];
 
       //Create menu entries for each setting toggle
       this._toggleDisplayInfo.forEach((displayInfo, i) => {
@@ -176,9 +175,8 @@ const PrivacyQuickGroup = GObject.registerClass(
 
         //Update subtitle when settings changed
         let event = 'changed::' + this._settingsInfo[i][1];
-        this._signals[i] = this._settingsInfo[i][0].connect(event, () => {
-          this._updateSubtitle();
-        });
+        this._settingsInfo[i][0].connectObject(event,
+          () => this._updateSubtitle(), this);
 
         //Link the setting value and the switch state
         this._settingsInfo[i][0].bind(
@@ -229,8 +227,8 @@ const PrivacyQuickGroup = GObject.registerClass(
 
     clean() {
       //Disconnect from settings
-      this._signals.forEach((signalId, i) => {
-        this._settingsInfo[i][0].disconnect(signalId);
+      this._settingsInfo.forEach((settingInfo) => {
+        settingInfo[0].disconnectObject(this);
       });
     }
   }
@@ -339,7 +337,7 @@ class PrivacyExtension {
   }
 
   disconnectListeners() {
-    this._extensionSettings.disconnect(this._settingsChangedSignal);
+    this._extensionSettings.disconnectObject(this);
   }
 
   _decideMenuType() {
@@ -363,11 +361,11 @@ class PrivacyExtension {
     this._createMenu();
 
     //When settings change, recreate the menu
-    this._settingsChangedSignal = this._extensionSettings.connect('changed', () => {
+    this._extensionSettings.connectObject('changed', () => {
       //Destroy existing menu and create new menu
       this.destroyMenu();
       this._createMenu();
-    });
+    }, this);
   }
 
   _createMenu() {
