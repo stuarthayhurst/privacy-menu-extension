@@ -1,5 +1,10 @@
 ## Changelog:
 
+### v23: - `2024-01-24`
+ - Updated extension to use newer GJS features
+ - Updated Italian translation (#39)
+ - Updated Russian translation (#40)
+
 ### v22: - `2023-11-18`
  - Added Japanese translation - [Gnuey56](https://github.com/gnuey56) (#37)
  - Updated GitHub runners
