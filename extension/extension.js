@@ -140,7 +140,7 @@ const PrivacyQuickGroup = GObject.registerClass(
       });
 
       //Set a menu header
-      this.menu.setHeader('preferences-system-privacy-symbolic', _('Privacy Settings'))
+      this.menu.setHeader('preferences-system-privacy-symbolic', _('Privacy Settings'));
 
       //Open the menu or toggle all settings when the body is clicked
       this.connect('clicked', () => {
