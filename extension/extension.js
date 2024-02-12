@@ -175,8 +175,9 @@ const PrivacyQuickGroup = GObject.registerClass(
 
         //Update subtitle when settings changed
         let event = 'changed::' + this._settingsInfo[i][1];
-        this._settingsInfo[i][0].connectObject(event,
-          () => this._updateSubtitle(), this);
+        this._settingsInfo[i][0].connectObject(event, () => {
+          this._updateSubtitle(); this._updateVisualState();
+        }, this);
 
         //Link the setting value and the switch state
         this._settingsInfo[i][0].bind(
@@ -193,6 +194,23 @@ const PrivacyQuickGroup = GObject.registerClass(
       //Set the subtitle
       this._useQuickSubtitle = useQuickSubtitle;
       this._updateSubtitle();
+
+      //Set initial enabled / disabled
+      this._updateVisualState();
+    }
+
+    _updateVisualState() {
+      //If any of the privacy settings are enabled, set enableToggle
+      let enableToggle = false;
+      this._settingsInfo.forEach((settingInfo, i) => {
+        let settingEnabled = settingInfo[0].get_boolean(settingInfo[1]);
+        if (settingEnabled == (settingInfo[2] != Gio.SettingsBindFlags.INVERT_BOOLEAN)) {
+          enableToggle = true;
+        }
+      });
+
+      //Set the state of the menu toggle
+      this.checked = enableToggle;
     }
 
     _updateSubtitle() {
