@@ -102,6 +102,7 @@ class PrefsPage extends Adw.PreferencesPage {
     let moveIconRow = this._settingRows['move-icon-right'];
     let groupQuickSettingsRow = this._settingRows['group-quick-settings'];
     let quickSubtitleSettingsRow = this._settingRows['use-quick-subtitle'];
+    let clickToggleRow = this._settingRows['click-to-toggle'];
 
     if (this._extensionSettings.get_boolean('use-quick-settings')) {
       moveIconRow.set_sensitive(false);
@@ -109,13 +110,16 @@ class PrefsPage extends Adw.PreferencesPage {
 
       if (!this._extensionSettings.get_boolean('group-quick-settings')) {
         quickSubtitleSettingsRow.set_sensitive(false);
+        clickToggleRow.set_sensitive(false);
       } else {
         quickSubtitleSettingsRow.set_sensitive(true);
+        clickToggleRow.set_sensitive(true);
       }
     } else {
       moveIconRow.set_sensitive(true);
       groupQuickSettingsRow.set_sensitive(false);
       quickSubtitleSettingsRow.set_sensitive(false);
+      clickToggleRow.set_sensitive(false);
     }
   }
 });
@@ -137,7 +141,8 @@ export default class PrivacyQuickSettingsPrefs extends ExtensionPreferences {
       ['general', 'move-icon-right', _('Move status icon right'), _('Force the icon to move to right side of the status area')],
       ['menu', 'use-quick-settings',  _('Use quick settings menu'), _('Use the system quick settings area, instead of an indicator')],
       ['menu', 'group-quick-settings',  _('Group quick settings'), _('Group quick settings together, into a menu')],
-      ['menu', 'use-quick-subtitle',  _('Use quick settings subtitle'), _('Show the privacy status in the quick settings subtitle')]
+      ['menu', 'use-quick-subtitle',  _('Use quick settings subtitle'), _('Show the privacy status in the quick settings subtitle')],
+      ['menu', 'click-to-toggle',  _('Toggle all settings at once'), _('Enable or disable all privacy settings at once, when the group is pressed')]
     ];
 
     //Create settings page from info

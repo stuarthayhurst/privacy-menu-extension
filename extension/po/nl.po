@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-20 19:26+0100\n"
+"POT-Creation-Date: 2024-02-12 16:55+0000\n"
 "PO-Revision-Date: 2023-07-15 21:41+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -26,18 +26,18 @@ msgstr "Privacyvoorkeuren-indicator"
 msgid "Privacy Settings"
 msgstr "Privacyvoorkeuren"
 
-#: extension/extension.js:68 extension/extension.js:156
-#: extension/extension.js:245
+#: extension/extension.js:68 extension/extension.js:165
+#: extension/extension.js:270
 msgid "Location"
 msgstr "Locatie"
 
-#: extension/extension.js:69 extension/extension.js:157
-#: extension/extension.js:246
+#: extension/extension.js:69 extension/extension.js:166
+#: extension/extension.js:271
 msgid "Camera"
 msgstr "Camera"
 
-#: extension/extension.js:70 extension/extension.js:158
-#: extension/extension.js:247
+#: extension/extension.js:70 extension/extension.js:167
+#: extension/extension.js:272
 msgid "Microphone"
 msgstr "Microfoon"
 
@@ -53,85 +53,94 @@ msgstr "Standaardwaarden"
 msgid "Privacy"
 msgstr "Privacy"
 
-#: extension/extension.js:219
-msgid "All disabled"
-msgstr "Alles is uitgeschakeld"
+#: extension/extension.js:244
+msgid "Private"
+msgstr ""
 
-#. Translators: this displays which setting is enabled, e.g. 'Location enabled'
-#: extension/extension.js:226
-msgid " enabled"
-msgstr " is ingeschakeld"
+#. Translators: this displays how many settings are enabled, e.g. '1 allowed'
+#: extension/extension.js:251
+msgid " allowed"
+msgstr ""
 
-#: extension/prefs.js:127
+#: extension/prefs.js:131
 msgid "Settings"
 msgstr "Voorkeuren"
 
-#: extension/prefs.js:131
+#: extension/prefs.js:135
 msgid "General settings"
 msgstr "Algemene voorkeuren"
 
-#: extension/prefs.js:132
+#: extension/prefs.js:136
 msgid "Menu settings"
 msgstr ""
 
-#: extension/prefs.js:137
+#: extension/prefs.js:141
 msgid "Move status icon right"
 msgstr "Systeemvakpictogram naar rechts verplaatsen"
 
-#: extension/prefs.js:137
+#: extension/prefs.js:141
 msgid "Force the icon to move to right side of the status area"
 msgstr "Verplaats het pictogram naar de rechterkant van het systeemvak"
 
-#: extension/prefs.js:138
+#: extension/prefs.js:142
 msgid "Use quick settings menu"
 msgstr "Toevoegen aan snelle voorkeuren"
 
-#: extension/prefs.js:138
+#: extension/prefs.js:142
 msgid "Use the system quick settings area, instead of an indicator"
 msgstr ""
 "Voeg de voorkeuren toe aan de snelle voorkeuren in plaats van aan een losse "
 "indicator"
 
-#: extension/prefs.js:139
+#: extension/prefs.js:143
 msgid "Group quick settings"
 msgstr "Snelle voorkeuren groeperen"
 
-#: extension/prefs.js:139
+#: extension/prefs.js:143
 msgid "Group quick settings together, into a menu"
 msgstr "Groepeer de snelle voorkeuren in een menu"
 
-#: extension/prefs.js:140
+#: extension/prefs.js:144
 msgid "Use quick settings subtitle"
 msgstr "Statussen tonen in snelle voorkeuren"
 
-#: extension/prefs.js:140
+#: extension/prefs.js:144
 msgid "Show the privacy status in the quick settings subtitle"
 msgstr "Toont de privacystatus in de snelle voorkeuren"
 
-#: extension/prefs.js:149
+#: extension/prefs.js:145
+msgid "Toggle all settings at once"
+msgstr ""
+
+#: extension/prefs.js:145
+msgid ""
+"Enable or disable all privacy settings at once, when the group is pressed"
+msgstr ""
+
+#: extension/prefs.js:154
 msgid "Report an issue"
 msgstr ""
 
-#: extension/prefs.js:149
+#: extension/prefs.js:154
 msgid "GitHub issue tracker"
 msgstr ""
 
-#: extension/prefs.js:150
+#: extension/prefs.js:155
 msgid "Donate via GitHub"
 msgstr ""
 
-#: extension/prefs.js:150
+#: extension/prefs.js:155
 msgid "Become a sponsor"
 msgstr ""
 
-#: extension/prefs.js:151
+#: extension/prefs.js:156
 msgid "Donate via PayPal"
 msgstr ""
 
-#: extension/prefs.js:151
+#: extension/prefs.js:156
 msgid "Thanks for your support :)"
 msgstr ""
 
-#: extension/prefs.js:153
+#: extension/prefs.js:158
 msgid "Links"
 msgstr ""

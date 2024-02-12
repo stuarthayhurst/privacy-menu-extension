@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-20 19:26+0100\n"
+"POT-Creation-Date: 2024-02-12 16:55+0000\n"
 "PO-Revision-Date: 2024-01-11 20:00+0100\n"
 "Last-Translator: Dmitry Maksimetny <maksimetny@gmail.com>\n"
 "Language-Team: \n"
@@ -25,18 +25,18 @@ msgstr "Индикатор меню настроек конфиденциаль�
 msgid "Privacy Settings"
 msgstr "Настройки конфиденциальности"
 
-#: extension/extension.js:68 extension/extension.js:156
-#: extension/extension.js:245
+#: extension/extension.js:68 extension/extension.js:165
+#: extension/extension.js:270
 msgid "Location"
 msgstr "Местоположение"
 
-#: extension/extension.js:69 extension/extension.js:157
-#: extension/extension.js:246
+#: extension/extension.js:69 extension/extension.js:166
+#: extension/extension.js:271
 msgid "Camera"
 msgstr "Камера"
 
-#: extension/extension.js:70 extension/extension.js:158
-#: extension/extension.js:247
+#: extension/extension.js:70 extension/extension.js:167
+#: extension/extension.js:272
 msgid "Microphone"
 msgstr "Микрофон"
 
@@ -52,83 +52,92 @@ msgstr "Сбросить по умолчанию"
 msgid "Privacy"
 msgstr "Конфиденциальность"
 
-#: extension/extension.js:219
-msgid "All disabled"
-msgstr "Всё отключено"
+#: extension/extension.js:244
+msgid "Private"
+msgstr ""
 
-#. Translators: this displays which setting is enabled, e.g. 'Location enabled'
-#: extension/extension.js:226
-msgid " enabled"
-msgstr " включено"
+#. Translators: this displays how many settings are enabled, e.g. '1 allowed'
+#: extension/extension.js:251
+msgid " allowed"
+msgstr ""
 
-#: extension/prefs.js:127
+#: extension/prefs.js:131
 msgid "Settings"
 msgstr "Настройки"
 
-#: extension/prefs.js:131
+#: extension/prefs.js:135
 msgid "General settings"
 msgstr "Основные настройки"
 
-#: extension/prefs.js:132
+#: extension/prefs.js:136
 msgid "Menu settings"
 msgstr ""
 
-#: extension/prefs.js:137
+#: extension/prefs.js:141
 msgid "Move status icon right"
 msgstr "Переместить значок статуса вправо"
 
-#: extension/prefs.js:137
+#: extension/prefs.js:141
 msgid "Force the icon to move to right side of the status area"
 msgstr "Принудительно переместить значок вправо к области состояния"
 
-#: extension/prefs.js:138
+#: extension/prefs.js:142
 msgid "Use quick settings menu"
 msgstr "Использовать меню быстрых настроек"
 
-#: extension/prefs.js:138
+#: extension/prefs.js:142
 msgid "Use the system quick settings area, instead of an indicator"
 msgstr "Использовать меню быстрых настроек вместо индикатора"
 
-#: extension/prefs.js:139
+#: extension/prefs.js:143
 msgid "Group quick settings"
 msgstr "Группировать быстрые настройки"
 
-#: extension/prefs.js:139
+#: extension/prefs.js:143
 msgid "Group quick settings together, into a menu"
 msgstr "Объедините быстрые настройки в меню"
 
-#: extension/prefs.js:140
+#: extension/prefs.js:144
 msgid "Use quick settings subtitle"
 msgstr "Использовать подзаголовок группы быстрых настроек"
 
-#: extension/prefs.js:140
+#: extension/prefs.js:144
 msgid "Show the privacy status in the quick settings subtitle"
 msgstr "Показывать статус конфиденциальности в подзаголовке группы"
 
-#: extension/prefs.js:149
+#: extension/prefs.js:145
+msgid "Toggle all settings at once"
+msgstr ""
+
+#: extension/prefs.js:145
+msgid ""
+"Enable or disable all privacy settings at once, when the group is pressed"
+msgstr ""
+
+#: extension/prefs.js:154
 msgid "Report an issue"
 msgstr "Сообщить о проблеме"
 
-#: extension/prefs.js:149
+#: extension/prefs.js:154
 msgid "GitHub issue tracker"
 msgstr "Трекер проблем GitHub"
 
-#: extension/prefs.js:150
+#: extension/prefs.js:155
 msgid "Donate via GitHub"
 msgstr "Пожертвовать через GitHub"
 
-#: extension/prefs.js:150
+#: extension/prefs.js:155
 msgid "Become a sponsor"
 msgstr "Стать спонсором"
 
-#: extension/prefs.js:151
+#: extension/prefs.js:156
 msgid "Donate via PayPal"
 msgstr "Пожертвовать через PayPal"
 
-#: extension/prefs.js:151
+#: extension/prefs.js:156
 msgid "Thanks for your support :)"
 msgstr "Спасибо за вашу поддержку :)"
 
-#: extension/prefs.js:153
+#: extension/prefs.js:158
 msgid "Links"
 msgstr ""
