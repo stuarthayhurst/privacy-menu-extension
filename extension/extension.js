@@ -146,7 +146,7 @@ const PrivacyQuickGroup = GObject.registerClass(
       this.connect('clicked', () => {
         if (clickToToggle) {
           //Enable / disable every setting according to its bind flag
-          let targetState = !this.checked;
+          let targetState = this.checked;
           this._settingsInfo.forEach((settingInfo) => {
             let newState = targetState ^ (settingInfo[2] == Gio.SettingsBindFlags.INVERT_BOOLEAN);
             settingInfo[0].set_boolean(settingInfo[1], newState);
@@ -209,12 +209,12 @@ const PrivacyQuickGroup = GObject.registerClass(
     }
 
     _updateVisualState() {
-      //If any of the privacy settings are enabled, set enableToggle
-      let enableToggle = false;
+      //If all of the privacy settings are disabled, set enableToggle to true
+      let enableToggle = true;
       this._settingsInfo.forEach((settingInfo) => {
         let settingEnabled = settingInfo[0].get_boolean(settingInfo[1]);
         if (settingEnabled == (settingInfo[2] != Gio.SettingsBindFlags.INVERT_BOOLEAN)) {
-          enableToggle = true;
+          enableToggle = false;
         }
       });
 
