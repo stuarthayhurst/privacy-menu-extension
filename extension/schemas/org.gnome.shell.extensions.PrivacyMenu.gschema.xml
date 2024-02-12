@@ -21,5 +21,10 @@
       <summary>Use quick settings subtitle</summary>
       <description>Show the privacy status in the quick settings subtitle</description>
     </key>
+    <key name="click-to-toggle" type="b">
+      <default>false</default>
+      <summary>Toggle all settings at once</summary>
+      <description>Enable or disable all privacy settings at once, when the group is pressed</description>
+    </key>
   </schema>
 </schemalist>
