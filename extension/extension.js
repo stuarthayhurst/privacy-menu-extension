@@ -211,7 +211,7 @@ const PrivacyQuickGroup = GObject.registerClass(
     _updateVisualState() {
       //If any of the privacy settings are enabled, set enableToggle
       let enableToggle = false;
-      this._settingsInfo.forEach((settingInfo, i) => {
+      this._settingsInfo.forEach((settingInfo) => {
         let settingEnabled = settingInfo[0].get_boolean(settingInfo[1]);
         if (settingEnabled == (settingInfo[2] != Gio.SettingsBindFlags.INVERT_BOOLEAN)) {
           enableToggle = true;
