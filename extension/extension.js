@@ -240,15 +240,15 @@ const PrivacyQuickGroup = GObject.registerClass(
       });
 
       if (enabledSettingsCount == 0) {
-        //If no settings are enabled, display 'All disabled'
-        this.subtitle = _('All disabled');
+        //If no settings are enabled, display 'Private'
+        this.subtitle = _('Private');
       } else if (enabledSettingsCount == 1) {
         //If 1 setting is enabled, mention it by name
         this.subtitle = enabledSettingName;
       } else {
         //If multiple are enabled, display how many
-        //Translators: this displays which setting is enabled, e.g. 'Location enabled'
-        this.subtitle = enabledSettingsCount + _(' enabled');
+        //Translators: this displays how many settings are enabled, e.g. '1 allowed'
+        this.subtitle = enabledSettingsCount + _(' allowed');
       }
     }
 
