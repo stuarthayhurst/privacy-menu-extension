@@ -12,7 +12,7 @@
       <description>Use the system quick settings area, instead of an indicator</description>
     </key>
     <key name="group-quick-settings" type="b">
-      <default>false</default>
+      <default>true</default>
       <summary>Group quick settings</summary>
       <description>Group quick settings together, into a menu</description>
     </key>
