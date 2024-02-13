@@ -1,14 +1,14 @@
 # Italian translation for the Privacy Quick Settings Menu GNOME Extension.
 # Copyright (C) 2021 Stuart Hayhurst
 # This file is distributed under the same license as the privacy-menu-extension package.
-# Albano Battistella <albanobattistella@gmail.com>, 2021,2022,2023.
+# Albano Battistella <albanobattistella@gmail.com>, 2021,2022,2023,2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-12 16:55+0000\n"
-"PO-Revision-Date: 2023-12-21 21:00+0100\n"
+"PO-Revision-Date: 2024-02-13 23:00+0100\n"
 "Last-Translator: Albano Battistella <albanobattistella@gmail.om>\n"
 "Language-Team: Italian <LL@li.org>\n"
 "Language: it\n"
@@ -53,12 +53,12 @@ msgstr "Privacy"
 
 #: extension/extension.js:244
 msgid "Private"
-msgstr ""
+msgstr "Privato"
 
 #. Translators: this displays how many settings are enabled, e.g. '1 allowed'
 #: extension/extension.js:251
 msgid " allowed"
-msgstr ""
+msgstr "Consentito"
 
 #: extension/prefs.js:131
 msgid "Settings"
@@ -109,12 +109,13 @@ msgstr ""
 
 #: extension/prefs.js:145
 msgid "Toggle all settings at once"
-msgstr ""
+msgstr "Attiva tutte le impostazioni contemporaneamente"
 
 #: extension/prefs.js:145
 msgid ""
 "Enable or disable all privacy settings at once, when the group is pressed"
 msgstr ""
+"Attiva o disattiva tutte le impostazioni sulla privacy contemporaneamente, quando si preme il gruppo"
 
 #: extension/prefs.js:154
 msgid "Report an issue"
