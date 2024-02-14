@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-12 16:55+0000\n"
-"PO-Revision-Date: 2023-07-15 21:41+0200\n"
+"PO-Revision-Date: 2024-02-14 22:01+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: extension/extension.js:37
 msgid "Privacy Settings Menu Indicator"
@@ -55,12 +55,12 @@ msgstr "Privacy"
 
 #: extension/extension.js:244
 msgid "Private"
-msgstr ""
+msgstr "Privé"
 
 #. Translators: this displays how many settings are enabled, e.g. '1 allowed'
 #: extension/extension.js:251
 msgid " allowed"
-msgstr ""
+msgstr " toegestaan"
 
 #: extension/prefs.js:131
 msgid "Settings"
@@ -72,7 +72,7 @@ msgstr "Algemene voorkeuren"
 
 #: extension/prefs.js:136
 msgid "Menu settings"
-msgstr ""
+msgstr "Menuvoorkeuren"
 
 #: extension/prefs.js:141
 msgid "Move status icon right"
@@ -110,37 +110,38 @@ msgstr "Toont de privacystatus in de snelle voorkeuren"
 
 #: extension/prefs.js:145
 msgid "Toggle all settings at once"
-msgstr ""
+msgstr "Alle voorkeuren tegelijk aan/uit"
 
 #: extension/prefs.js:145
 msgid ""
 "Enable or disable all privacy settings at once, when the group is pressed"
 msgstr ""
+"Schakel alle privacyvoorkeuren tegelijk in/uit door de groep aan te klikken"
 
 #: extension/prefs.js:154
 msgid "Report an issue"
-msgstr ""
+msgstr "Probleem melden"
 
 #: extension/prefs.js:154
 msgid "GitHub issue tracker"
-msgstr ""
+msgstr "GitHub-issuetracker"
 
 #: extension/prefs.js:155
 msgid "Donate via GitHub"
-msgstr ""
+msgstr "Doneren via GitHub"
 
 #: extension/prefs.js:155
 msgid "Become a sponsor"
-msgstr ""
+msgstr "Sponsor worden"
 
 #: extension/prefs.js:156
 msgid "Donate via PayPal"
-msgstr ""
+msgstr "Doneren via PayPal"
 
 #: extension/prefs.js:156
 msgid "Thanks for your support :)"
-msgstr ""
+msgstr "Bedankt voor uw ondersteuning. :)"
 
 #: extension/prefs.js:158
 msgid "Links"
-msgstr ""
+msgstr "Links"
