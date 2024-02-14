@@ -2,14 +2,14 @@
 # Copyright (C) 2021 Stuart Hayhurst
 # This file is distributed under the same license as the privacy-menu-extension package.
 # Onno Giesmann <nutzer3105@gmail.com>, 2021.
-# Philipp Kiemle <philipp.kiemle@gmail.com>, 2021-2022.
+# Philipp Kiemle <philipp.kiemle@gmail.com>, 2021-2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: privacy-menu-extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 16:55+0000\n"
-"PO-Revision-Date: 2023-07-12 13:02+0200\n"
+"POT-Creation-Date: 2024-02-14 01:30+0100\n"
+"PO-Revision-Date: 2024-02-14 01:35+0100\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: extension/extension.js:37
 msgid "Privacy Settings Menu Indicator"
@@ -56,12 +56,12 @@ msgstr "Privatsphäre"
 
 #: extension/extension.js:244
 msgid "Private"
-msgstr ""
+msgstr "Privat"
 
 #. Translators: this displays how many settings are enabled, e.g. '1 allowed'
 #: extension/extension.js:251
 msgid " allowed"
-msgstr ""
+msgstr " erlaubt"
 
 #: extension/prefs.js:131
 msgid "Settings"
@@ -73,7 +73,7 @@ msgstr "Allgemeine Einstellungen"
 
 #: extension/prefs.js:136
 msgid "Menu settings"
-msgstr ""
+msgstr "Menüeinstellungen"
 
 #: extension/prefs.js:141
 msgid "Move status icon right"
@@ -113,37 +113,39 @@ msgstr ""
 
 #: extension/prefs.js:145
 msgid "Toggle all settings at once"
-msgstr ""
+msgstr "Alle Einstellungen auf einmal umschalten"
 
 #: extension/prefs.js:145
 msgid ""
 "Enable or disable all privacy settings at once, when the group is pressed"
 msgstr ""
+"Alle Privatsphäre-Einstellungen auf einmal umschalten, wenn die Gruppe "
+"gedrückt wird"
 
 #: extension/prefs.js:154
 msgid "Report an issue"
-msgstr ""
+msgstr "Einen Fehler melden"
 
 #: extension/prefs.js:154
 msgid "GitHub issue tracker"
-msgstr ""
+msgstr "GitHub Fehlerverfolgungssystem"
 
 #: extension/prefs.js:155
 msgid "Donate via GitHub"
-msgstr ""
+msgstr "Per GitHub spenden"
 
 #: extension/prefs.js:155
 msgid "Become a sponsor"
-msgstr ""
+msgstr "Ein Sponsor werden"
 
 #: extension/prefs.js:156
 msgid "Donate via PayPal"
-msgstr ""
+msgstr "Per PayPal spenden"
 
 #: extension/prefs.js:156
 msgid "Thanks for your support :)"
-msgstr ""
+msgstr "Vielen Dank für Ihre Unterstützung :)"
 
 #: extension/prefs.js:158
 msgid "Links"
-msgstr ""
+msgstr "Links"
