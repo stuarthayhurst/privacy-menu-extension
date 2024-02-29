@@ -1,5 +1,14 @@
 ## Changelog:
 
+### v24: - `2024-02-29`
+ - Added setting to allow toggling all settings at once by clicking the privacy group
+ - Added support for GNOME 46
+ - Updated subtitle text (All disabled -> Privacy, x enabled -> x allowed)
+ - Highlight toggle menu entry when all settings are enabled (privacy mode)
+ - Enabled quick settings grouping by default
+ - Code quality improvements
+ - Updated translations (#44, #45, #46, #47)
+
 ### v23: - `2024-01-24`
  - Updated extension to use newer GJS features
  - Updated Italian translation (#39)
