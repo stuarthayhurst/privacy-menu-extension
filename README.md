@@ -20,16 +20,18 @@
   - Alternatively, you can just use an older release or tag to install from
 
 ## Install the extension from releases:
-  - Extract the zip to `~/.local/share/gnome-shell-extensions/PrivacyMenu@stuarthayhurst/`
-    - Alternatively: `gnome-extensions install "PrivacyMenu@stuarthayhurst.shell-extension.zip" --force`
-  - Reload GNOME: <kbd>ALT</kbd>+<kbd>F2</kbd>, <kbd>r</kbd>, <kbd>ENTER</kbd>
+  - Run `gnome-extensions install "PrivacyMenu@stuarthayhurst.shell-extension.zip" --force`
+  - Alternatively:
+    - Extract the zip to `~/.local/share/gnome-shell/extensions/PrivacyMenu@stuarthayhurst/`
+    - Then run `glib-compile-schemas ~/.local/share/gnome-shell-extensions/PrivacyMenu@stuarthayhurst/schemas/`
+  - Log out and back in to restart GNOME
   - Enable the extension: `gnome-extensions enable PrivacyMenu@stuarthayhurst`
 
 ## Install the extension from source:
   - Make sure the install dependencies are installed
   - `make build`
   - `make install`
-  - Reload GNOME: <kbd>ALT</kbd>+<kbd>F2</kbd>, <kbd>r</kbd>, <kbd>ENTER</kbd>
+  - Log out and back in to restart GNOME
   - Enable the extension: `gnome-extensions enable PrivacyMenu@stuarthayhurst`
 
 ## Build system usage:
