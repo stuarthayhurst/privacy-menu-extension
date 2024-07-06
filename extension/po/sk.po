@@ -140,4 +140,4 @@ msgstr "Ďakujeme za vašu podporu :)"
 
 #: extension/prefs.js:158
 msgid "Links"
-msgstr "Vynútiť presun ikony na pravú stranu stavovej oblasti"
+msgstr "Odkazy"
