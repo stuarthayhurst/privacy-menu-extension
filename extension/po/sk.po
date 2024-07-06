@@ -1,0 +1,143 @@
+# Slovak translation for the Privacy Quick Settings Menu GNOME Extension.
+# Copyright (C) 2021 Stuart Hayhurst
+# This file is distributed under the same license as the privacy-menu-extension package.
+# Jozef Gaal <preklady@mayday.sk>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: privacy-menu-extension\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-14 01:30+0100\n"
+"PO-Revision-Date: 2024-07-06 17:25+0200\n"
+"Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
+"Language-Team: Jozef Gaál <preklady@mayday.sk>\n"
+"Language: sk_SK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: extension/extension.js:37
+msgid "Privacy Settings Menu Indicator"
+msgstr "Indikátor ponuky nastavenia súkromia"
+
+#: extension/extension.js:62 extension/extension.js:143
+msgid "Privacy Settings"
+msgstr "Nastavenia súkromia"
+
+#: extension/extension.js:68 extension/extension.js:165
+#: extension/extension.js:270
+msgid "Location"
+msgstr "Poloha"
+
+#: extension/extension.js:69 extension/extension.js:166
+#: extension/extension.js:271
+msgid "Camera"
+msgstr "Kamera"
+
+#: extension/extension.js:70 extension/extension.js:167
+#: extension/extension.js:272
+msgid "Microphone"
+msgstr "Mikrofón"
+
+#: extension/extension.js:97
+msgid "Reset settings"
+msgstr "Obnoviť nastavenia"
+
+#: extension/extension.js:99
+msgid "Reset to defaults"
+msgstr "Obnoviť predvolené nastavenia"
+
+#: extension/extension.js:137
+msgid "Privacy"
+msgstr "Súkromie"
+
+#: extension/extension.js:244
+msgid "Private"
+msgstr "Súkromné"
+
+#. Translators: this displays how many settings are enabled, e.g. '1 allowed'
+#: extension/extension.js:251
+msgid " allowed"
+msgstr " povolené"
+
+#: extension/prefs.js:131
+msgid "Settings"
+msgstr "Nastavenia"
+
+#: extension/prefs.js:135
+msgid "General settings"
+msgstr "Všeobecné nastavenia"
+
+#: extension/prefs.js:136
+msgid "Menu settings"
+msgstr "Nastavenia ponuky"
+
+#: extension/prefs.js:141
+msgid "Move status icon right"
+msgstr "Presunúť ikonu stavu doprava"
+
+#: extension/prefs.js:141
+msgid "Force the icon to move to right side of the status area"
+msgstr "Vynútiť presun ikony na pravú stranu stavovej oblasti"
+
+#: extension/prefs.js:142
+msgid "Use quick settings menu"
+msgstr "Použiť ponuku rýchlych nastavení"
+
+#: extension/prefs.js:142
+msgid "Use the system quick settings area, instead of an indicator"
+msgstr "Použiť oblasť rýchlych nastavení systému namiesto indikátora"
+
+#: extension/prefs.js:143
+msgid "Group quick settings"
+msgstr "Rýchle nastavenia skupiny"
+
+#: extension/prefs.js:143
+msgid "Group quick settings together, into a menu"
+msgstr "Zoskupiť rýchle nastavenia do ponuky"
+
+#: extension/prefs.js:144
+msgid "Use quick settings subtitle"
+msgstr "Použiť titulky rýchlych nastavení"
+
+#: extension/prefs.js:144
+msgid "Show the privacy status in the quick settings subtitle"
+msgstr "Zobraziť stav ochrany osobných údajov v rýchlom nastavení titulku"
+
+#: extension/prefs.js:145
+msgid "Toggle all settings at once"
+msgstr "Prepnutie všetkých nastavení naraz"
+
+#: extension/prefs.js:145
+msgid "Enable or disable all privacy settings at once, when the group is pressed"
+msgstr "Povoliť alebo zakázať všetky nastavenia súkromia naraz, keď sa stlačí skupina"
+
+#: extension/prefs.js:154
+msgid "Report an issue"
+msgstr "Nahlásiť problém"
+
+#: extension/prefs.js:154
+msgid "GitHub issue tracker"
+msgstr "Sledovanie problémov v službe GitHub"
+
+#: extension/prefs.js:155
+msgid "Donate via GitHub"
+msgstr "Darujte cez GitHub"
+
+#: extension/prefs.js:155
+msgid "Become a sponsor"
+msgstr "Staňte sa sponzorom"
+
+#: extension/prefs.js:156
+msgid "Donate via PayPal"
+msgstr "Darujte cez PayPal"
+
+#: extension/prefs.js:156
+msgid "Thanks for your support :)"
+msgstr "Ďakujeme za vašu podporu :)"
+
+#: extension/prefs.js:158
+msgid "Links"
+msgstr "Odkazy"
