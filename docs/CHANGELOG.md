@@ -1,5 +1,11 @@
 ## Changelog:
 
+### v25: - `2024-08-06`
+ - Added GNOME 47 support
+ - Added Slovak translation - [Jozef](https://github.com/dodog) (#49)
+ - Updated installation instructions
+ - Updated pipeline runners
+
 ### v24: - `2024-02-29`
  - Added setting to allow toggling all settings at once by clicking the privacy group
  - Added support for GNOME 46
