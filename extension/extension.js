@@ -1,5 +1,3 @@
-/* exported PrivacyQuickSettingsManager */
-
 //Main imports
 import St from 'gi://St';
 import Gio from 'gi://Gio';
@@ -15,6 +13,7 @@ const QuickSettingsMenu = Main.panel.statusArea.quickSettings;
 //Extension system imports
 import {Extension, gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
 
+//Constants for menu display modes
 const DisplayMode = {
   QuickToggles: 0,
   QuickGroup: 1,
