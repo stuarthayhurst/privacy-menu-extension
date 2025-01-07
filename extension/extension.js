@@ -15,6 +15,12 @@ const QuickSettingsMenu = Main.panel.statusArea.quickSettings;
 //Extension system imports
 import {Extension, gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
 
+const DisplayMode = {
+  QuickToggles: 0,
+  QuickGroup: 1,
+  Indicators: 2
+};
+
 //Custom PopupMenuItem with an icon, label and switch
 const PrivacySettingImageSwitchItem = GObject.registerClass(
   class PrivacySettingImageSwitchItem extends PopupMenu.PopupSwitchMenuItem {
@@ -380,18 +386,18 @@ class PrivacyExtension {
 
   _decideMenuType() {
     /*
-     - Return 'quick-toggles' if quick settings are enabled
-       - If quick settings grouping is also enabled, return 'quick-group' instead
-     - Otherwise return 'indicators'
+     - Return DisplayMode.QuickToggles if quick settings are enabled
+       - If quick settings grouping is also enabled, return DisplayMode.QuickGroup instead
+     - Otherwise return DisplayMode.Indicators
     */
     if (this._extensionSettings.get_boolean('use-quick-settings')) {
       if (this._extensionSettings.get_boolean('group-quick-settings')) {
-        return 'quick-group';
+        return DisplayMode.QuickGroup;
       }
-      return 'quick-toggles';
+      return DisplayMode.QuickToggles;
     }
 
-    return 'indicator';
+    return DisplayMode.Indicator;
   }
 
   initMenu() {
@@ -409,13 +415,13 @@ class PrivacyExtension {
   _createMenu() {
     //Create the correct type of menu, from preference and capabilities
     let menuType = this._decideMenuType();
-    if (menuType == 'quick-toggles') {
+    if (menuType == DisplayMode.QuickToggles) {
       this._privacyManager = new QuickSettingsManager();
-    } else if (menuType == 'quick-group') {
+    } else if (menuType == DisplayMode.QuickGroup) {
       let useQuickSubtitle = this._extensionSettings.get_boolean('use-quick-subtitle');
       let clickToToggle = this._extensionSettings.get_boolean('click-to-toggle');
       this._privacyManager = new QuickGroupManager(this._extension, useQuickSubtitle, clickToToggle);
-    } else if (menuType == 'indicator') {
+    } else if (menuType == DisplayMode.Indicator) {
       let forceIconRight = this._extensionSettings.get_boolean('move-icon-right');
       this._privacyManager = new IndicatorSettingsManager(forceIconRight);
     }
