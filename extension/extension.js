@@ -401,8 +401,8 @@ class PrivacyExtension {
     if (menuType == 'quick-toggles') {
       this._privacyManager = new QuickSettingsManager();
     } else if (menuType == 'quick-group') {
-      let useQuickSubtitle = this._extensionSettings.get_boolean('use-quick-subtitle')
-      let clickToToggle = this._extensionSettings.get_boolean('click-to-toggle')
+      let useQuickSubtitle = this._extensionSettings.get_boolean('use-quick-subtitle');
+      let clickToToggle = this._extensionSettings.get_boolean('click-to-toggle');
       this._privacyManager = new QuickGroupManager(useQuickSubtitle, clickToToggle);
     } else if (menuType == 'indicator') {
       let forceIconRight = this._extensionSettings.get_boolean('move-icon-right');
