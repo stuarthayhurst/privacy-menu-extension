@@ -413,17 +413,20 @@ class PrivacyExtension {
   }
 
   _createMenu() {
-    //Create the correct type of menu, from preference and capabilities
-    let menuType = this._decideMenuType();
-    if (menuType == DisplayMode.QuickToggles) {
-      this._privacyManager = new QuickSettingsManager();
-    } else if (menuType == DisplayMode.QuickGroup) {
-      let useQuickSubtitle = this._extensionSettings.get_boolean('use-quick-subtitle');
-      let clickToToggle = this._extensionSettings.get_boolean('click-to-toggle');
-      this._privacyManager = new QuickGroupManager(this._extension, useQuickSubtitle, clickToToggle);
-    } else if (menuType == DisplayMode.Indicator) {
-      let forceIconRight = this._extensionSettings.get_boolean('move-icon-right');
-      this._privacyManager = new IndicatorSettingsManager(forceIconRight);
+    //Create the correct type of menu, from preferences and capabilities
+    switch (this._decideMenuType()) {
+      case DisplayMode.QuickToggles:
+        this._privacyManager = new QuickSettingsManager();
+        break;
+      case DisplayMode.QuickGroup:
+        let useQuickSubtitle = this._extensionSettings.get_boolean('use-quick-subtitle');
+        let clickToToggle = this._extensionSettings.get_boolean('click-to-toggle');
+        this._privacyManager = new QuickGroupManager(this._extension, useQuickSubtitle, clickToToggle);
+        break;
+      case DisplayMode.Indicator:
+        let forceIconRight = this._extensionSettings.get_boolean('move-icon-right');
+        this._privacyManager = new IndicatorSettingsManager(forceIconRight);
+        break;
     }
   }
 
