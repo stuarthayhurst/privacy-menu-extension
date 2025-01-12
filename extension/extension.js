@@ -211,7 +211,7 @@ const PrivacyQuickGroup = GObject.registerClass(
 
       //Add extension settings entry
       this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-      let settingsItem = this.menu.addAction(_('Settings'), () => {
+      let settingsItem = this.menu.addAction(_('Extension Settings'), () => {
         extension.openPreferences();
       });
 
