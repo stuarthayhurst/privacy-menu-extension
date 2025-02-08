@@ -1,5 +1,11 @@
 ## Changelog:
 
+### v26: - `2024-02-08`
+ - Added GNOME 48 support
+ - Added extension settings shortcut to quick settings menu
+ - Cleaned up code
+ - Cleaned up project
+
 ### v25: - `2024-08-06`
  - Added GNOME 47 support
  - Added Slovak translation - [Jozef](https://github.com/dodog) (#49)
