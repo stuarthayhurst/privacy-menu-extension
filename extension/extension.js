@@ -6,6 +6,7 @@ import GObject from 'gi://GObject';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
 import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
+import {PopupAnimation} from 'resource:///org/gnome/shell/ui/boxpointer.js';
 
 import * as QuickSettings from 'resource:///org/gnome/shell/ui/quickSettings.js';
 const QuickSettingsMenu = Main.panel.statusArea.quickSettings;
@@ -213,6 +214,7 @@ const PrivacyQuickGroup = GObject.registerClass(
       this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
       let settingsItem = this.menu.addAction(_('Extension Settings'), () => {
         extension.openPreferences();
+        QuickSettingsMenu.menu.close(PopupAnimation.FADE);
       });
 
       //Hide the settings when the screen is locked
