@@ -17,7 +17,7 @@ package:
 	@cd "extension"; \
 	gnome-extensions pack --force \
 	  --podir=po \
-	  --extra-source=../LICENSE.txt \
+	  --extra-source=../LICENCE.txt \
 	  --extra-source=../docs/CHANGELOG.md \
 	  -o ../$(BUILD_DIR)/
 check:
