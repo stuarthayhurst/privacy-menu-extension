@@ -1,6 +1,13 @@
 ## Changelog:
 
-### v26: - `2024-02-08`
+### v27: - `2025-08-08`
+ - Added GNOME 49 support
+ - Close the quick settings menu when the extension's preferences are opened
+ - Improved Makefile
+ - Added build-time check for non-ASCII characters in scripts
+ - Renamed LICENSE.txt to LICENCE.txt
+
+### v26: - `2025-02-08`
  - Added GNOME 48 support
  - Added extension settings shortcut to quick settings menu
  - Cleaned up code
