@@ -115,7 +115,7 @@ msgstr "一键开关所有设置"
 #: extension/prefs.js:143
 msgid ""
 "Enable or disable all privacy settings at once, when the group is pressed"
-msgstr "当点击\"隐私\"按钮时，一次性开启或关闭所有隐私设置"
+msgstr "当点击\"隐私权限\"按钮时，一次性开启或关闭所有隐私设置"
 
 #: extension/prefs.js:152
 msgid "Report an issue"
