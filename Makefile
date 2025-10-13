@@ -18,7 +18,6 @@ package:
 	gnome-extensions pack --force \
 	  --podir=po \
 	  --extra-source=../LICENCE.txt \
-	  --extra-source=../docs/CHANGELOG.md \
 	  -o ../$(BUILD_DIR)/
 check:
 	@if [[ ! -f $(BUNDLE_PATH) ]]; then \
