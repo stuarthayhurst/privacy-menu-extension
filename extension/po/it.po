@@ -53,7 +53,7 @@ msgstr "Privacy"
 
 #: extension/extension.js:214
 msgid "Extension Settings"
-msgstr ""
+msgstr "Impostazioni estensione"
 
 #: extension/extension.js:259
 msgid "Private"
