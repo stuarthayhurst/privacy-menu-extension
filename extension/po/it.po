@@ -62,7 +62,7 @@ msgstr "Privato"
 #. Translators: this displays how many settings are enabled, e.g. '1 allowed'
 #: extension/extension.js:266
 msgid " allowed"
-msgstr "Consentito"
+msgstr " Consentito/i"
 
 #: extension/prefs.js:129
 msgid "Settings"
