@@ -3,7 +3,6 @@
 </p>
 
 ## Privacy Quick Settings GNOME Extension
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/stuartahayhurst)
   - Add privacy quick settings to the system menu for quick access to privacy settings in GNOME
     - Supports GNOME 45+
   - Get the extension from [here](https://extensions.gnome.org/extension/4491/privacy-settings-menu/)
