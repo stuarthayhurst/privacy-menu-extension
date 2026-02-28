@@ -1,5 +1,13 @@
 ## Changelog:
 
+### v28: - `2026-02-28`
+ - Added GNOME 50 support
+ - Added Simplified Chinese translation - [Nwkyz](https://github.com/nwkyz) (#50)
+ - Added Ko-Fi donation link
+ - Updated Italian translation (#51)
+ - Updated GitHub workflow versions
+ - Stop including CHANGELOG.md in the extension bundle
+
 ### v27: - `2025-08-08`
  - Added GNOME 49 support
  - Close the quick settings menu when the extension's preferences are opened
