@@ -1,5 +1,13 @@
 ## Changelog:
 
+### v29: - `2026-08-31`
+ - Added GNOME 51 support
+ - Updated upload-artifact to v7
+ - Updated checkout to v7
+ - Updated bug report template
+ - Swapped runner image to `ubuntu-slim`
+ - Improved Makefile
+
 ### v28: - `2026-02-28`
  - Added GNOME 50 support
  - Added Simplified Chinese translation - [Nwkyz](https://github.com/nwkyz) (#50)
