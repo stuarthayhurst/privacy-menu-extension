@@ -6,7 +6,12 @@ import GObject from 'gi://GObject';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
 import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
+
+//Required for GNOME 50 and earlier
 import {PopupAnimation} from 'resource:///org/gnome/shell/ui/boxpointer.js';
+
+import * as Config from 'resource:///org/gnome/shell/misc/config.js';
+const ShellVersion = parseFloat(Config.PACKAGE_VERSION);
 
 import * as QuickSettings from 'resource:///org/gnome/shell/ui/quickSettings.js';
 const QuickSettingsMenu = Main.panel.statusArea.quickSettings;
@@ -214,7 +219,11 @@ const PrivacyQuickGroup = GObject.registerClass(
       this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
       let settingsItem = this.menu.addAction(_('Extension Settings'), () => {
         extension.openPreferences();
-        QuickSettingsMenu.menu.close(PopupAnimation.FADE);
+        if (ShellVersion >= 51) {
+          QuickSettingsMenu.menu.close({fadeOnly: true});
+        } else {
+          QuickSettingsMenu.menu.close(PopupAnimation.FADE);
+        }
       });
 
       //Hide the settings when the screen is locked
