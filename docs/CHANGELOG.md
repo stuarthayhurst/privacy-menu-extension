@@ -1,5 +1,8 @@
 ## Changelog:
 
+### v30: - `2026-09-01`
+ - Renamed GSchema XML to match guidelines
+
 ### v29: - `2026-08-31`
  - Added GNOME 51 support
  - Updated upload-artifact to v7
