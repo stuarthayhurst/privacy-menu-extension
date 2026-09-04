@@ -55,16 +55,16 @@ msgstr "Privacidade"
 
 #: extension/extension.js:214
 msgid "Extension Settings"
-msgstr ""
+msgstr "Configurações da Extensão"
 
 #: extension/extension.js:259
 msgid "Private"
-msgstr ""
+msgstr "Privado"
 
 #. Translators: this displays how many settings are enabled, e.g. '1 allowed'
 #: extension/extension.js:266
 msgid " allowed"
-msgstr ""
+msgstr " permitido(s)"
 
 #: extension/prefs.js:129
 msgid "Settings"
@@ -76,7 +76,7 @@ msgstr "Configurações gerais"
 
 #: extension/prefs.js:134
 msgid "Menu settings"
-msgstr ""
+msgstr "Configurações do menu"
 
 #: extension/prefs.js:139
 msgid "Move status icon right"
@@ -113,36 +113,36 @@ msgstr "Mostra o status de privacidade no subtítulo das configurações rápida
 
 #: extension/prefs.js:143
 msgid "Toggle all settings at once"
-msgstr ""
+msgstr "Alternar todas as configurações de uma vez"
 
 #: extension/prefs.js:143
 msgid ""
 "Enable or disable all privacy settings at once, when the group is pressed"
-msgstr ""
+msgstr "Habilitar ou desabilitar todas as configurações de privacidade de uma vez, quando o grupo é pressionado"
 
 #: extension/prefs.js:152
 msgid "Report an issue"
-msgstr ""
+msgstr "Reportar um problema"
 
 #: extension/prefs.js:152
 msgid "GitHub issue tracker"
-msgstr ""
+msgstr "Rastreador de problemas do GitHub"
 
 #: extension/prefs.js:153
 msgid "Donate via GitHub"
-msgstr ""
+msgstr "Doar via GitHub"
 
 #: extension/prefs.js:153
 msgid "Become a sponsor"
-msgstr ""
+msgstr "Se torne um patrocinador"
 
 #: extension/prefs.js:154
 msgid "Donate via PayPal"
-msgstr ""
+msgstr "Doar via PayPal"
 
 #: extension/prefs.js:154
 msgid "Thanks for your support :)"
-msgstr ""
+msgstr "Obrigado por seu suporte :)"
 
 #: extension/prefs.js:156
 msgid "Links"
